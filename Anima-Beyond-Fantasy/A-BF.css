@@ -606,6 +606,10 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 /* end CSS for nemesis abilities*/
 /* CSS for Templates */
 .sheet-rolltemplate-ABFini table,
+.sheet-rolltemplate-ABFcriticalhit table,
+.sheet-rolltemplate-ABFdefense table,
+.sheet-rolltemplate-ABFattack table,
+.sheet-rolltemplate-ABFcharacteristics table,
 .sheet-rolltemplate-ABFspell table,
 .sheet-rolltemplate-ABFspellOld table,
 .sheet-rolltemplate-ABFdefault table,
@@ -623,6 +627,10 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 }
 
 .sheet-rolltemplate-ABFini th,
+.sheet-rolltemplate-ABFcriticalhit th,
+.sheet-rolltemplate-ABFdefense th,
+.sheet-rolltemplate-ABFattack th,
+.sheet-rolltemplate-ABFcharacteristics th,
 .sheet-rolltemplate-ABFspell th,
 .sheet-rolltemplate-ABFspellOld th,
 .sheet-rolltemplate-ABFdefault th,
@@ -638,14 +646,11 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
     font-weight: bold;
 }
 
-.sheet-rolltemplate-ABFdefault th.sheet-smalltitle{
-    font-size:0.95em;
-    line-height: 1.1em;
-    padding: 1px;
-    font-weight: normal;
-}
-
 .sheet-rolltemplate-ABFini .userscript-tcat,
+.sheet-rolltemplate-ABFcriticalhit .userscript-tcat,
+.sheet-rolltemplate-ABFdefense .userscript-tcat,
+.sheet-rolltemplate-ABFattack .userscript-tcat,
+.sheet-rolltemplate-ABFcharacteristics .userscript-tcat,
 .sheet-rolltemplate-ABFspell .userscript-tcat,
 .sheet-rolltemplate-ABFspellOld .userscript-tcat,
 .sheet-rolltemplate-ABFdefault .userscript-tcat,
@@ -656,6 +661,10 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 }
 
 .sheet-rolltemplate-ABFini .sheet-sidebubbled,
+.sheet-rolltemplate-ABFcriticalhit .sheet-sidebubbled,
+.sheet-rolltemplate-ABFdefense .sheet-sidebubbled,
+.sheet-rolltemplate-ABFattack .sheet-sidebubbled,
+.sheet-rolltemplate-ABFcharacteristics .sheet-sidebubbled,
 .sheet-rolltemplate-ABFspell .sheet-sidebubbled,
 .sheet-rolltemplate-ABFspellOld .sheet-sidebubbled,
 .sheet-rolltemplate-ABFdefault .sheet-sidebubbled,
@@ -679,6 +688,10 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 }
 
 .sheet-rolltemplate-ABFini td,
+.sheet-rolltemplate-ABFcriticalhit td,
+.sheet-rolltemplate-ABFdefense td,
+.sheet-rolltemplate-ABFattack td,
+.sheet-rolltemplate-ABFcharacteristics td,
 .sheet-rolltemplate-ABFspell td,
 .sheet-rolltemplate-ABFspellOld td,
 .sheet-rolltemplate-ABFdefault td,
@@ -689,12 +702,27 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 }
 
 .sheet-rolltemplate-ABFini .inlinerollresult,
+.userscript-inlinerollresult,
+.sheet-rolltemplate-ABFcriticalhit .inlinerollresult,
+.userscript-inlinerollresult,
+.sheet-rolltemplate-ABFdefense .inlinerollresult,
+.userscript-inlinerollresult,
+.sheet-rolltemplate-ABFattack .inlinerollresult,
+.userscript-inlinerollresult,
+.sheet-rolltemplate-ABFcharacteristics .inlinerollresult,
+.userscript-inlinerollresult,
 .sheet-rolltemplate-ABFspell .inlinerollresult,
+.userscript-inlinerollresult,
 .sheet-rolltemplate-ABFspellOld .inlinerollresult,
+.userscript-inlinerollresult,
 .sheet-rolltemplate-ABFdefault .inlinerollresult,
+.userscript-inlinerollresult,
 .sheet-rolltemplate-ABFpsi .inlinerollresult,
+.userscript-inlinerollresult,
 .sheet-rolltemplate-ABFki .inlinerollresult,
-.sheet-rolltemplate-ABFweapon .inlinerollresult {
+.userscript-inlinerollresult,
+.sheet-rolltemplate-ABFweapon .inlinerollresult,
+.userscript-inlinerollresult  {
     display: inline-block;
     min-width: 1.5em;
     text-align: center;
@@ -706,6 +734,10 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 }
 
 .sheet-rolltemplate-ABFini .inlinerollresult.fullcrit,
+.sheet-rolltemplate-ABFcriticalhit .inlinerollresult.fullcrit,
+.sheet-rolltemplate-ABFdefense .inlinerollresult.fullcrit,
+.sheet-rolltemplate-ABFattack .inlinerollresult.fullcrit,
+.sheet-rolltemplate-ABFcharacteristics .inlinerollresult.fullcrit,
 .sheet-rolltemplate-ABFspell .inlinerollresult.fullcrit,
 .sheet-rolltemplate-ABFspellOld .inlinerollresult.fullcrit,
 .sheet-rolltemplate-ABFdefault .inlinerollresult.fullcrit,
@@ -717,6 +749,10 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 }
 
 .sheet-rolltemplate-ABFini .inlinerollresult.fullfail,
+.sheet-rolltemplate-ABFcriticalhit .inlinerollresult.fullfail,
+.sheet-rolltemplate-ABFdefense .inlinerollresult.fullfail,
+.sheet-rolltemplate-ABFattack .inlinerollresult.fullfail,
+.sheet-rolltemplate-ABFcharacteristics .inlinerollresult.fullfail,
 .sheet-rolltemplate-ABFspell .inlinerollresult.fullfail,
 .sheet-rolltemplate-ABFspellOld .inlinerollresult.fullfail,
 .sheet-rolltemplate-ABFdefault .inlinerollresult.fullfail,
@@ -727,7 +763,59 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
     color: red;
 }
 
+.sheet-rolltemplate-ABFini .sheet-fumble,
+.sheet-rolltemplate-ABFcriticalhit .sheet-fumble,
+.sheet-rolltemplate-ABFdefense .sheet-fumble,
+.sheet-rolltemplate-ABFattack .sheet-fumble,
+.sheet-rolltemplate-ABFcharacteristics .sheet-fumble,
+.sheet-rolltemplate-ABFspell .sheet-fumble,
+.sheet-rolltemplate-ABFspellOld .sheet-fumble,
+.sheet-rolltemplate-ABFdefault .sheet-fumble,
+.sheet-rolltemplate-ABFpsi .sheet-fumble,
+.sheet-rolltemplate-ABFki .sheet-fumble,
+.sheet-rolltemplate-ABFweapon .sheet-fumble {
+    border: none;
+    color: red;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-ABFini .sheet-sucess,
+.sheet-rolltemplate-ABFcriticalhit .sheet-sucess,
+.sheet-rolltemplate-ABFdefense .sheet-sucess,
+.sheet-rolltemplate-ABFattack .sheet-sucess,
+.sheet-rolltemplate-ABFcharacteristics .sheet-sucess,
+.sheet-rolltemplate-ABFspell .sheet-sucess,
+.sheet-rolltemplate-ABFspellOld .sheet-sucess,
+.sheet-rolltemplate-ABFdefault .sheet-sucess,
+.sheet-rolltemplate-ABFpsi .sheet-sucess,
+.sheet-rolltemplate-ABFki .sheet-sucess,
+.sheet-rolltemplate-ABFweapon .sheet-sucess {
+    border: none;
+    color: green;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-ABFini .sheet-capped,
+.sheet-rolltemplate-ABFcriticalhit .sheet-capped,
+.sheet-rolltemplate-ABFdefense .sheet-capped,
+.sheet-rolltemplate-ABFattack .sheet-capped,
+.sheet-rolltemplate-ABFcharacteristics .sheet-capped,
+.sheet-rolltemplate-ABFspell .sheet-capped,
+.sheet-rolltemplate-ABFspellOld .sheet-capped,
+.sheet-rolltemplate-ABFdefault .sheet-capped,
+.sheet-rolltemplate-ABFpsi .sheet-capped,
+.sheet-rolltemplate-ABFki .sheet-capped,
+.sheet-rolltemplate-ABFweapon .sheet-capped {
+    border: none;
+    color: GoldenRod;
+    font-weight: bold;
+}
+
 .sheet-rolltemplate-ABFini .inlinerollresult.importantroll,
+.sheet-rolltemplate-ABFcriticalhit .inlinerollresult.importantroll,
+.sheet-rolltemplate-ABFdefense .inlinerollresult.importantroll,
+.sheet-rolltemplate-ABFattack .inlinerollresult.importantroll,
+.sheet-rolltemplate-ABFcharacteristics .inlinerollresult.importantroll,
 .sheet-rolltemplate-ABFspell .inlinerollresult.importantroll,
 .sheet-rolltemplate-ABFspellOld .inlinerollresult.importantroll,
 .sheet-rolltemplate-ABFdefault .inlinerollresult.importantroll,
@@ -739,6 +827,10 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
 }
 
 .sheet-rolltemplate-ABFini a[href^="!"], .sheet-rolltemplate-ABFini a[href^="~"],
+.sheet-rolltemplate-ABFcriticalhit a[href^="!"], .sheet-rolltemplate-ABFcriticalhit a[href^="~"],
+.sheet-rolltemplate-ABFdefense a[href^="!"], .sheet-rolltemplate-ABFdefense a[href^="~"],
+.sheet-rolltemplate-ABFattack a[href^="!"], .sheet-rolltemplate-ABFattack a[href^="~"],
+.sheet-rolltemplate-ABFcharacteristics a[href^="!"], .sheet-rolltemplate-ABFcharacteristics a[href^="~"],
 .sheet-rolltemplate-ABFspell a[href^="!"], .sheet-rolltemplate-ABFspell a[href^="~"],
 .sheet-rolltemplate-ABFspellOld a[href^="!"], .sheet-rolltemplate-ABFspellOld a[href^="~"],
 .sheet-rolltemplate-ABFdefault a[href^="!"], .sheet-rolltemplate-ABFdefault a[href^="~"],

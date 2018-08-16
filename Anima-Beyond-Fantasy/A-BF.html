@@ -35,7 +35,7 @@
       <div class="sheet-cell" data-i18n="development-points">DP</div>
       <input type="number" name="attr_DP" value="( @{character_level}*100 ) + 500" disabled="true" style="width:70px;"/>
       <div class="sheet-cell" data-i18n="presence" style="width:70px;">Presence</div>
-      <input type="number" name="attr_presence" value="(@{character_level}*100 +500)/20" disabled="true" style="width:50px;"/>
+      <input type="number" name="attr_presence" value="(@{character_level}*100+500)/20" disabled="true" style="width:50px;"/>
     </div>
   </div><!-- end short character information -->
 </div><!-- end header -->
@@ -72,10 +72,10 @@
                 <input type="checkbox" name="attr_acro_option" class="sheet-option"><span class="sheet-option"></span>
                 <div class="sheet-style_row">
                   <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_acro"
-                  value="@{wtype}&{template:ABFdefault} {{title=^{tab-athletics}}} {{name=^{acrobatics}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{acro_mastery}]]+?{Fatigue?|0}*15[Fatigue]+?{Modifiers?|0}[Modifiers]+[[@{acro_final}]][Ability]]]}}">
+                  value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{acrobatics}}} @{ord} @{acro_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{acro_final}">
                     <div class="sheet-cell sheet-secondary_bubble" data-i18n="acrobatics">Acrobatics</div>
                     <input type="number" name="attr_acro_final" disabled="true"
-                    value="(((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi} + 100) - abs((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi} -100)) / 2+@{acro_base}+@{acro_class}+@{acro_special}+@{acro_temp}+@{aam}"/>
+                    value="(((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi}+100)-abs((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi}-100))/2+@{acro_base}+@{acro_class}+@{acro_special}+@{acro_temp}-(@{armor_inherent_penalty})"/>
                   </button>
                   <input type="number" value="0" name="attr_acro_temp"/>
                   <input type="number" value="0" name="attr_acro_special"/>
@@ -88,17 +88,17 @@
                   <input type="number" value="0" min="0" name="attr_acro_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_acro_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_acro_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_acro_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
                 </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_athl_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_athl"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-athletics}}} {{name=^{athleticism}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{athl_mastery}]]+?{Fatigue?|0}*15[Fatigue]+?{Modifiers?|0}[Modifiers]+[[@{athl_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{athleticism}}} @{ord} @{athl_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{athl_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="athleticism">Athleticism</div>
                   <input type="number" name="attr_athl_final" disabled="true"
-                  value="(((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi} + 100) - abs((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi} -100)) / 2+@{athl_base}+@{athl_class}+@{athl_special}+@{athl_temp}+@{aam}"/>
+                  value="(((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi}+100)-abs((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi}-100))/2+@{athl_base}+@{athl_class}+@{athl_special}+@{athl_temp}-(@{armor_inherent_penalty})"/>
                 </button>
                 <input type="number" value="0" name="attr_athl_temp"/>
                 <input type="number" value="0" name="attr_athl_special"/>
@@ -111,17 +111,17 @@
                   <input type="number" value="0" min="0" name="attr_athl_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_athl_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_athl_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_athl_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_clim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_clim"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-athletics}}} {{name=^{climb}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{clim_mastery}]]+?{Fatigue?|0}*15[Fatigue]+?{Modifiers?|0}[Modifiers]+[[@{clim_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{climb}}} @{ord} @{clim_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{clim_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="climb">Climb</div>
                   <input type="number" name="attr_clim_final" disabled="true"
-                  value="(((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi} + 100) - abs((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi} -100)) / 2+@{clim_base}+@{clim_class}+@{clim_special}+@{clim_temp}+@{aam}"/>
+                  value="(((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi}+100)-abs((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi}-100))/2+@{clim_base}+@{clim_class}+@{clim_special}+@{clim_temp}-(@{armor_inherent_penalty})"/>
                 </button>
                 <input type="number" value="0" name="attr_clim_temp"/>
                 <input type="number" value="0" name="attr_clim_special"/>
@@ -134,17 +134,17 @@
                   <input type="number" value="0" min="0" name="attr_clim_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_clim_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_clim_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_clim_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_jump_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_jump"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-athletics}}} {{name=^{jump}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{jump_mastery}]]+?{Fatigue?|0}*15[Fatigue]+?{Modifiers?|0}[Modifiers]+[[@{jump_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{jump}}} @{ord} @{jump_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{jump_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="jump">Jump</div>
                   <input type="number" name="attr_jump_final" disabled="true"
-                  value="(((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi} + 100) - abs((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi} -100)) / 2+@{jump_base}+@{jump_class}+@{jump_special}+@{jump_temp}+@{aam}"/>
+                  value="(((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi}+100)-abs((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi}-100))/2+@{jump_base}+@{jump_class}+@{jump_special}+@{jump_temp}-(@{armor_inherent_penalty})"/>
                 </button>
                 <input type="number" value="0" name="attr_jump_temp"/>
                 <input type="number" value="0" name="attr_jump_special"/>
@@ -157,17 +157,17 @@
                   <input type="number" value="0" min="0" name="attr_jump_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_jump_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_jump_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_jump_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_ride_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_ride"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-athletics}}} {{name=^{ride}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{ride_mastery}]]+?{Fatigue?|0}*15[Fatigue]+?{Modifiers?|0}[Modifiers]+[[@{ride_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{ride}}} @{ord} @{ride_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{ride_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="ride">Ride</div>
                   <input type="number" name="attr_ride_final" disabled="true"
-                  value="(((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi} + 100) - abs((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi} -100)) / 2+@{ride_base}+@{ride_class}+@{ride_special}+@{ride_temp}+@{aam}"/>
+                  value="(((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi}+100)-abs((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi}-100))/2+@{ride_base}+@{ride_class}+@{ride_special}+@{ride_temp}-(@{armor_inherent_penalty})"/>
                 </button>
                 <input type="number" value="0" name="attr_ride_temp"/>
                 <input type="number" value="0" name="attr_ride_special"/>
@@ -180,17 +180,17 @@
                   <input type="number" value="0" min="0" name="attr_ride_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_ride_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_ride_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_ride_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_swim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_swim"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-athletics}}} {{name=^{swim}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{swim_mastery}]]+?{Fatigue?|0}*15[Fatigue]+?{Modifiers?|0}[Modifiers]+[[@{swim_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{swim}}} @{ord} @{swim_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{swim_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="swim">Swim</div>
                   <input type="number" name="attr_swim_final" disabled="true"
-                  value="(((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi} + 100) - abs((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi} -100)) / 2+@{swim_base}+@{swim_class}+@{swim_special}+@{swim_temp}+@{aam}"/>
+                  value="(((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi}+100)-abs((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi}-100))/2+@{swim_base}+@{swim_class}+@{swim_special}+@{swim_temp}-(@{armor_inherent_penalty_swim})"/>
                 </button>
                 <input type="number" value="0" name="attr_swim_temp"/>
                 <input type="number" value="0" name="attr_swim_special"/>
@@ -203,7 +203,7 @@
                   <input type="number" value="0" min="0" name="attr_swim_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_swim_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_swim_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_swim_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
         </div><!-- end athletics -->
@@ -221,10 +221,10 @@
               <input type="checkbox" name="attr_etiq_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_etiq"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-social}}} {{name=^{etiquitte}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{etiq_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{etiq_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{etiquette}}} @{ord} @{etiq_mastery} ?{Modifiers?|} @{aam} val:expr:@{etiq_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="etiquette">Etiquette</div>
                   <input type="number" name="attr_etiq_final" disabled="true"
-                value="(((@{etiq_naturals}+1)*@{int_mod}+@{etiq_naturabi} + 100) - abs((@{etiq_naturals}+1)*@{int_mod}+@{etiq_naturabi} -100)) / 2+@{etiq_base}+@{etiq_class}+@{etiq_special}+@{etiq_temp}+@{aam}"/>
+                value="(((@{etiq_naturals}+1)*@{int_mod}+@{etiq_naturabi}+100)-abs((@{etiq_naturals}+1)*@{int_mod}+@{etiq_naturabi}-100))/2+@{etiq_base}+@{etiq_class}+@{etiq_special}+@{etiq_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_etiq_temp"/>
                 <input type="number" value="0" min="0" name="attr_etiq_special"/>
@@ -237,17 +237,17 @@
                   <input type="number" value="0" min="0" name="attr_etiq_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_etiq_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_etiq_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_etiq_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_inti_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_inti"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-social}}} {{name=^{intimidate}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{inti_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{inti_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{intimidate}}} @{ord} @{inti_mastery} ?{Modifiers?|} @{aam} val:expr:@{inti_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="intimidate">Intimidate</div>
                   <input type="number" name="attr_inti_final" disabled="true"
-                  value="(((@{inti_naturals}+1)*@{wp_mod}+@{inti_naturabi} + 100) - abs((@{inti_naturals}+1)*@{wp_mod}+@{inti_naturabi} -100)) / 2+@{inti_base}+@{inti_class}+@{inti_special}+@{inti_temp}+@{aam}"/>
+                  value="(((@{inti_naturals}+1)*@{wp_mod}+@{inti_naturabi}+100)-abs((@{inti_naturals}+1)*@{wp_mod}+@{inti_naturabi}-100))/2+@{inti_base}+@{inti_class}+@{inti_special}+@{inti_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_inti_temp"/>
                 <input type="number" value="0" min="0" name="attr_inti_special"/>
@@ -260,17 +260,17 @@
                   <input type="number" value="0" min="0" name="attr_inti_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_inti_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_inti_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_inti_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_lead_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_lead"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-social}}} {{name=^{leadership}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{lead_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{lead_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{leadership}}} @{ord} @{lead_mastery} ?{Modifiers?|} @{aam} val:expr:@{lead_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="leadership">Leadership</div>
                   <input type="number" name="attr_lead_final" disabled="true"
-                  value="(((@{lead_naturals}+1)*@{pow_mod}+@{lead_naturabi} + 100) - abs((@{lead_naturals}+1)*@{pow_mod}+@{lead_naturabi} -100)) / 2+@{lead_base}+@{lead_class}+@{lead_special}+@{lead_temp}+@{aam}"/>
+                  value="(((@{lead_naturals}+1)*@{pow_mod}+@{lead_naturabi}+100)-abs((@{lead_naturals}+1)*@{pow_mod}+@{lead_naturabi}-100))/2+@{lead_base}+@{lead_class}+@{lead_special}+@{lead_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_lead_temp"/>
                 <input type="number" value="0" min="0" name="attr_lead_special"/>
@@ -283,17 +283,17 @@
                   <input type="number" value="0" min="0" name="attr_lead_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_lead_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_lead_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_lead_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_pers_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_pers"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-social}}} {{name=^{persuasion}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{pers_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{pers_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{persuasion}}} @{ord} @{pers_mastery} ?{Modifiers?|} @{aam} val:expr:@{pers_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="persuasion">Persuasion</div>
                   <input type="number" name="attr_pers_final" disabled="true"
-                  value="(((@{pers_naturals}+1)*@{int_mod}+@{pers_naturabi} + 100) - abs((@{pers_naturals}+1)*@{int_mod}+@{pers_naturabi} -100)) / 2+@{pers_base}+@{pers_class}+@{pers_special}+@{pers_temp}+@{aam}"/>
+                  value="(((@{pers_naturals}+1)*@{int_mod}+@{pers_naturabi}+100)-abs((@{pers_naturals}+1)*@{int_mod}+@{pers_naturabi}-100))/2+@{pers_base}+@{pers_class}+@{pers_special}+@{pers_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_pers_temp"/>
                 <input type="number" value="0" min="0" name="attr_pers_special"/>
@@ -306,17 +306,17 @@
                   <input type="number" value="0" min="0" name="attr_pers_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_pers_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_pers_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_pers_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_stre_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_stre"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-social}}} {{name=^{streetwise}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{stre_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{stre_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{streetwise}}} @{ord} @{stre_mastery} ?{Modifiers?|} @{aam} val:expr:@{stre_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="streetwise">Streetwise</div>
                   <input type="number" name="attr_stre_final" disabled="true"
-                  value="(((@{stre_naturals}+1)*@{int_mod}+@{stre_naturabi} + 100) - abs((@{stre_naturals}+1)*@{int_mod}+@{stre_naturabi} -100)) / 2+@{stre_base}+@{stre_class}+@{stre_special}+@{stre_temp}+@{aam}"/>
+                  value="(((@{stre_naturals}+1)*@{int_mod}+@{stre_naturabi}+100)-abs((@{stre_naturals}+1)*@{int_mod}+@{stre_naturabi}-100))/2+@{stre_base}+@{stre_class}+@{stre_special}+@{stre_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_stre_temp"/>
                 <input type="number" value="0" min="0" name="attr_stre_special"/>
@@ -329,17 +329,17 @@
                   <input type="number" value="0" min="0" name="attr_stre_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_stre_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_stre_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_stre_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_styl_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_styl"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-social}}} {{name=^{style}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{styl_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{styl_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{style}}} @{ord} @{styl_mastery} ?{Modifiers?|} @{aam} val:expr:@{styl_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="style">Style</div>
                   <input type="number" name="attr_styl_final" disabled="true"
-                  value="(((@{styl_naturals}+1)*@{pow_mod}+@{styl_naturabi} + 100) - abs((@{styl_naturals}+1)*@{pow_mod}+@{styl_naturabi} -100)) / 2+@{styl_base}+@{styl_class}+@{styl_special}+@{styl_temp}+@{aam}"/>
+                  value="(((@{styl_naturals}+1)*@{pow_mod}+@{styl_naturabi}+100)-abs((@{styl_naturals}+1)*@{pow_mod}+@{styl_naturabi}-100))/2+@{styl_base}+@{styl_class}+@{styl_special}+@{styl_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_styl_temp"/>
                 <input type="number" value="0" min="0" name="attr_styl_special"/>
@@ -352,17 +352,17 @@
                   <input type="number" value="0" min="0" name="attr_styl_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_styl_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_styl_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_styl_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_trad_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_trad"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-social}}} {{name=^{trading}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{trad_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{trad_final}]][Ability]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{trading}}} @{ord} @{trad_mastery} ?{Modifiers?|} expr:@{trad_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="trading">Trading</div>
                   <input type="number" name="attr_trad_final" disabled="true"
-                  value="(((@{trad_naturals}+1)*@{int_mod}+@{trad_naturabi} + 100) - abs((@{trad_naturals}+1)*@{int_mod}+@{trad_naturabi} -100)) / 2+@{trad_base}+@{trad_class}+@{trad_special}+@{trad_temp}+@{aam}"/>
+                  value="(((@{trad_naturals}+1)*@{int_mod}+@{trad_naturabi}+100)-abs((@{trad_naturals}+1)*@{int_mod}+@{trad_naturabi}-100))/2+@{trad_base}+@{trad_class}+@{trad_special}+@{trad_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_trad_temp"/>
                 <input type="number" value="0" min="0" name="attr_trad_special"/>
@@ -375,7 +375,7 @@
                   <input type="number" value="0" min="0" name="attr_trad_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_trad_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_trad_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_trad_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
         </div><!-- end social -->
@@ -393,10 +393,10 @@
               <input type="checkbox" name="attr_noti_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_noti"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-perceptive}}} {{name=^{notice}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{noti_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{noti_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{notice}}} @{ord} @{noti_mastery} ?{Modifiers?|} @{aam} val:expr:@{noti_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="notice">Notice</div>
                   <input type="number" name="attr_noti_final" disabled="true"
-                  value="(((@{noti_naturals}+1)*@{per_mod}+@{noti_naturabi} + 100) - abs((@{noti_naturals}+1)*@{per_mod}+@{noti_naturabi} -100)) / 2+@{noti_base}+@{noti_class}+@{noti_special}+@{noti_temp}+@{aam}"/>
+                  value="(((@{noti_naturals}+1)*@{per_mod}+@{noti_naturabi}+100)-abs((@{noti_naturals}+1)*@{per_mod}+@{noti_naturabi}-100))/2+@{noti_base}+@{noti_class}+@{noti_special}+@{noti_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_noti_temp"/>
                 <input type="number" value="0" min="0" name="attr_noti_special"/>
@@ -409,17 +409,17 @@
                   <input type="number" value="0" min="0" name="attr_noti_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_noti_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_noti_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_noti_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_sear_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_sear"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-perceptive}}} {{name=^{search}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{sear_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{sear_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{search}}} @{ord} @{sear_mastery} ?{Modifiers?|} @{aam} val:expr:@{sear_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="search">Search</div>
                   <input type="number" name="attr_sear_final" disabled="true"
-                  value="(((@{sear_naturals}+1)*@{per_mod}+@{sear_naturabi} + 100) - abs((@{sear_naturals}+1)*@{per_mod}+@{sear_naturabi} -100)) / 2+@{sear_base}+@{sear_class}+@{sear_special}+@{sear_temp}+@{aam}"/>
+                  value="(((@{sear_naturals}+1)*@{per_mod}+@{sear_naturabi}+100)-abs((@{sear_naturals}+1)*@{per_mod}+@{sear_naturabi}-100))/2+@{sear_base}+@{sear_class}+@{sear_special}+@{sear_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_sear_temp"/>
                 <input type="number" value="0" min="0" name="attr_sear_special"/>
@@ -432,17 +432,17 @@
                   <input type="number" value="0" min="0" name="attr_sear_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_sear_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_sear_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_sear_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_trac_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_trac"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-perceptive}}} {{name=^{track}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{trac_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{trac_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{track}}} @{ord} @{trac_mastery} ?{Modifiers?|} @{aam} val:expr:@{trac_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="track">Track</div>
                   <input type="number" name="attr_trac_final" disabled="true"
-                  value="(((@{trac_naturals}+1)*@{per_mod}+@{trac_naturabi} + 100) - abs((@{trac_naturals}+1)*@{per_mod}+@{trac_naturabi} -100)) / 2+@{trac_base}+@{trac_class}+@{trac_special}+@{trac_temp}+@{aam}"/>
+                  value="(((@{trac_naturals}+1)*@{per_mod}+@{trac_naturabi}+100)-abs((@{trac_naturals}+1)*@{per_mod}+@{trac_naturabi}-100))/2+@{trac_base}+@{trac_class}+@{trac_special}+@{trac_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_trac_temp"/>
                 <input type="number" value="0" min="0" name="attr_trac_special"/>
@@ -455,7 +455,7 @@
                   <input type="number" value="0" min="0" name="attr_trac_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_trac_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_trac_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_trac_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
         </div><!-- end perceptive -->
@@ -473,10 +473,10 @@
               <input type="checkbox" name="attr_anim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_anim"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{animals}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{anim_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{anim_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{animals}}} @{ord} @{anim_mastery} ?{Modifiers?|} @{aam} val:expr:@{anim_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="animals">Animals</div>
                   <input type="number" name="attr_anim_final" disabled="true"
-                  value="(((@{anim_naturals}+1)*@{int_mod}+@{anim_naturabi} + 100) - abs((@{anim_naturals}+1)*@{int_mod}+@{anim_naturabi} -100)) / 2+@{anim_base}+@{anim_class}+@{anim_special}+@{anim_temp}+@{aam}"/>
+                  value="(((@{anim_naturals}+1)*@{int_mod}+@{anim_naturabi}+100)-abs((@{anim_naturals}+1)*@{int_mod}+@{anim_naturabi}-100))/2+@{anim_base}+@{anim_class}+@{anim_special}+@{anim_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_anim_temp"/>
                 <input type="number" value="0" min="0" name="attr_anim_special"/>
@@ -489,17 +489,17 @@
                   <input type="number" value="0" min="0" name="attr_anim_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_anim_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_anim_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_anim_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_appr_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_appr"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{appraisal}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{appr_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{appr_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{appraisal}}} @{ord} @{appr_mastery} ?{Modifiers?|} @{aam} val:expr:@{appr_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="appraisal">Appraisal</div>
                   <input type="number" name="attr_appr_final" disabled="true"
-                  value="(((@{appr_naturals}+1)*@{int_mod}+@{appr_naturabi} + 100) - abs((@{appr_naturals}+1)*@{int_mod}+@{appr_naturabi} -100)) / 2+@{appr_base}+@{appr_class}+@{appr_special}+@{appr_temp}+@{aam}"/>
+                  value="(((@{appr_naturals}+1)*@{int_mod}+@{appr_naturabi}+100)-abs((@{appr_naturals}+1)*@{int_mod}+@{appr_naturabi}-100))/2+@{appr_base}+@{appr_class}+@{appr_special}+@{appr_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_appr_temp"/>
                 <input type="number" value="0" min="0" name="attr_appr_special"/>
@@ -512,17 +512,17 @@
                   <input type="number" value="0" min="0" name="attr_appr_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_appr_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_appr_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_appr_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_herb_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_herb"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{herbal-lore}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{herb_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{herb_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{herbal-lore}}} @{ord} @{herb_mastery} ?{Modifiers?|} @{aam} val:expr:@{herb_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="herbal-lore">Herbal Lore</div>
                   <input type="number" name="attr_herb_final" disabled="true"
-                  value="(((@{herb_naturals}+1)*@{int_mod}+@{herb_naturabi} + 100) - abs((@{herb_naturals}+1)*@{int_mod}+@{herb_naturabi} -100)) / 2+@{herb_base}+@{herb_class}+@{herb_special}+@{herb_temp}+@{aam}"/>
+                  value="(((@{herb_naturals}+1)*@{int_mod}+@{herb_naturabi}+100)-abs((@{herb_naturals}+1)*@{int_mod}+@{herb_naturabi}-100))/2+@{herb_base}+@{herb_class}+@{herb_special}+@{herb_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_herb_temp"/>
                 <input type="number" value="0" min="0" name="attr_herb_special"/>
@@ -535,17 +535,17 @@
                   <input type="number" value="0" min="0" name="attr_herb_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_herb_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_herb_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_herb_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_hist_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_hist"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{history}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{hist_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{hist_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{history}}} @{ord} @{hist_mastery} ?{Modifiers?|} @{aam} val:expr:@{hist_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="history">History</div>
                   <input type="number" name="attr_hist_final" disabled="true"
-                  value="(((@{hist_naturals}+1)*@{int_mod}+@{hist_naturabi} + 100) - abs((@{hist_naturals}+1)*@{int_mod}+@{hist_naturabi} -100)) / 2+@{hist_base}+@{hist_class}+@{hist_special}+@{hist_temp}+@{aam}"/>
+                  value="(((@{hist_naturals}+1)*@{int_mod}+@{hist_naturabi}+100)-abs((@{hist_naturals}+1)*@{int_mod}+@{hist_naturabi}-100))/2+@{hist_base}+@{hist_class}+@{hist_special}+@{hist_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_hist_temp"/>
                 <input type="number" value="0" min="0" name="attr_hist_special"/>
@@ -558,17 +558,17 @@
                   <input type="number" value="0" min="0" name="attr_hist_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_hist_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_hist_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_hist_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_law_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_law"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{law}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{law_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{law_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{law}}} @{ord} @{law_mastery} ?{Modifiers?|} @{aam} val:expr:@{law_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="law">Law</div>
                   <input type="number" name="attr_law_final" disabled="true"
-                  value="(((@{law_naturals}+1)*@{int_mod}+@{law_naturabi} + 100) - abs((@{law_naturals}+1)*@{int_mod}+@{law_naturabi} -100)) / 2+@{law_base}+@{law_class}+@{law_special}+@{law_temp}+@{aam}"/>
+                  value="(((@{law_naturals}+1)*@{int_mod}+@{law_naturabi}+100)-abs((@{law_naturals}+1)*@{int_mod}+@{law_naturabi}-100))/2+@{law_base}+@{law_class}+@{law_special}+@{law_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_law_temp"/>
                 <input type="number" value="0" min="0" name="attr_law_special"/>
@@ -581,17 +581,17 @@
                   <input type="number" value="0" min="0" name="attr_law_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_law_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_law_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_law_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_mapp_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_mapp"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{magic-appraisal}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{mapp_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{mapp_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{magic-appraisal}}} @{ord} @{mapp_mastery} ?{Modifiers?|} @{aam} val:expr:@{mapp_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="magic-appraisal">Magic Appr.</div>
                   <input type="number" name="attr_mapp_final" disabled="true"
-                  value="(((@{mapp_naturals}+1)*@{pow_mod}+@{mapp_naturabi} + 100) - abs((@{mapp_naturals}+1)*@{pow_mod}+@{mapp_naturabi} -100)) / 2+@{mapp_base}+@{mapp_class}+@{mapp_special}+@{mapp_temp}+@{aam}"/>
+                  value="(((@{mapp_naturals}+1)*@{pow_mod}+@{mapp_naturabi}+100)-abs((@{mapp_naturals}+1)*@{pow_mod}+@{mapp_naturabi}-100))/2+@{mapp_base}+@{mapp_class}+@{mapp_special}+@{mapp_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_mapp_temp"/>
                 <input type="number" value="0" min="0" name="attr_mapp_special"/>
@@ -604,17 +604,17 @@
                   <input type="number" value="0" min="0" name="attr_mapp_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_mapp_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_mapp_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_mapp_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_medi_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_medi"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{medicine}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{medi_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{medi_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{medicine}}} @{ord} @{medi_mastery} ?{Modifiers?|} @{aam} val:expr:@{medi_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="medicine">Medicine</div>
                   <input type="number" name="attr_medi_final" disabled="true"
-                  value="(((@{medi_naturals}+1)*@{int_mod}+@{medi_naturabi} + 100) - abs((@{medi_naturals}+1)*@{int_mod}+@{medi_naturabi} -100)) / 2+@{medi_base}+@{medi_class}+@{medi_special}+@{medi_temp}+@{aam}"/>
+                  value="(((@{medi_naturals}+1)*@{int_mod}+@{medi_naturabi}+100)-abs((@{medi_naturals}+1)*@{int_mod}+@{medi_naturabi}-100))/2+@{medi_base}+@{medi_class}+@{medi_special}+@{medi_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_medi_temp"/>
                 <input type="number" value="0" min="0" name="attr_medi_special"/>
@@ -627,17 +627,17 @@
                   <input type="number" value="0" min="0" name="attr_medi_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_medi_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_medi_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_medi_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_memo_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_memo"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{memorize}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{memo_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{memo_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{memorize}}} @{ord} @{memo_mastery} ?{Modifiers?|} @{aam} val:expr:@{memo_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="memorize">Memorize</div>
                   <input type="number" name="attr_memo_final" disabled="true"
-                  value="(((@{memo_naturals}+1)*@{int_mod}+@{memo_naturabi} + 100) - abs((@{memo_naturals}+1)*@{int_mod}+@{memo_naturabi} -100)) / 2+@{memo_base}+@{memo_class}+@{memo_special}+@{memo_temp}+@{aam}"/>
+                  value="(((@{memo_naturals}+1)*@{int_mod}+@{memo_naturabi}+100)-abs((@{memo_naturals}+1)*@{int_mod}+@{memo_naturabi}-100))/2+@{memo_base}+@{memo_class}+@{memo_special}+@{memo_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_memo_temp"/>
                 <input type="number" value="0" min="0" name="attr_memo_special"/>
@@ -650,17 +650,17 @@
                   <input type="number" value="0" min="0" name="attr_memo_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_memo_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_memo_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_memo_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_navi_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_navi"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{navigation}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{navi_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{navi_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{navigation}}} @{ord} @{navi_mastery} ?{Modifiers?|} @{aam} val:expr:@{navi_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="navigation">Navigation</div>
                   <input type="number" name="attr_navi_final" disabled="true"
-                  value="(((@{navi_naturals}+1)*@{int_mod}+@{navi_naturabi} + 100) - abs((@{navi_naturals}+1)*@{int_mod}+@{navi_naturabi} -100)) / 2+@{navi_base}+@{navi_class}+@{navi_special}+@{navi_temp}+@{aam}"/>
+                  value="(((@{navi_naturals}+1)*@{int_mod}+@{navi_naturabi}+100)-abs((@{navi_naturals}+1)*@{int_mod}+@{navi_naturabi}-100))/2+@{navi_base}+@{navi_class}+@{navi_special}+@{navi_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_navi_temp"/>
                 <input type="number" value="0" min="0" name="attr_navi_special"/>
@@ -673,17 +673,17 @@
                   <input type="number" value="0" min="0" name="attr_navi_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_navi_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_navi_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_navi_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_occu_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_occu"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{occult}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{occu_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{occu_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{occult}}} @{ord} @{occu_mastery} ?{Modifiers?|} @{aam} val:expr:@{occu_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="occult">Occult</div>
                   <input type="number" name="attr_occu_final" disabled="true"
-                  value="(((@{occu_naturals}+1)*@{int_mod}+@{occu_naturabi} + 100) - abs((@{occu_naturals}+1)*@{int_mod}+@{occu_naturabi} -100)) / 2+@{occu_base}+@{occu_class}+@{occu_special}+@{occu_temp}+@{aam}"/>
+                  value="(((@{occu_naturals}+1)*@{int_mod}+@{occu_naturabi}+100)-abs((@{occu_naturals}+1)*@{int_mod}+@{occu_naturabi}-100))/2+@{occu_base}+@{occu_class}+@{occu_special}+@{occu_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_occu_temp"/>
                 <input type="number" value="0" min="0" name="attr_occu_special"/>
@@ -696,17 +696,17 @@
                   <input type="number" value="0" min="0" name="attr_occu_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_occu_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_occu_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_occu_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_scie_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_scie"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{sciences}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{scie_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{scie_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{sciences}}} @{ord} @{scie_mastery} ?{Modifiers?|} @{aam} val:expr:@{scie_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="sciences">Sciences</div>
                   <input type="number" name="attr_scie_final" disabled="true"
-                  value="(((@{scie_naturals}+1)*@{int_mod}+@{scie_naturabi} + 100) - abs((@{scie_naturals}+1)*@{int_mod}+@{scie_naturabi} -100)) / 2+@{scie_base}+@{scie_class}+@{scie_special}+@{scie_temp}+@{aam}"/>
+                  value="(((@{scie_naturals}+1)*@{int_mod}+@{scie_naturabi}+100)-abs((@{scie_naturals}+1)*@{int_mod}+@{scie_naturabi}-100))/2+@{scie_base}+@{scie_class}+@{scie_special}+@{scie_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_scie_temp"/>
                 <input type="number" value="0" min="0" name="attr_scie_special"/>
@@ -719,17 +719,17 @@
                   <input type="number" value="0" min="0" name="attr_scie_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_scie_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_scie_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_scie_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_tact_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_tact"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-intellectual}}} {{name=^{tactics}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{tact_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{tact_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{tactics}}} @{ord} @{tact_mastery} ?{Modifiers?|} @{aam} val:expr:@{tact_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="tactics">Tactics</div>
                   <input type="number" name="attr_tact_final" disabled="true"
-                  value="(((@{tact_naturals}+1)*@{int_mod}+@{tact_naturabi} + 100) - abs((@{tact_naturals}+1)*@{int_mod}+@{tact_naturabi} -100)) / 2+@{tact_base}+@{tact_class}+@{tact_special}+@{tact_temp}+@{aam}"/>
+                  value="(((@{tact_naturals}+1)*@{int_mod}+@{tact_naturabi}+100)-abs((@{tact_naturals}+1)*@{int_mod}+@{tact_naturabi}-100))/2+@{tact_base}+@{tact_class}+@{tact_special}+@{tact_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_tact_temp"/>
                 <input type="number" value="0" min="0" name="attr_tact_special"/>
@@ -742,7 +742,7 @@
                   <input type="number" value="0" min="0" name="attr_tact_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_tact_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_tact_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_tact_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
         </div><!-- end intellectual -->
@@ -760,10 +760,10 @@
               <input type="checkbox" name="attr_comp_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_comp"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-vigor}}} {{name=^{composure}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{comp_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{comp_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{composure}}} @{ord} @{comp_mastery} ?{Modifiers?|} @{aam} val:expr:@{comp_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="composure">Composure</div>
                   <input type="number" name="attr_comp_final" disabled="true"
-                  value="(((@{comp_naturals}+1)*@{wp_mod}+@{comp_naturabi} + 100) - abs((@{comp_naturals}+1)*@{wp_mod}+@{comp_naturabi} -100)) / 2+@{comp_base}+@{comp_class}+@{comp_special}+@{comp_temp}+@{aam}"/>
+                  value="(((@{comp_naturals}+1)*@{wp_mod}+@{comp_naturabi}+100)-abs((@{comp_naturals}+1)*@{wp_mod}+@{comp_naturabi}-100))/2+@{comp_base}+@{comp_class}+@{comp_special}+@{comp_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_comp_temp"/>
                 <input type="number" value="0" min="0" name="attr_comp_special"/>
@@ -776,17 +776,17 @@
                   <input type="number" value="0" min="0" name="attr_comp_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_comp_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_comp_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_comp_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_feat_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_feat"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-vigor}}} {{name=^{feats-of-strength}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{feat_mastery}]]+?{Fatigue?|0}*15+?{Modifiers?|0}[Modifiers]+[[@{feat_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{feats-of-strength}}} @{ord} @{feat_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{feat_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="feats-of-strength">Feats of Str.</div>
                   <input type="number" name="attr_feat_final" disabled="true"
-                  value="(((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi} + 100) - abs((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi} -100)) / 2+@{feat_base}+@{feat_class}+@{feat_special}+@{feat_temp}+@{aam}"/>
+                  value="(((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi}+100)-abs((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi}-100))/2+@{feat_base}+@{feat_class}+@{feat_special}+@{feat_temp}-(@{armor_inherent_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_feat_temp"/>
                 <input type="number" value="0" min="0" name="attr_feat_special"/>
@@ -799,17 +799,17 @@
                   <input type="number" value="0" min="0" name="attr_feat_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_feat_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_feat_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_feat_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_with_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_with"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-vigor}}} {{name=^{withstand-pain}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{with_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{with_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{withstand-pain}}} @{ord} @{with_mastery} ?{Modifiers?|} @{aam} val:expr:@{with_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="withstand-pain">Withst. Pain</div>
                   <input type="number" name="attr_with_final" disabled="true"
-                  value="(((@{with_naturals}+1)*@{wp_mod}+@{with_naturabi} + 100) - abs((@{with_naturals}+1)*@{wp_mod}+@{with_naturabi} -100)) / 2+@{with_base}+@{with_class}+@{with_special}+@{with_temp}+@{aam}"/>
+                  value="(((@{with_naturals}+1)*@{wp_mod}+@{with_naturabi}+100)-abs((@{with_naturals}+1)*@{wp_mod}+@{with_naturabi}-100))/2+@{with_base}+@{with_class}+@{with_special}+@{with_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_with_temp"/>
                 <input type="number" value="0" min="0" name="attr_with_special"/>
@@ -822,7 +822,7 @@
                   <input type="number" value="0" min="0" name="attr_with_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_with_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_with_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_with_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
         </div><!-- end vigor -->
@@ -840,10 +840,10 @@
               <input type="checkbox" name="attr_disg_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_disg"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-subterfuge}}} {{name=^{disguise}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{disg_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{disg_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{disguise}}} @{ord} @{disg_mastery} ?{Modifiers?|} @{aam} val:expr:@{disg_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="disguise">Disguise</div>
                   <input type="number" name="attr_disg_final" disabled="true"
-                  value="(((@{disg_naturals}+1)*@{dex_mod}+@{disg_naturabi} + 100) - abs((@{disg_naturals}+1)*@{dex_mod}+@{disg_naturabi} -100)) / 2+@{disg_base}+@{disg_class}+@{disg_special}+@{disg_temp}+@{aam}"/>
+                  value="(((@{disg_naturals}+1)*@{dex_mod}+@{disg_naturabi}+100)-abs((@{disg_naturals}+1)*@{dex_mod}+@{disg_naturabi}-100))/2+@{disg_base}+@{disg_class}+@{disg_special}+@{disg_temp}+(@{armor_wear_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_disg_temp"/>
                 <input type="number" value="0" min="0" name="attr_disg_special"/>
@@ -856,17 +856,17 @@
                   <input type="number" value="0" min="0" name="attr_disg_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_disg_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_disg_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_disg_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_hide_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_hide"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-subterfuge}}} {{name=^{hide}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{hide_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{hide_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{hide}}} @{ord} @{hide_mastery} ?{Modifiers?|} @{aam} val:expr:@{hide_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="hide">Hide</div>
                   <input type="number" name="attr_hide_final" disabled="true"
-                  value="(((@{hide_naturals}+1)*@{per_mod}+@{hide_naturabi} + 100) - abs((@{hide_naturals}+1)*@{per_mod}+@{hide_naturabi} -100)) / 2+@{hide_base}+@{hide_class}+@{hide_special}+@{hide_temp}+@{aam}"/>
+                  value="(((@{hide_naturals}+1)*@{per_mod}+@{hide_naturabi}+100)-abs((@{hide_naturals}+1)*@{per_mod}+@{hide_naturabi}-100))/2+@{hide_base}+@{hide_class}+@{hide_special}+@{hide_temp}-(@{armor_inherent_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_hide_temp"/>
                 <input type="number" value="0" min="0" name="attr_hide_special"/>
@@ -879,17 +879,17 @@
                   <input type="number" value="0" min="0" name="attr_hide_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_hide_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_hide_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_hide_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_lock_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_lock"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-subterfuge}}} {{name=^{lockpicking}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{lock_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{lock_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{lockpicking}}} @{ord} @{lock_mastery} ?{Modifiers?|} @{aam} val:expr:@{lock_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="lockpicking">Lockpicking</div>
                   <input type="number" name="attr_lock_final" disabled="true"
-                  value="(((@{lock_naturals}+1)*@{dex_mod}+@{lock_naturabi} + 100) - abs((@{lock_naturals}+1)*@{dex_mod}+@{lock_naturabi} -100)) / 2+@{lock_base}+@{lock_class}+@{lock_special}+@{lock_temp}+@{aam}"/>
+                  value="(((@{lock_naturals}+1)*@{dex_mod}+@{lock_naturabi}+100)-abs((@{lock_naturals}+1)*@{dex_mod}+@{lock_naturabi}-100))/2+@{lock_base}+@{lock_class}+@{lock_special}+@{lock_temp}+(@{armor_wear_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_lock_temp"/>
                 <input type="number" value="0" min="0" name="attr_lock_special"/>
@@ -902,17 +902,17 @@
                   <input type="number" value="0" min="0" name="attr_lock_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_lock_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_lock_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_lock_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_pois_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_pois"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-subterfuge}}} {{name=^{poisons}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{pois_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{pois_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{poisons}}} @{ord} @{pois_mastery} ?{Modifiers?|} @{aam} val:expr:@{pois_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="poisons">Poisons</div>
                   <input type="number" name="attr_pois_final" disabled="true"
-                  value="(((@{pois_naturals}+1)*@{int_mod}+@{pois_naturabi} + 100) - abs((@{pois_naturals}+1)*@{int_mod}+@{pois_naturabi} -100)) / 2+@{pois_base}+@{pois_class}+@{pois_special}+@{pois_temp}+@{aam}"/>
+                  value="(((@{pois_naturals}+1)*@{int_mod}+@{pois_naturabi}+100)-abs((@{pois_naturals}+1)*@{int_mod}+@{pois_naturabi}-100))/2+@{pois_base}+@{pois_class}+@{pois_special}+@{pois_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_pois_temp"/>
                 <input type="number" value="0" min="0" name="attr_pois_special"/>
@@ -925,17 +925,17 @@
                   <input type="number" value="0" min="0" name="attr_pois_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_pois_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_pois_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_pois_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_stea_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_stea"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-subterfuge}}} {{name=^{stealth}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{stea_mastery}]]+?{Fatigue?|0}*15+?{Modifiers?|0}[Modifiers]+[[@{stea_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{stealth}}} @{ord} @{stea_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{stea_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="stealth">Stealth</div>
                   <input type="number" name="attr_stea_final" disabled="true"
-                  value="(((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi} + 100) - abs((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi} -100)) / 2+@{stea_base}+@{stea_class}+@{stea_special}+@{stea_temp}+@{aam}"/>
+                  value="(((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi}+100)-abs((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi}-100))/2+@{stea_base}+@{stea_class}+@{stea_special}+@{stea_temp}-(@{armor_inherent_penalty_stealth})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_stea_temp"/>
                 <input type="number" value="0" min="0" name="attr_stea_special"/>
@@ -948,17 +948,17 @@
                   <input type="number" value="0" min="0" name="attr_stea_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_stea_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_stea_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_stea_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_thef_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_thef"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-subterfuge}}} {{name=^{theft}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{thef_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{thef_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{theft}}} @{ord} @{thef_mastery} ?{Modifiers?|} @{aam} val:expr:@{thef_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="theft">Theft</div>
                   <input type="number" name="attr_thef_final" disabled="true"
-                  value="(((@{thef_naturals}+1)*@{dex_mod}+@{thef_naturabi} + 100) - abs((@{thef_naturals}+1)*@{dex_mod}+@{thef_naturabi} -100)) / 2+@{thef_base}+@{thef_class}+@{thef_special}+@{thef_temp}+@{aam}"/>
+                  value="(((@{thef_naturals}+1)*@{dex_mod}+@{thef_naturabi}+100)-abs((@{thef_naturals}+1)*@{dex_mod}+@{thef_naturabi}-100))/2+@{thef_base}+@{thef_class}+@{thef_special}+@{thef_temp}+(@{armor_wear_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_thef_temp"/>
                 <input type="number" value="0" min="0" name="attr_thef_special"/>
@@ -971,17 +971,17 @@
                   <input type="number" value="0" min="0" name="attr_thef_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_thef_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_thef_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_thef_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_trap_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_trap"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-subterfuge}}} {{name=^{trap-lore}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{trap_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{trap_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{trap-lore}}} @{ord} @{trap_mastery} ?{Modifiers?|} @{aam} val:expr:@{trap_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="trap-lore">Trap Lore</div>
                   <input type="number" name="attr_trap_final" disabled="true"
-                  value="(((@{trap_naturals}+1)*@{dex_mod}+@{trap_naturabi} + 100) - abs((@{trap_naturals}+1)*@{dex_mod}+@{trap_naturabi} -100)) / 2+@{trap_base}+@{trap_class}+@{trap_special}+@{trap_temp}+@{aam}"/>
+                  value="(((@{trap_naturals}+1)*@{dex_mod}+@{trap_naturabi}+100)-abs((@{trap_naturals}+1)*@{dex_mod}+@{trap_naturabi}-100))/2+@{trap_base}+@{trap_class}+@{trap_special}+@{trap_temp}+(@{armor_wear_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_trap_temp"/>
                 <input type="number" value="0" min="0" name="attr_trap_special"/>
@@ -994,7 +994,7 @@
                   <input type="number" value="0" min="0" name="attr_trap_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_trap_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_trap_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_trap_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
         </div><!-- end subterfuge -->
@@ -1012,10 +1012,10 @@
               <input type="checkbox" name="attr_art_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_art"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-creative}}} {{name=^{art}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{art_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{art_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{art}}} @{ord} @{art_mastery} ?{Modifiers?|} @{aam} val:expr:@{art_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="art">Art</div>
                   <input type="number" name="attr_art_final" disabled="true"
-                  value="(((@{art_naturals}+1)*@{pow_mod}+@{art_naturabi} + 100) - abs((@{art_naturals}+1)*@{pow_mod}+@{art_naturabi} -100)) / 2+@{art_base}+@{art_class}+@{art_special}+@{art_temp}+@{aam}"/>
+                  value="(((@{art_naturals}+1)*@{pow_mod}+@{art_naturabi}+100)-abs((@{art_naturals}+1)*@{pow_mod}+@{art_naturabi}-100))/2+@{art_base}+@{art_class}+@{art_special}+@{art_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_art_temp"/>
                 <input type="number" value="0" min="0" name="attr_art_special"/>
@@ -1028,17 +1028,17 @@
                   <input type="number" value="0" min="0" name="attr_art_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_art_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_art_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_art_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_danc_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_danc"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-creative}}} {{name=^{dance}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{danc_mastery}]]+?{Fatigue?|0}*15+?{Modifiers?|0}[Modifiers]+[[@{danc_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{dance}}} @{ord} @{danc_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{danc_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="dance">Dance</div>
                   <input type="number" name="attr_danc_final" disabled="true"
-                  value="(((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi} + 100) - abs((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi} -100)) / 2+@{danc_base}+@{danc_class}+@{danc_special}+@{danc_temp}+@{aam}"/>
+                  value="(((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi}+100)-abs((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi}-100))/2+@{danc_base}+@{danc_class}+@{danc_special}+@{danc_temp}-(@{armor_inherent_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_danc_temp"/>
                 <input type="number" value="0" min="0" name="attr_danc_special"/>
@@ -1051,17 +1051,17 @@
                   <input type="number" value="0" min="0" name="attr_danc_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_danc_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_danc_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_danc_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_forg_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_forg"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-creative}}} {{name=^{forging}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{forg_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{forg_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{forging}}} @{ord} @{forg_mastery} ?{Modifiers?|} @{aam} val:expr:@{forg_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="forging">Forging</div>
                   <input type="number" name="attr_forg_final" disabled="true"
-                  value="(((@{forg_naturals}+1)*@{dex_mod}+@{forg_naturabi} + 100) - abs((@{forg_naturals}+1)*@{dex_mod}+@{forg_naturabi} -100)) / 2+@{forg_base}+@{forg_class}+@{forg_special}+@{forg_temp}+@{aam}"/>
+                  value="(((@{forg_naturals}+1)*@{dex_mod}+@{forg_naturabi}+100)-abs((@{forg_naturals}+1)*@{dex_mod}+@{forg_naturabi}-100))/2+@{forg_base}+@{forg_class}+@{forg_special}+@{forg_temp}+(@{armor_wear_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_forg_temp"/>
                 <input type="number" value="0" min="0" name="attr_forg_special"/>
@@ -1074,17 +1074,17 @@
                   <input type="number" value="0" min="0" name="attr_forg_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_forg_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_forg_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_forg_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_musi_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_musi"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-creative}}} {{name=^{music}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{musi_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{musi_final}]]]]}}">
+                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{music}}} @{ord} @{musi_mastery} ?{Modifiers?|} @{aam} val:expr:@{musi_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="music">Music</div>
                   <input type="number" name="attr_musi_final" disabled="true"
-                  value="(((@{musi_naturals}+1)*@{pow_mod}+@{musi_naturabi} + 100) - abs((@{musi_naturals}+1)*@{pow_mod}+@{musi_naturabi} -100)) / 2+@{musi_base}+@{musi_class}+@{musi_special}+@{musi_temp}+@{aam}"/>
+                  value="(((@{musi_naturals}+1)*@{pow_mod}+@{musi_naturabi}+100)-abs((@{musi_naturals}+1)*@{pow_mod}+@{musi_naturabi}-100))/2+@{musi_base}+@{musi_class}+@{musi_special}+@{musi_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_musi_temp"/>
                 <input type="number" value="0" min="0" name="attr_musi_special"/>
@@ -1097,17 +1097,17 @@
                   <input type="number" value="0" min="0" name="attr_musi_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_musi_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_musi_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_musi_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             <div class="sheet-clear">
               <input type="checkbox" name="attr_slig_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_slig"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-creative}}} {{name=^{slight-of-hand}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{slig_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{slig_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{slight-of-hand}}} @{ord} @{slig_mastery} ?{Modifiers?|} @{aam} val:expr:@{slig_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="slight-of-hand">Sl. of Hand</div>
                   <input type="number" name="attr_slig_final" disabled="true"
-                  value="(((@{slig_naturals}+1)*@{dex_mod}+@{slig_naturabi} + 100) - abs((@{slig_naturals}+1)*@{dex_mod}+@{slig_naturabi} -100)) / 2+@{slig_base}+@{slig_class}+@{slig_special}+@{slig_temp}+@{aam}"/>
+                  value="(((@{slig_naturals}+1)*@{dex_mod}+@{slig_naturabi}+100)-abs((@{slig_naturals}+1)*@{dex_mod}+@{slig_naturabi}-100))/2+@{slig_base}+@{slig_class}+@{slig_special}+@{slig_temp}+(@{armor_wear_penalty})"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_slig_temp"/>
                 <input type="number" value="0" min="0" name="attr_slig_special"/>
@@ -1120,7 +1120,7 @@
                   <input type="number" value="0" min="0" name="attr_slig_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_slig_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_slig_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_slig_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
         </div><!-- end creative -->
@@ -1139,10 +1139,10 @@
               <input type="checkbox" name="attr_custom_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_custom"
-                value="@{wtype}&{template:ABFdefault} {{title=^{tab-custom}}} {{name=@{custom_name}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{custom_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{custom_final}]]]]}}">
+                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-custom}}} {{name=@{custom_name}}} @{ord} @{custom_mastery} ?{Modifiers?|} @{aam} val:expr:@{custom_final}">
                   <input type="text" name="attr_custom_name" style="width:80px;"/>
                   <input type="number" class="sheet-secondary_ability_input" name="attr_custom_final" disabled="true"
-                  value="(((@{custom_naturals}+1)*@{custom_mod}+@{custom_naturabi} + 100) - abs((@{custom_naturals}+1)*@{custom_mod}+@{custom_naturabi} -100)) / 2+@{custom_base}+@{custom_class}+@{custom_special}+@{custom_temp}+@{aam}"/>
+                  value="(((@{custom_naturals}+1)*@{custom_mod}+@{custom_naturabi}+100)-abs((@{custom_naturals}+1)*@{custom_mod}+@{custom_naturabi}-100))/2+@{custom_base}+@{custom_class}+@{custom_special}+@{custom_temp}"/>
                 </button>
                 <input type="number" value="0" min="0" name="attr_custom_temp"/>
                 <input type="number" value="0" min="0" name="attr_custom_special"/>
@@ -1165,7 +1165,7 @@
                   <input type="number" value="0" min="0" name="attr_custom_naturals"/>
                   <div class="sheet-cell" data-i18n="natural-ability-short">N.A.</div>
                   <input type="number" value="0" min="0" name="attr_custom_naturabi"/>
-                  <label><input type="checkbox" class="" name="attr_custom_mastery" value="1"/><span data-i18n="spell-mastery">Mastery</span></label>
+                  <label><input type="checkbox" class="" name="attr_custom_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
               </div>
             </div>
             </fieldset>
@@ -1233,19 +1233,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_agi_opposed_final" max="20" min="0" maxlength="2" value="(@{agi_final})+@{agi_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_agi_opposed_final" max="20" min="0" maxlength="2" value="(@{agi_final})+@{agi_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_agi"
-        value="@{wtype}&{template:ABFini} {{name=^{agility}}} {{desc=^{agility-short}}} {{roll=[[1d10+(@{agi_final})+?{Modifiers?|0}[Modifiers]+?{Fatigue?|0}]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{agi_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="agility-short">AGI</span>
           <input type="number" name="attr_agi_final" max="20" min="0" maxlength="2" value="@{agi}+@{agi_special}+@{agi_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_agi_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{agility}}} {{desc=^{opposed}}} {{roll=[[1d10+@{agi_opposed_final}+?{Modifiers?|0}[Modifiers]+?{Fatigue?|0}]]}}">
-          <input type="number" name="attr_agi_opposed_final" max="20" min="0" maxlength="2" value="(@{agi_final})+@{agi_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{agi_opposed_final}">
+          <input type="number" name="attr_agi_opposed_final" max="20" min="0" maxlength="2" value="(@{agi_final})+@{agi_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End Agility -->
@@ -1296,19 +1296,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_con_opposed_final" max="20" min="0" maxlength="2" value="(@{con_final})+@{con_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_con_opposed_final" max="20" min="0" maxlength="2" value="(@{con_final})+@{con_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_con"
-        value="@{wtype}&{template:ABFini} {{name=^{constitution}}} {{desc=^{constitution-short}}} {{roll=[[1d10+(@{con_final})+?{Modifiers?|0}[Modifiers]]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{constitution}}} {{name=^{constitution-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{con_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="constitution-short">CON</span>
           <input type="number" name="attr_con_final" max="20" min="0" maxlength="2" value="@{con}+@{con_special}+@{con_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_con_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{constitution}}}} {{desc=^{opposed}}}} {{roll=[[1d10+@{con_opposed_final}+?{Modifiers?|0}[Modifiers]]]}}">
-          <input type="number" name="attr_con_opposed_final" max="20" min="0" maxlength="2" value="(@{con_final})+@{con_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{constitution}}} {{name=^{constitution-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{con_opposed_final}">
+          <input type="number" name="attr_con_opposed_final" max="20" min="0" maxlength="2" value="(@{con_final})+@{con_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End constitution -->
@@ -1359,19 +1359,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_dex_opposed_final" max="20" min="0" maxlength="2" value="(@{dex_final})+@{dex_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_dex_opposed_final" max="20" min="0" maxlength="2" value="(@{dex_final})+@{dex_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_dex"
-        value="@{wtype}&{template:ABFini} {{name=^{dexterity}}} {{desc=^{dexterity-short}}} {{roll=[[1d10+(@{dex_final})+?{Modifiers?|0}[Modifiers]+?{Fatigue?|0}]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{dex_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="dexterity-short">DEX</span>
           <input type="number" name="attr_dex_final" max="20" min="0" maxlength="2" value="@{dex}+@{dex_special}+@{dex_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_dex_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{dexterity}}} {{desc=^{opposed}}} {{roll=[[1d10+@{dex_opposed_final}+?{Modifiers?|0}[Modifiers]+?{Fatigue?|0}]]}}">
-          <input type="number" name="attr_dex_opposed_final" max="20" min="0" maxlength="2" value="(@{dex_final})+@{dex_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{dex_opposed_final}">
+          <input type="number" name="attr_dex_opposed_final" max="20" min="0" maxlength="2" value="(@{dex_final})+@{dex_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End dexterity -->
@@ -1422,19 +1422,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_str_opposed_final" max="20" min="0" maxlength="2" value="(@{str_final})+@{str_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_str_opposed_final" max="20" min="0" maxlength="2" value="(@{str_final})+@{str_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_str"
-        value="@{wtype}&{template:ABFini} {{name=^{strength}}} {{desc=^{strength-short}}} {{roll=[[1d10+(@{str_final})+?{Modifiers?|0}[Modifiers]+?{Fatigue?|0}]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{str_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="strength-short">STR</span>
           <input type="number" name="attr_str_final" max="20" min="0" maxlength="2" value="@{str}+@{str_special}+@{str_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_str_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{strength}}} {{desc=^{opposed}}} {{roll=[[1d10+@{str_opposed_final}+?{Modifiers?|0}[Modifiers]+?{Fatigue?|0}]]}}">
-          <input type="number" name="attr_str_opposed_final" max="20" min="0" maxlength="2" value="(@{str_final})+@{str_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{str_opposed_final}">
+          <input type="number" name="attr_str_opposed_final" max="20" min="0" maxlength="2" value="(@{str_final})+@{str_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End strength -->
@@ -1485,19 +1485,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_int_opposed_final" max="20" min="0" maxlength="2" value="(@{int_final})+@{int_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_int_opposed_final" max="20" min="0" maxlength="2" value="(@{int_final})+@{int_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_int"
-        value="@{wtype}&{template:ABFini} {{name=^{intelligence}}} {{desc=^{intelligence-short}}} {{roll=[[1d10+(@{int_final})+?{Modifiers?|0}[Modifiers]]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{intelligence}}} {{name=^{intelligence-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{int_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="intelligence-short">INT</span>
           <input type="number" name="attr_int_final" max="20" min="0" maxlength="2" value="@{int}+@{int_special}+@{int_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_int_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{intelligence}}} {{desc=^{opposed}}} {{roll=[[1d10+@{int_opposed_final}+?{Modifiers?|0}[Modifiers]]]}}">
-          <input type="number" name="attr_int_opposed_final" max="20" min="0" maxlength="2" value="(@{int_final})+@{int_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{intelligence}}} {{name=^{intelligence-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{int_opposed_final}">
+          <input type="number" name="attr_int_opposed_final" max="20" min="0" maxlength="2" value="(@{int_final})+@{int_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End intelligence -->
@@ -1548,19 +1548,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_per_opposed_final" max="20" min="0" maxlength="2" value="(@{per_final})+@{per_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_per_opposed_final" max="20" min="0" maxlength="2" value="(@{per_final})+@{per_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_per"
-        value="@{wtype}&{template:ABFini} {{name=^{perception}}} {{desc=^{perception-short}}} {{roll=[[1d10+(@{per_final})+?{Modifiers?|0}[Modifiers]]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{perception}}} {{name=^{perception-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{per_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="perception-short">PER</span>
           <input type="number" name="attr_per_final" max="20" min="0" maxlength="2" value="@{per}+@{per_special}+@{per_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_per_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{perception}}} {{desc=^{opposed}}} {{roll=[[1d10+@{per_opposed_final}+?{Modifiers?|0}[Modifiers]]]}}">
-          <input type="number" name="attr_per_opposed_final" max="20" min="0" maxlength="2" value="(@{per_final})+@{per_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{perception}}} {{name=^{perception-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{per_opposed_final}">
+          <input type="number" name="attr_per_opposed_final" max="20" min="0" maxlength="2" value="(@{per_final})+@{per_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End perception -->
@@ -1611,19 +1611,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_pow_opposed_final" max="20" min="0" maxlength="2" value="(@{pow_final})+@{pow_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_pow_opposed_final" max="20" min="0" maxlength="2" value="(@{pow_final})+@{pow_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_pow"
-        value="@{wtype}&{template:ABFini} {{name=^{soul-power}}} {{desc=^{soul-power-short}}} {{roll=[[1d10+(@{pow_final})+?{Modifiers?|0}[Modifiers]]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{soul-power}}} {{name=^{soul-power-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{pow_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="soul-power-short">POW</span>
           <input type="number" name="attr_pow_final" max="20" min="0" maxlength="2" value="@{pow}+@{pow_special}+@{pow_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_pow_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{soul-power}}} {{desc=^{opposed}}} {{roll=[[1d10+@{pow_opposed_final}+?{Modifiers?|0}[Modifiers]]]}}">
-          <input type="number" name="attr_pow_opposed_final" max="20" min="0" maxlength="2" value="(@{pow_final})+@{pow_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{soul-power}}} {{name=^{soul-power-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{pow_opposed_final}">
+          <input type="number" name="attr_pow_opposed_final" max="20" min="0" maxlength="2" value="(@{pow_final})+@{pow_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End soul-power -->
@@ -1674,19 +1674,19 @@
         </div>
         <div class="sheet-dark_row">
           <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-opposed">Final Opp.</div>
-          <input type="number" name="attr_wp_opposed_final" max="20" min="0" maxlength="2" value="(@{wp_final})+@{wp_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+          <input type="number" name="attr_wp_opposed_final" max="20" min="0" maxlength="2" value="(@{wp_final})+@{wp_opposed}" style="width:40px;" disabled="true"/>
         </div>
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_wp"
-        value="@{wtype}&{template:ABFini} {{name=^{willpower}}} {{desc=^{willpower-short}}} {{roll=[[1d10+(@{wp_final})+?{Modifiers?|0}[Modifiers]]]}}">
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{willpower}}} {{name=^{willpower-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{wp_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="willpower-short">WIL</span>
           <input type="number" name="attr_wp_final" max="20" min="0" maxlength="2" value="@{wp}+@{wp_special}+@{wp_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_wp_opposed"
-        value="@{wtype}&{template:ABFini} {{name=^{willpower}}}} {{desc=^{opposed}}}} {{roll=[[1d10+@{wp_opposed_final}+?{Modifiers?|0}[Modifiers]]]}}">
-          <input type="number" name="attr_wp_opposed_final" max="20" min="0" maxlength="2" value="(@{wp_final})+@{wp_opposed}+floor(@{aam}/20)" style="width:40px;" disabled="true"/>
+        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{willpower}}} {{name=^{willpower-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{wp_opposed_final}">
+          <input type="number" name="attr_wp_opposed_final" max="20" min="0" maxlength="2" value="(@{wp_final})+@{wp_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
     </div><!-- End willpower -->
@@ -1700,7 +1700,7 @@
           <div class="sheet-cell" style="width:50px;" data-i18n="special-bonus">Special</div>
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_physical" value="@{wtype}&{template:ABFini} {{name=^{physical-resistance}}} {{desc=^{physical-resistance-short}}} {{roll=[[1d100cf<[[@{fr}]]+@{resist_physical_final}+?{Modifiers?|0}[Modifiers]]]}}">
+          <button type="roll" class="sheet-label" name="roll_resist_physical" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{physical-resistance}}} {{name=^{physical-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_physical_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="physical-resistance-short">PhR</div>
             <input type="number" name="attr_resist_physical_final" style="width:50px;"
             value="@{presence}+@{con_mod}+@{body_of_emptiness}+@{resist_physical_special}" disabled="true"/>
@@ -1708,7 +1708,7 @@
           <input type="number" name="attr_resist_physical_special" value="0" style="width:50px;" />
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_disease" value="@{wtype}&{template:ABFini} {{name=^{disease-resistance}}} {{desc=^{disease-resistance-short}}} {{roll=[[1d100cf<[[@{fr}]]+@{resist_disease_final}+?{Modifiers?|0}[Modifiers]]]}}">
+          <button type="roll" class="sheet-label" name="roll_resist_disease" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{disease-resistance}}} {{name=^{disease-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_disease_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="disease-resistance-short">DR</div>
             <input type="number" name="attr_resist_disease_final" style="width:50px;" 
             value="@{presence}+@{con_mod}+@{body_of_emptiness}+@{resist_disease_special}" disabled="true"/>
@@ -1716,7 +1716,7 @@
           <input type="number" name="attr_resist_disease_special" value="0"/ style="width:50px;">
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_poison" value="@{wtype}&{template:ABFini} {{name=^{poison-resistance}}} {{desc=^{poison-resistance-short}}} {{roll=[[1d100cf<[[@{fr}]]+@{resist_poison_final}+?{Modifiers?|0}[Modifiers]]]}}">
+          <button type="roll" class="sheet-label" name="roll_resist_poison" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{poison-resistance}}} {{name=^{poison-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_poison_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="poison-resistance-short">PsnR</div>
             <input type="number" name="attr_resist_poison_final" style="width:50px;" 
             value="@{presence}+@{con_mod}+@{body_of_emptiness}+@{resist_poison_special}" disabled="true"/>
@@ -1724,7 +1724,7 @@
           <input type="number" name="attr_resist_poison_special" value="0" style="width:50px;"/>
         </div>    
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_magic" value="@{wtype}&{template:ABFini} {{name=^{magic-resistance}}} {{desc=^{magic-resistance-short}}} {{roll=[[1d100cf<[[@{fr}]]+@{resist_magic_final}+?{Modifiers?|0}[Modifiers]]]}}">
+          <button type="roll" class="sheet-label" name="roll_resist_magic" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{magic-resistance}}} {{name=^{magic-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_magic_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="magic-resistance-short">MR</div>
             <input type="number" name="attr_resist_magic_final" style="width:50px;" 
             value="@{presence}+@{pow_mod}+@{body_of_emptiness}+@{resist_magic_special}" disabled="true"/>
@@ -1732,7 +1732,7 @@
           <input type="number" name="attr_resist_magic_special" value="0" style="width:50px;"/>
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_psychic" value="@{wtype}&{template:ABFini} {{name=^{psychic-resistance}}} {{desc=^{psychic-resistance-short}}} {{roll=[[1d100cf<[[@{fr}]]+@{resist_psychic_final}+?{Modifiers?|0}[Modifiers]]]}}">
+          <button type="roll" class="sheet-label" name="roll_resist_psychic" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{psychic-resistance}}} {{name=^{psychic-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_psychic_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="psychic-resistance-short">PsyR</div>
             <input type="number" name="attr_resist_psychic_final" style="width:50px;" 
             value="@{presence}+@{wp_mod}+@{body_of_emptiness}+@{resist_psychic_special}" disabled="true"/>
@@ -1742,13 +1742,23 @@
       </div><br/><!-- end resistances -->
       <div class="sheet-wrapper"><!-- All Action Modifier -->
         <div class="sheet-title" style="margin-bottom:0px;" data-i18n="all-action-modifier">All Action Mod</div>
-        <div class="sheet-style_row">
-          <input type="number" name="attr_aam" value="0" style="width:160px;" />
-          <input type="hidden" name="attr_aap" disabled="true" value="(((@{aam}) - abs(@{aam})) / 2)" /><!-- All Action Penalty -->
+		<div class="sheet-style_row">
+          	<input type="number" name="attr_aam" value="0" style="width:160px;" />
+          	<input type="hidden" name="attr_aap" disabled="true" value="(((@{aam})-abs(@{aam}))/2)" /><!-- All Action Penalty -->
+			<div class="sheet-title" style="margin-bottom:0px;" data-i18n="inhuman-action">Inhuman Actions</div>
+			<div class="sheet-style_row">
+        		<label><input type="radio" name="attr_inhuman_action" value="" /><span data-i18n="no">No</span></label>
+       		</div>
+       		<div class="sheet-style_row">
+        		<label><input type="radio" name="attr_inhuman_action" value="inhuman" /><span data-i18n="inhumanity">Inhumanity</span></label>
+       		</div>
+       		<div class="sheet-style_row">
+        		<label><input type="radio" name="attr_inhuman_action" value="zen" /><span data-i18n="zen">Zen</span></label>
+       		</div>
         </div>
       </div><!-- end All Action Modifier -->
-    </div>
-    
+	</div>
+      
    </div><!-- end first row -->
    <div class="sheet-style_row sheet-noborder" style="top:0px;"> <!-- second row -->
     <div class="sheet-wrapper" style="top:0px;width:130px;"> <!-- movement -->
@@ -1856,7 +1866,7 @@
         <input type="number" name="attr_attack_special" value="0" min="0" />
       </div>
       <div class="sheet-style_row">
-        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_attack_mastery" value="1"/></label>
+        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_attack_mastery" value="mastery"/></label>
       </div>
     </div>
     <div class="sheet-style_row">
@@ -1866,10 +1876,10 @@
     <div class="sheet-style_row">
         <div class="sheet-cell" data-i18n="final-value">Final</div>
       <input type="number" name="attr_attack_final"
-        value="@{attack_base}+@{attack_class}+@{dex_mod}+@{attack_special}+@{attack_temp}+@{aam}" disabled ="true"/>
+        value="@{attack_base}+@{attack_class}+@{dex_mod}+@{attack_special}+@{attack_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-      <button type="roll" name="roll_attack" class="sheet-d100-roll-button sheet-widebutton" value="@{wtype}&{template:ABFdefault} {{title=^{attack}}} {{name=^{attack}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{attack_mastery}]]+[[@{attack_final}]]+15*?{Fatigue?|0}[Fatigue]+?{Modifiers?|0}[Modifiers]]]}}"></button>
+      <button type="roll" name="roll_attack" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{name=^{attack}}} @{ord} @{attack_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{attack_final}"></button>
     </div>
     </div><!--end attack -->
     <div class="sheet-wrapper" style="top:0px;width:115px;"><!-- block -->
@@ -1889,7 +1899,7 @@
         <input type="number" name="attr_block_special" value="0" min="0" />
       </div>
       <div class="sheet-style_row">
-        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_block_mastery" value="1"/></label>
+        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_block_mastery" value="mastery"/></label>
       </div>
     </div>
     <div class="sheet-style_row">
@@ -1899,10 +1909,10 @@
     <div class="sheet-style_row">
         <div class="sheet-cell" data-i18n="final-value">Final</div>
         <input type="number" name="attr_block_final"
-        value="@{block_base}+@{block_class}+@{dex_mod}+@{block_special}+@{block_temp}+@{aam}" disabled ="true"/>
+        value="@{block_base}+@{block_class}+@{dex_mod}+@{block_special}+@{block_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-        <button type="roll" name="roll_block" class="sheet-d100-roll-button sheet-widebutton" value="@{wtype}&{template:ABFdefault} {{title=^{defense}}} {{name=^{block}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{block_mastery}]]+[[@{block_final}]]+15*?{Fatigue?|0}[Fatigue]+?{Modifiers?|0}[Modifiers]]]}}"></button>
+        <button type="roll" name="roll_block" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{name=^{block}}} @{ord} @{block_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{block_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
     </div>
     </div><!--end block -->
     <div class="sheet-wrapper" style="top:0px;width:115px;"><!-- dodge -->
@@ -1922,7 +1932,7 @@
         <input type="number" name="attr_dodge_special" value="0" min="0" />
       </div>
       <div class="sheet-style_row">
-        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_dodge_mastery" value="1"/></label>
+        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_dodge_mastery" value="mastery"/></label>
       </div>
     </div>
     <div class="sheet-style_row">
@@ -1932,10 +1942,10 @@
     <div class="sheet-style_row">
         <div class="sheet-cell" data-i18n="final-value">Final</div>
         <input type="number" name="attr_dodge_final"
-        value="@{dodge_base}+@{dodge_class}+@{agi_mod}+@{dodge_special}+@{dodge_temp}+@{aam}" disabled ="true"/>
+        value="@{dodge_base}+@{dodge_class}+@{agi_mod}+@{dodge_special}+@{dodge_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-        <button type="roll" name="roll_dodge" class="sheet-d100-roll-button sheet-widebutton" value="@{wtype}&{template:ABFdefault} {{title=^{defense}}} {{name=^{dodge}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{dodge_mastery}]]+[[@{dodge_final}]]+15*?{Fatigue?|0}[Fatigue]+?{Modifiers?|0}[Modifiers]]]}}"></button>
+        <button type="roll" name="roll_dodge" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{name=^{dodge}}} @{ord} @{dodge_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{dodge_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
     </div>
     </div><!--end dodge -->
    </div><!-- end second row -->
@@ -1962,15 +1972,15 @@
                 <input type="number"  style="width:65px;" name="attr_init_class" value="0" min="0"/>
                 <input type="number"  style="width:65px;" name="attr_init_special" value="0"/>
                 <input type="number"  style="width:65px;" name="attr_init_final" disabled="true"
-                value="@{agi_mod}+@{dex_mod}+@{init_armor}+@{init_weapon}+@{init_class}+@{init_special}+20+@{ki_increasedSpeed}+floor(@{aap}/2)"/>
+                value="@{agi_mod}+@{dex_mod}+@{init_armor}+@{init_weapon}+@{init_class}+@{init_special}+20+@{ki_increasedSpeed})"/>
               </div>
             </div>
             <div class="sheet-compact">
               <button type="roll" class="sheet-label" name="roll_init"
-              value="@{wtype}&{template:ABFini} {{name=@{init_label}}} {{desc=^{initiative}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}]]+[[@{init_final}]]&{tracker}]]}}">
+              value="!openroll who:@{character_name} @{wtype} template:ini {{name=initiative}} {{desc=@{init_label}}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{init_final} initiative">
                 <input type="text" name="attr_init_label" style="width:290px;"/>
                 <input type="text" name="attr_init_final" disabled="true" style="width:40px;"
-                value="@{agi_mod}+@{dex_mod}+@{init_armor}+@{init_weapon}+@{init_class}+@{init_special}+20+@{ki_increasedSpeed}+floor(@{aap}/2)"/>
+                value="@{agi_mod}+@{dex_mod}+@{init_armor}+@{init_weapon}+@{init_class}+@{init_special}+20+@{ki_increasedSpeed}+(@{armor_wear_penalty})"/>
               </button> 
             </div>
           </div>
@@ -2082,7 +2092,7 @@
       <div class="sheet-dark_row" style="padding-bottom:3px;">
         <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-value">Final</div>
         <input class="sheet-cell" type="number" name="attr_magicprojection_final" disabled="true" style="width:auto;"
-        value="@{magicprojection_base}+@{dex_mod}+@{magicprojection_special}+@{magicprojection_temp}+@{aam}" />
+        value="@{magicprojection_base}+@{dex_mod}+@{magicprojection_special}+@{magicprojection_temp}" />
       </div>
       <div class="sheet-style_row" style="margin-bottom:0px;">
         <div style="background-color:black; color:white;border-top-right-radius:1em;border-top-left-radius:1em;
@@ -2101,8 +2111,8 @@
         value="-1*@{magicprojection_imbalance}+@{magicprojection_final}"/>
       </div>
       <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_magicprojection_offensive_mastery" value="1"/></label>
-        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_magicprojection_defensive_mastery" value="1"/></label>
+        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_magicprojection_offensive_mastery" value="mastery"/></label>
+        <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_magicprojection_defensive_mastery" value="mastery"/></label>
       </div>
     </div>
     <div class="sheet-compact">
@@ -2112,13 +2122,13 @@
       </div>
       <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
         <button type="roll" class="sheet-label" name="roll_magicprojection_offensiveroll"
-        value="@{wtype}&{template:ABFini} {{name=^{magic-projection}}} {{desc=^{offensive}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{magicprojection_offensive_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{magicprojection_offensive_final}]]]]}}">
+        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{offensive}}} @{ord} @{magicprojection_offensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_offensive_final}">
           <div class="sheet-cell" data-i18n="offensive">Off.</div>
           <input type="number" disabled="true" name="attr_magicprojection_offensive_final" class="sheet-cell" style="width:70px;"
           value="@{magicprojection_final}+@{magicprojection_imbalance}"/>
         </button> 
         <button type="roll" class="sheet-label" name="roll_magicprojection_defensiveroll"
-        value="@{wtype}&{template:ABFini} {{name=^{magic-projection}}} {{desc=^{defensive}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{magicprojection_defensive_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{magicprojection_defensive_final}]]]]}}">
+        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{defensive}}} @{ord} @{magicprojection_defensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_defensive_final}">
           <div class="sheet-cell" data-i18n="defensive">Def.</div>
           <input type="number" disabled="true" name="attr_magicprojection_defensive_final" class="sheet-cell" style="width:70px;"
           value="-1*@{magicprojection_imbalance}+@{magicprojection_final}"/>
@@ -2340,10 +2350,10 @@
             <input type="number" name="attr_summon_class" value="0" min="0"/>
             <input type="number" name="attr_summon_special" value="0"/>
             <input type="number" name="attr_summon_final" disabled="true"
-            value="@{summon_base}+@{summon_class}+@{summon_special}+@{pow_mod}+@{aap}"/>
-            <input type="checkbox" class="" name="attr_summon_mastery" value="1"/>
+            value="@{summon_base}+@{summon_class}+@{summon_special}+@{pow_mod}"/>
+            <input type="checkbox" class="" name="attr_summon_mastery" value="mastery"/>
             <button type="roll" name="roll_summon" class="sheet-d100-roll-button"
-            value="@{wtype}&{template:ABFini} {{name=^{summon-ritual}}} {{desc=^{ritual}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{summon_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{summon_final}]]]]}}"></button>
+            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{summon-ritual}}} {{name=^{ritual}}} @{ord} @{summon_mastery} ?{Modifiers?|} @{aap} val:expr:@{summon_final}"></button>
           </div>
           <div class="sheet-style_row" style="margin-top:0px; margin-bottom:0px;">
             <div class="sheet-cell sheet-longbubble" data-i18n="control-ritual">Control</div>
@@ -2351,10 +2361,10 @@
             <input type="number" name="attr_control_class" value="0" min="0"/>
             <input type="number" name="attr_control_special" value="0"/>
             <input type="number" name="attr_control_final" disabled="true"
-            value="@{control_base}+@{control_class}+@{control_special}+@{wp_mod}+@{aap}"/>
-            <input type="checkbox" class="" name="attr_control_mastery" value="1"/>
+            value="@{control_base}+@{control_class}+@{control_special}+@{wp_mod}"/>
+            <input type="checkbox" class="" name="attr_control_mastery" value="mastery"/>
             <button type="roll" name="roll_control" class="sheet-d100-roll-button"
-            value="@{wtype}&{template:ABFini} {{name=^{control-ritual}}} {{desc=^{ritual}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{control_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{control_final}]]]]}}"></button>
+            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{control-ritual}}} {{name=^{ritual}}} @{ord} @{control_mastery} ?{Modifiers?|} @{aap} val:expr:@{control_final}"></button>
           </div>
           <div class="sheet-style_row">
             <div class="sheet-cell sheet-longbubble" data-i18n="bind-ritual">Bind</div>
@@ -2362,10 +2372,10 @@
             <input type="number" name="attr_bind_class" value="0" min="0"/>
             <input type="number" name="attr_bind_special" value="0"/>
             <input type="number" name="attr_bind_final" disabled="true"
-            value="@{bind_base}+@{bind_class}+@{bind_special}+@{pow_mod}+@{aap}"/>
-            <input type="checkbox" class="" name="attr_bind_mastery" value="1"/>
+            value="@{bind_base}+@{bind_class}+@{bind_special}+@{pow_mod}"/>
+            <input type="checkbox" class="" name="attr_bind_mastery" value="mastery"/>
             <button type="roll" name="roll_bind" class="sheet-d100-roll-button"
-            value="@{wtype}&{template:ABFini} {{name=^{bind-ritual}}} {{desc=^{ritual}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{bind_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{bind_final}]]]]}}"></button>
+            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{bind-ritual}}} {{name=^{ritual}}} @{ord} @{bind_mastery} ?{Modifiers?|} @{aap} val:expr:@{bind_final}"></button>
           </div>
           <div class="sheet-style_row">
             <div class="sheet-cell sheet-longbubble" data-i18n="banish-ritual">Banish</div>
@@ -2373,10 +2383,10 @@
             <input type="number" name="attr_banish_class" value="0" min="0"/>
             <input type="number" name="attr_banish_special" value="0" />
             <input type="number" name="attr_banish_final" disabled="true"
-            value="@{banish_base}+@{banish_class}+@{banish_special}+@{pow_mod}+@{aap}"/>
-            <input type="checkbox" class="" name="attr_banish_mastery" value="1"/>
+            value="@{banish_base}+@{banish_class}+@{banish_special}+@{pow_mod}"/>
+            <input type="checkbox" class="" name="attr_bind_mastery" value="mastery"/>
             <button type="roll" name="roll_banish" class="sheet-d100-roll-button"
-            value="@{wtype}&{template:ABFini} {{name=^{banish-ritual}}} {{desc=^{ritual}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{banish_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{banish_final}]]]]}}"></button>
+            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{banish-ritual}}} {{name=^{ritual}}} @{ord} @{banish_mastery} ?{Modifiers?|} @{aap} val:expr:@{banish_final}"></button>
           </div>
         </div><!-- end summoning -->
       </div><!-- end 1nd col -->
@@ -2423,11 +2433,11 @@
                   </div>
                   <div class="sheet-style_row" style="text-align:center">
                     <button type="roll" class="sheet-label" name="roll_offensiveroll"
-                    value="@{wtype}&{template:ABFdefault} {{title=^{magic-projection}}} {{name=^{offensive}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{magicprojection_offensive_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{magicprojection_offensive_final}]]]]}}">
+                    value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{offensive}}} @{ord} @{magicprojection_offensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_offensive_final}">
                       <div class="sheet-cell" data-i18n="offensive">Off.</div>
                     </button>
                     <button type="roll" class="sheet-label" name="roll_defensiveroll"
-                    value="@{wtype}&{template:ABFdefault} {{title=^{magic-projection}}} {{name=^{defensive}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{magicprojection_defensive_master}]]+?{Modifiers?|0}[Modifiers]+[[@{magicprojection_defensive_final}]]]]}}">
+                    value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{defensive}}} @{ord} @{magicprojection_defensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_defensive_final}">
                       <div class="sheet-cell" data-i18n="defensive">Def.</div>
                     </buton>
                   </div>
@@ -2575,7 +2585,7 @@
                 </div>
                 <div class="sheet-compact">
                   <button type="roll" class="sheet-label" name="roll_spell"
-                  value="@{wtype}&{template:ABFspell} {{name=@{spell_name}}} {{path=@{spell_path}}} {{level=@{spell_level}}} {{mastery=@{spell_mastery}}} {{desc=@{spell_desc}}} {{maint=@{spell_maint}}} {{type=@{spell_type}}} {{projection=@{spell_projection}}} {{system=[[@{spell_system}]]}} {{basic_req=@{spell_basic_req}}} {{basic_zeon=@{spell_basic_zeon}}} {{basic_maint=@{spell_basic_maint}}} {{basic_desc=@{spell_basic_desc}}} {{basic_roll_name=[^{basic}](~repeating_spells_spell_basic)}} {{inter_req=@{spell_inter_req}}} {{inter_zeon=@{spell_inter_zeon}}} {{inter_maint=@{spell_inter_maint}}} {{inter_desc=@{spell_inter_desc}}} {{inter_roll_name=[^{intermediate}](~repeating_spells_spell_inter)}} {{advan_req=@{spell_advan_req}}} {{advan_zeon=@{spell_advan_zeon}}} {{advan_maint=@{spell_advan_maint}}} {{advan_desc=@{spell_advan_desc}}} {{advan_roll_name=[^{advanced}](~repeating_spells_spell_advan)}} {{arcan_req=@{spell_arcan_req}}} {{arcan_zeon=@{spell_arcan_zeon}}} {{arcan_maint=@{spell_arcan_maint}}} {{arcan_desc=@{spell_arcan_desc}}} {{arcan_roll_name=[^{arcane}](~repeating_spells_spell_arcan)}} {{zeon=@{spell_zeon}}} {{zeon-max=[[@{spell_zeonmulti}*((@{magic_ability})+@{spell_mastery})]]}} {{old_roll_name=[cast-spell](~repeating_spells_spell_old)}}">
+                  value="@{wtype}&{template:ABFspell} {{name=@{spell_name}}} {{path=@{spell_path}}} {{level=@{spell_level}}} {{mastery=@{spell_mastery}}} {{desc=@{spell_desc}}} {{maint=@{spell_maint}}} {{type=@{spell_type}}} {{projection=@{spell_projection}}} {{system=[[@{spell_system}]]}} {{basic_req=@{spell_basic_req}}} {{basic_zeon=@{spell_basic_zeon}}} {{basic_maint=@{spell_basic_maint}}} {{basic_desc=@{spell_basic_desc}}} {{basic_roll_name=[^{basic}](~repeating_spells_spell_basic)}} {{inter_req=@{spell_inter_req}}} {{inter_zeon=@{spell_inter_zeon}}} {{inter_maint=@{spell_inter_maint}}} {{inter_desc=@{spell_inter_desc}}} {{inter_roll_name=[^{intermediate}](~repeating_spells_spell_inter)}} {{advan_req=@{spell_advan_req}}} {{advan_zeon=@{spell_advan_zeon}}} {{advan_maint=@{spell_advan_maint}}} {{advan_desc=@{spell_advan_desc}}} {{advan_roll_name=[^{advanced}](~repeating_spells_spell_advan)}} {{arcan_req=@{spell_arcan_req}}} {{arcan_zeon=@{spell_arcan_zeon}}} {{arcan_maint=@{spell_arcan_maint}}} {{arcan_desc=@{spell_arcan_desc}}} {{arcan_roll_name=[^{arcane}](~repeating_spells_spell_arcan)}} {{zeon=@{spell_zeon}}} {{zeon-max=[[@{spell_zeonmulti}*((@{magic_ability})+@{spell_mastery})]]}} {{old_roll_name=[^{cast-spell}](~repeating_spells_spell_old)}}">
                     <input type="text" name="attr_spell_name" style="width:190px;"/>
                     <input type="text" name="attr_spell_path" style="width:130px;"/>
                   </button>
@@ -2638,7 +2648,7 @@
             </div>
             <div class="sheet-compact">
               <button type="roll" name="roll_invocation"  class="sheet-label"
-              value="@{wtype}&{template:ABFdefault} {{title=@{invocation_name}}} {{name=@{invocation_name}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{summon_mastery}]]+?{Modifiers?|0}[Modifiers]]]+[[@{summon_final}]][Summon]}} {{diff=[[@{invocation_diff}]]}} {{cost=[[@{invocation_cost}]] ^{zeon}}} {{desc=@{invocation_desc}}}">
+              value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{invocations}}} {{name=@{invocation_name}}} @{ord} @{summon_mastery} ?{Modifiers?|} @{aap} val:expr:@{summon_final} {{diff=@{invocation_diff}}} {{cost=@{invocation_cost}^{zeon}}}">
                 <input type="text" style="width:240px;" name="attr_invocation_name"/>
                 <input type="number" class="sheet-cell" name="attr_invocation_cost" value="0" min="0" style="width:70px;"/>
                 <input type="number" class="sheet-cell" name="attr_invocation_diff" value="0"  min="0" style="width:70px;"/>
@@ -2724,7 +2734,7 @@
                 <input type="number" value="0" name="attr_potential_special"/>
               </div>
               <div class="sheet-style_row">
-                <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_potential_mastery" value="1"/></label>
+                <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_potential_mastery" value="mastery"/></label>
               </div>
             </div>
             <div class="sheet-style_row">
@@ -2733,13 +2743,13 @@
             </div>
             <div class="sheet-dark_row" style="padding-bottom:3px;">
               <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-value">Final</div>
-              <input type="hidden" disabled="true" name="attr_max_xy" value="((((@{wp_final})+4) + abs((@{wp_final})-4)) / 2)" />
+              <input type="hidden" disabled="true" name="attr_max_xy" value="((((@{wp_final})+4)+abs((@{wp_final})-4))/2)" />
               <input type="number" name="attr_potential_final" disabled="true"
-              value="@{potential_spent}+@{potential_base}+@{potential_special}+@{potential_temp}+((@{max_xy}*10)-40)+((@{max_xy}*10)-140)*floor(@{max_xy}/15)+@{aap}" class="sheet-cell"/>
+              value="@{potential_spent}+@{potential_base}+@{potential_special}+@{potential_temp}+((@{max_xy}*10)-40)+((@{max_xy}*10)-140)*floor(@{max_xy}/15)" class="sheet-cell"/>
             </div>
             <div class="sheet-dark_row" style="text-align:center;">
               <button type="roll" name="roll_psychic_potential" class="sheet-d100-roll-button sheet-widebutton"
-              value="@{wtype}&{template:ABFdefault} {{title=^{psychic}}} {{name=^{psychic-potential}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{potential_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{potential_final}]]]]}}"></button>
+              value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{psychic}}} {{name=^{psychic-potential}}} @{ord} @{potential_mastery} ?{Modifiers?|} @{aap} val:expr:@{potential_final}"></button>
             </div>
           </div><!-- end Psychic Potential -->
           <div class="sheet-wrapper" style="width:151px;"><!-- psychic projection -->
@@ -2755,7 +2765,7 @@
                 <input type="number" value="0" name="attr_projection_special"/>
               </div>
               <div class="sheet-style_row">
-                <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_projection_mastery" value="1"/></label>
+                <label><span class="sheet-cell" data-i18n="spell-mastery">Mastery</span><input type="checkbox" class="" name="attr_projection_mastery" value="mastery"/></label>
               </div>
             </div>
             <div class="sheet-style_row">
@@ -2765,12 +2775,12 @@
             <div class="sheet-dark_row" style="padding-bottom:3px;">
               <div class="sheet-cell sheet-actual_cell sheet-longbubble" data-i18n="final-value">Final</div>
               <input type="number" name="attr_projection_final" disabled="true"
-              value="@{projection_base}+@{projection_special}+@{projection_temp}+@{dex_mod}+@{aam}"
+              value="@{projection_base}+@{projection_special}+@{projection_temp}+@{dex_mod}"
               class="sheet-cell"/>
             </div>
             <div class="sheet-dark_row" style="text-align:center;height:auto;">
               <button type="roll" name="roll_psychic_projection" class="sheet-d100-roll-button sheet-widebutton"
-              value="@{wtype}&{template:ABFdefault} {{title=^{psychic}}} {{name=^{psychic-projection}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{projection_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{projection_final}]]]]}}"></button>
+              value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{psychic}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final}"></button>
             </div>
           </div><!-- end Psychic Projection -->
         </div>
@@ -2874,18 +2884,18 @@
                       </div>
                       <div class="sheet-style_row">
                         <button type="roll" name="roll_power_projection"  class="sheet-label"
-                        value="@{wtype}&{template:ABFdefault} {{title=@{psychic_power_name}}} {{name=^{psychic-projection}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{projection_mastery}]]+?{Modifiers?|0}[Modifiers]+[[@{projection_final}]]]]}}">
+                        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=@{psychic_power_name}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final}">
                           <span data-i18n="psychic-projection">Projection</span>
                         </button>
                         <button type="roll" name="roll_power_potential"  class="sheet-label"
-                        value="@{wtype}&{template:ABFdefault} {{title=@{psychic_power_name}}} {{name=^{psychic-potential}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{potential_final}]]+[[?{Potential?|@{potential_final}}]]+?{Modifier?|0}+@{psychic_power_bonus}]]}}">
+                        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=@{psychic_power_name}}} {{name=^{psychic-potential}}} @{ord} @{potential_mastery} ?{Modifiers?|} @{aap} val:expr:@{potential_final} @{psychic_power_bonus}">
                           <span data-i18n="psychic-potential">Potential</span>
                         </button>
                       </div>
                     </div>
                     <div class="sheet-compact">
                       <button type="roll" name="roll_psychic_power"  class="sheet-label"
-                      value="@{wtype}&{template:ABFpsi} {{title=@{psychic_power_name}}} {{projection=[^{psychic-projection}](~repeating_psychicpowers_power_projection)}} {{potential=[^{psychic-potential}](~repeating_psychicpowers_power_potential)}} {{potential-round=[[[[@{potential_final}]]]]}} {{desc=@{psychic_power_desc}}} {{diff20=@{psychic_power_diff20}}} {{diff40=@{psychic_power_diff40}}}  {{diff80=@{psychic_power_diff80}}}  {{diff120=@{psychic_power_diff120}}}  {{diff140=@{psychic_power_diff140}}}  {{diff180=@{psychic_power_diff180}}}  {{diff240=@{psychic_power_diff240}}} {{diff280=@{psychic_power_diff280}}} {{diff320=@{psychic_power_diff320}}} {{diff440=@{psychic_power_diff440}}}">
+                      value="@{wtype}&{template:ABFpsi} {{title=@{psychic_power_name}}} {{projection=[^{psychic-projection}](~repeating_psychicpowers_power_projection)}} {{potential=[^{psychic-potential}](~repeating_psychicpowers_power_potential)}} {{desc=@{psychic_power_desc}}} {{diff20=@{psychic_power_diff20}}} {{diff40=@{psychic_power_diff40}}}  {{diff80=@{psychic_power_diff80}}}  {{diff120=@{psychic_power_diff120}}}  {{diff140=@{psychic_power_diff140}}}  {{diff180=@{psychic_power_diff180}}}  {{diff240=@{psychic_power_diff240}}} {{diff280=@{psychic_power_diff280}}} {{diff320=@{psychic_power_diff320}}} {{diff440=@{psychic_power_diff440}}}">
                         <input type="text" name="attr_psychic_power_name" style="width:220px;">
                         <input type="number" name="attr_psychic_power_bonus" value="0" min="0">
                       </button>
@@ -2946,11 +2956,15 @@
             
             <div class="sheet-req_kicontrol sheet-ki_row sheet-kidetection">
                 <div class="sheet-cell sheet-ki_indent2 sheet-ki_title" data-i18n="ki-detection">Ki Detection</div>
-                <input type="number" disabled="true" name="attr_ki_detection_value" value="round((@{noti_final} + @{mk_final})/2)+@{aam}"/>
-                <button type='roll' value='&{template:ABFdefault} {{title=^{ki-abilities}}} {{name=^{ki-detection}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}]]+[[@{ki_detection_value}]]+?{Modifiers?|0}[Modifiers]]]}} {{desc=^{@{ki_erudition}}}}' class="sheet-d100-roll-button" name='roll_ki_detection'></button>
+                <input type="number" disabled="true" name="attr_ki_detection_value" value="floor((@{noti_final}+@{mk_final})/2)"/>
+                <button type='roll' value='!openroll who:@{character_name} zen @{wtype} template:default {{title=^{ki-abilities}}} {{name=^{ki-detection}}} @{ord} @{ki_detection_mastery} ?{Modifiers?|} @{aam} val:expr:@{ki_detection_value}' class="sheet-d100-roll-button" name='roll_ki_detection'></button>
                 <div class="sheet-cell sheet-ki_cost" style="padding-top: 4px;">(20)</div>
             </div>
             <input type="checkbox" class="sheet-ki_learned sheet-req_kicontrol sheet-kidetection" name="attr_ki_detection"/>
+            
+            <div class="sheet-ki_row sheet-req_kidetection">
+            	<label class="sheet-cell sheet-ki_indent3 sheet-ki_title"><input type="checkbox" name="attr_ki_detection_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
+            </div>
             
             <div class="sheet-ki_row sheet-req_kidetection">
                 <div class="sheet-cell sheet-ki_indent3 sheet-ki_title" data-i18n="ki-erudition">Erudition</div>
@@ -3194,11 +3208,15 @@
             
             <div class="sheet-ki_row sheet-req_useofnecenergy">
                 <div class="sheet-cell sheet-ki_indent2 sheet-ki_title" data-i18n="ki-concealment">Ki Concealment</div>
-                <input type="number" disabled="true" name="attr_ki_concealment_value" value="round((@{stea_final} + @{mk_final})/2)+@{aam}"/>
-                <button type='roll' value='&{template:ABFdefault} {{title=^{ki-abilities}}} {{name=^{ki-concealment}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}]]+[[@{ki_concealment_value}]]+?{Modifiers?|0}[Modifiers]]]}}' class="sheet-d100-roll-button" name='roll_ki_concealment'></button>          
+                <input type="number" disabled="true" name="attr_ki_concealment_value" value="floor((@{stea_final}+@{mk_final})/2)"/>
+                <button type='roll' value='!openroll who:@{character_name} zen @{wtype} template:default {{title=^{ki-abilities}}} {{name=^{ki-concealment}}} @{ord} @{ki_concealment_mastery} ?{Modifiers?|} @{aam} val:expr:@{ki_concealment_value}' class="sheet-d100-roll-button" name='roll_ki_concealment'></button>          
                 <div class="sheet-cell sheet-ki_cost" style="margin-top:4px;">(10)</div>
             </div>
             <input type="checkbox" class="sheet-ki_learned sheet-req_useofnecenergy sheet-kiconceal" name="attr_ki_concealment"/>
+            
+            <div class="sheet-ki_row sheet-req_kiconceal">
+            	<label class="sheet-cell sheet-ki_indent3 sheet-ki_title"><input type="checkbox" name="attr_ki_concealment_mastery" value="mastery"/><span data-i18n="spell-mastery">Mastery</span></label>
+            </div>
             
             <div class="sheet-ki_row sheet-req_kiconceal">
                 <div class="sheet-cell sheet-ki_indent3 sheet-ki_title" data-i18n="aura-of-concealment">Aura of Concealment</div>
@@ -3771,7 +3789,7 @@
                     <input type="text" name="attr_ki_creatureseals" style="width:260px;"/>
                     <input type="hidden" name="attr_ki_creaturedifficulty" value="10*(@{ki_creaturelevel}-@{character_level})" disabled="true"/>
                     <button type="roll" name="roll_ki_summon" class="sheet-d100-roll-button"
-                    value="@{wtype}&{template:ABFdefault} {{title=@{summon-ritual}} {{name=^{ki}}} {{roll=[[{1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}]]+?{Modifiers?|0}[Modifiers]+@{aap}]]}} {{diff=[[@{ki_creaturedifficulty}]]]]}}"></button>
+                    value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{summon-ritual}}} {{name=@{ki_creaturename}}} @{ord} ?{Modifiers?|} expr:?{Minor Seals Sup. ?|0}*5 expr:?{Major Seals Sup. ?|0}*25 expr:-(@{ki_creaturedifficulty}) @{aap}"></button>
                 </fieldset>
             </div><!-- end ki creatures -->
             
@@ -3905,20 +3923,38 @@
         <input type="number" name="attr_weararmor_final" class="sheet-cell"
         value="@{str_mod}+@{weararmor_base}+@{weararmor_special}+@{weararmor_temp}+@{weararmor_class}" disabled="true"/>
     </div>
+
+	<div class="sheet-title" style="font-size:1.3em;" data-i18n="armormalus">Armor Malus</div>
+	<div class="sheet-style_row">
+        <div class="sheet-cell sheet-sidebubbled" data-i18n="modifier">Mod</div>
+		<input type="number" name="attr_armor_penalty_mod" value="0"/>
+	</div>
+	
+	<input disabled="true" type="hidden" name="attr_armor_wear_penalty" value="-(@{armor_penalty_mod})+((@{weararmor_final}-(@{armor1_req_final}+@{armor2_req_final}+@{armor3_req_final}))-abs(@{weararmor_final}-(@{armor1_req_final}+@{armor2_req_final}+@{armor3_req_final})))/2" />
+	<input disabled="true" type="hidden" name="attr_armor_inherent_penalty_wear_reduce" value="((@{armor1_req_final}+@{armor2_req_final}+@{armor3_req_final}-(@{weararmor_final}))-abs(@{armor1_req_final}+@{armor2_req_final}+@{armor3_req_final}-(@{weararmor_final})))/2" />
+	
+	<div class="sheet-style_row">
+        <div class="sheet-cell sheet-sidebubbled" data-i18n="final-value">Final</div>
+		<input type="number" disabled="true" name="attr_armor_inherent_penalty" value="@{armor1_penalty_final}+@{armor2_penalty_final}+@{armor3_penalty_final}+(@{armor_inherent_penalty_wear_reduce})-(@{armor_wear_penalty})" />
+	</div>
+	
+	<input type="hidden" disabled="true" name="attr_armor_inherent_penalty_swim" value="@{armor1_penalty_final}+@{armor2_penalty_final}+@{armor3_penalty_final}-(@{armor_wear_penalty})" />
+	<input type="hidden" disabled="true" name="attr_armor_inherent_penalty_stealth" value="@{armor1_penalty_final}+@{armor2_penalty_final}+@{armor3_penalty_final}+(@{armor_inherent_penalty_wear_reduce})/2-(@{armor_wear_penalty})" />
 </div><!-- end Wear Armor -->
 
 <div class="sheet-wrapper"><!-- Armor -->
 <div><!-- upper section -->
     <div class="sheet-dark_row">
         <div class="sheet-cell" style="width:200px;" data-i18n="armor">Armor</div>
-        <div class="sheet-cell" style="width:80px;" data-i18n="quality">Quality</div>
+        <div class="sheet-cell" data-i18n="quality">Quality</div>
         <div class="sheet-cell" style="width:100px;" data-i18n="presence">Presence</div>
         <div class="sheet-cell" style="width:100px;" data-i18n="fortitude">Fortitude</div>
         <div class="sheet-cell" style="width:100px;" data-i18n="requirement">Requirement</div>
+        <div class="sheet-cell" style="width:100px;" data-i18n="armormalus">Armor Malus</div>
     </div>
     <div class="sheet-style_row">
         <input type="text" name="attr_armor1_name" value="First Layer" style="width:200px;"/>
-        <input type="number" name="attr_armor1_quality" value="0"style="width:80px;"/>
+        <input type="number" name="attr_armor1_quality" value="0"/>
         
         <input type="number" name="attr_armor1_presence_base" value="0" min="0" style="width:50px;"/>
         <input type="number" name="attr_armor1_presence_final" disabled="true" style="width:50px;"
@@ -3931,10 +3967,14 @@
         <input type="number" name="attr_armor1_req_base" value="0" min="0" style="width:50px;"/>
         <input type="number" name="attr_armor1_req_final" disabled="true" style="width:50px;"
         value="((@{armor1_req_base}+(-1*@{armor1_quality}))+abs(@{armor1_req_base}+(-1*@{armor1_quality})))/2"/>
+        
+        <input type="number" name="attr_armor1_penalty_base" value="0" min="0" style="width:50px;"/>
+       	<input type="number" name="attr_armor1_penalty_final" disabled="true" style="width:50px;"
+        value="((@{armor1_penalty_base}+(-1*@{armor1_quality}))+abs(@{armor1_penalty_base}+(-1*@{armor1_quality})))/2"/>
     </div>
     <div class="sheet-style_row">
         <input type="text" name="attr_armor2_name" value="Second Layer" style="width:200px;"/>
-        <input type="number" name="attr_armor2_quality" value="0" style="width:80px;"/>
+        <input type="number" name="attr_armor2_quality" value="0"/>
         
         <input type="number" name="attr_armor2_presence_base" value="0" min="0" style="width:50px;"/>
         <input type="number" name="attr_armor2_presence_final" disabled="true" style="width:50px;"
@@ -3947,10 +3987,14 @@
         <input type="number" name="attr_armor2_req_base" value="0" min="0" style="width:50px;"/>
         <input type="number" name="attr_armor2_req_final" disabled="true" style="width:50px;"
         value="((@{armor2_req_base}+(-1*@{armor2_quality}))+abs(@{armor2_req_base}+(-1*@{armor2_quality})))/2"/>
+        
+        <input type="number" name="attr_armor2_penalty_base" value="0" min="0" style="width:50px;"/>
+        <input type="number" name="attr_armor2_penalty_final" disabled="true" style="width:50px;"
+       	value="((@{armor2_penalty_base}+(-1*@{armor2_quality}))+abs(@{armor2_penalty_base}+(-1*@{armor2_quality})))/2"/>
     </div>
     <div class="sheet-style_row">
         <input type="text" name="attr_armor3_name" value="Third Layer" style="width:200px;"/>
-        <input type="number" name="attr_armor3_quality" value="0" style="width:80px;"/>
+        <input type="number" name="attr_armor3_quality" value="0"/>
         
         <input type="number" name="attr_armor3_presence_base" value="0" min="0" style="width:50px;"/>
         <input type="number" name="attr_armor3_presence_final" disabled="true" style="width:50px;"
@@ -3963,6 +4007,10 @@
         <input type="number" name="attr_armor3_req_base" value="0" min="0" style="width:50px;"/>
         <input type="number" name="attr_armor3_req_final" disabled="true" style="width:50px;"
         value="((@{armor3_req_base}+(-1*@{armor3_quality}))+abs(@{armor3_req_base}+(-1*@{armor3_quality})))/2"/>
+        
+        <input type="number" name="attr_armor3_penalty_base" value="0" min="0" style="width:50px;"/>
+        <input type="number" name="attr_armor3_penalty_final" disabled="true" style="width:50px;"
+        value="((@{armor3_penalty_base}+(-1*@{armor3_quality}))+abs(@{armor3_penalty_base}+(-1*@{armor3_quality})))/2"/>
     </div>
 </div> <!-- end upper wrapper -->
 <div>
@@ -4018,13 +4066,13 @@
     </fieldset>
     <div class="sheet-dark_row" style="padding-top:3px;">
         <div class="sheet-cell" style="width:200px; font-weight:bold;" data-i18n="final-armor-type">Final AT</div>
-        <input type="number" value="0" min="0" name="attr_at_cut_final"/>
-        <input type="number" value="0" min="0" name="attr_at_imp_final"/>
-        <input type="number" value="0" min="0" name="attr_at_thr_final"/>
-        <input type="number" value="0" min="0" name="attr_at_hea_final"/>
-        <input type="number" value="0" min="0" name="attr_at_col_final"/>
-        <input type="number" value="0" min="0" name="attr_at_ele_final"/>
-        <input type="number" value="0" min="0" name="attr_at_ene_final"/>
+        <input type="number" value="0" min="0" name="attr_at_cut_final" readonly>
+        <input type="number" value="0" min="0" name="attr_at_imp_final" readonly/>
+        <input type="number" value="0" min="0" name="attr_at_thr_final" readonly/>
+        <input type="number" value="0" min="0" name="attr_at_hea_final" readonly/>
+        <input type="number" value="0" min="0" name="attr_at_col_final" readonly/>
+        <input type="number" value="0" min="0" name="attr_at_ele_final" readonly/>
+        <input type="number" value="0" min="0" name="attr_at_ene_final" readonly/>
     </div>
 </div> <!-- end lower wrapper -->
 </div> <!-- end armor -->
@@ -4053,12 +4101,12 @@
 </fieldset>
 </div><!-- end proficiencies -->
 
-<div class="sheet-wrapper" style="width:470px;"><!-- weapons -->
+<div class="sheet-wrapper" style="width:475px;"><!-- weapons -->
     <div class="sheet-title" data-i18n="attacks">Attacks</div>
     <fieldset class="repeating_weapons">
       <div class="sheet-cear">
       <input type="checkbox" name="attr_weapon_option" class="sheet-option"><span class="sheet-option"></span>
-      <div class="sheet-compact" style="width: 460px;">
+      <div class="sheet-compact" style="width: 465px;">
         <div class="sheet-style_row">
           <button type="roll" class="sheet-label" name="roll_agi"
           value="@{wtype}&{template:ABFweapon} {{title=@{weapon_name}}} {{desc=@{weapon_properties}}} {{fortitude=@{weapon_finalfort}}} {{presence=@{weapon_finalpresence}}} {{quality=@{weapon_quality}}} {{breakage=[^{breakage}](~repeating_weapons_weapon_breakage)}} {{speed=@{weapon_finalspeed}}} {{damage=@{weapon_finaldmg}}} {{primary=@{weapon_primary}}} {{secondary=@{weapon_secondary}}} {{attack=[^{attack}](~repeating_weapons_weapon_attack)}} {{block=[^{block}](~repeating_weapons_weapon_block)}} {{dodge=[^{dodge}](~repeating_weapons_weapon_dodge)}}">
@@ -4066,7 +4114,7 @@
           </button>
         </div>
       </div>
-      <div class="sheet-expanded" style="width: 460px;">
+      <div class="sheet-expanded" style="width: 465px;">
         <div class="sheet-style_row">
             <input type="text" name="attr_weapon_name" value="Name" style="width:420px;"/>
         </div>
@@ -4079,7 +4127,7 @@
         <div class="sheet-style_row">
             <input type="number" value="0" name="attr_weapon_attackmod"/>
             <input type="number" disabled="true" name="attr_weapon_attack" value="@{weapon_quality}+@{attack_final}+@{weapon_attackmod}"/>
-            <button type="roll" name="roll_weapon_attack" class="sheet-d100-roll-button" value="@{wtype}&{template:ABFdefault} {{title=@{weapon_name}}} {{name=^{attack}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{attack_mastery}+@{weapon_complex}]]+[[@{weapon_attack}]]++15*?{Fatigue?|0}+?{Modifiers?|0}[Modifiers]]]}}"></button>
+            <button type="roll" name="roll_weapon_attack" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:attack {{title=^{Attack}}} {{name=@{weapon_name}}} @{ord} @{attack_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_attack} attack:@{weapon_finaldmg}:?{Defense?|0}:?{Armor?|0}"></button>
             <select name="attr_weapon_shieldval" style="width:65px;">
                 <option value="0" data-i18n="not-available">N/A</option>
                 <option value="10" data-i18n="buckler">Buckler</option>
@@ -4088,10 +4136,10 @@
             </select>
             <input type="number" value="0" name="attr_weapon_blockmod"/>
             <input type="number" disabled="true" name="attr_weapon_block" value="@{weapon_quality}+@{weapon_shieldval}+(@{block_final})+@{weapon_blockmod}"/>
-            <button type="roll" name="roll_weapon_block" class="sheet-d100-roll-button" value="@{wtype}&{template:ABFdefault} {{title=@{weapon_name}}} {{name=^{block}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{block_mastery}+@{weapon_complex}]]+@{weapon_block}+15*?{Fatigue?|0}+?{Modifiers?|0}[Modifiers]]]}}"></button>
+            <button type="roll" name="roll_weapon_block" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{title=^{block}}} {{name=@{weapon_name}}} @{ord} @{block_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_block} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
             <input type="number" value="0" name="attr_weapon_dodgemod"/>
             <input type="number" disabled="true" name="attr_weapon_dodge" value="(@{dodge_final})+@{weapon_dodgemod}"/>
-            <button type="roll" name="roll_weapon_dodge" class="sheet-d100-roll-button" value="@{wtype}&{template:ABFdefault} {{title=@{weapon_name}}} {{name=^{dodge}}} {{roll=[[1d100@{ord}cs>[[@{orr}]]cf<[[@{fr}-@{dodge_mastery}]]+@{weapon_dodge}+15*?{Fatigue?|0}+?{Modifiers?|0}[Modifiers]]]}}"></button>
+            <button type="roll" name="roll_weapon_dodge" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{title=^{dodge}}} {{name=@{weapon_name}}} @{ord} @{dodge_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_dodge} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
         </div>
         <div class="sheet-dark_row">
             <div class="sheet-cell" style="width:65px;" data-i18n="primary">Primary</div>
@@ -4170,7 +4218,7 @@
             <input type="number" name="attr_weapon_basebreakage" value="0"/>
             <div class="sheet-cell" style="font-size:12pt;font-weight:bold;">+</div>
             <select name="attr_weapon_strbreakage" style="width:75px;">
-                    <option value="0">1-8</option>
+                    <option value="0">1-7</option>
                     <option value="1">8-9</option>
                     <option value="2">10</option>
                     <option value="4">11-12</option>
@@ -4180,7 +4228,7 @@
             <div class="sheet-cell" style="font-size:12pt;font-weight:bold;">=</div>
             <input type="number" name="attr_weapon_finalbreakage" disabled="true"
             value="@{weapon_basebreakage}+@{weapon_strbreakage}+@{weapon_quality}+@{aura_extension}/2"> 
-            <button type="roll" name="roll_weapon_breakage" class="sheet-d100-roll-button" value="@{wtype}&{template:ABFdefault} {{title=@{weapon_name}}} {{name=^{breakage}}} {{roll=[[1d10+@{weapon_finalbreakage}]]}}"></button>
+            <button type="roll" name="roll_weapon_breakage" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{wtype} template:default {{title=@{weapon_name}}} {{name=^{breakage}}} ?{Modifiers?|} characteristics:v2 val:expr:@{weapon_finalbreakage}"></button>
         </div>
         <div class="sheet-dark_row" style="padding-top:4px; padding-bottom:2px;">
             <div class="sheet-cell" data-i18n="quality">Quality</div>
@@ -4298,7 +4346,7 @@
       <div class="sheet-cell sheet-sidebubbled" data-i18n="doubles">Doubles</div>
       <select name="attr_ord">
         <option value="" selected="true" data-i18n="no">No</option>
-        <option value="cs11cs22cs33cs44cs55cs66cs77cs88cs99" data-i18n="yes">Yes</option>
+        <option value="cs:11 cs:22 cs:33 cs:44 cs:55 cs:66 cs:77 cs:88 cs:99" data-i18n="yes">Yes</option>
       </select>
     </div>
   </div><!-- end Open Roll Range -->
@@ -4327,8 +4375,8 @@
       <div class="sheet-cell sheet-sidebubbled" data-i18n="whisper-rolls">Whipser Rolls?</div>
       <select name="attr_wtype">
         <option value="" selected="true" data-i18n="never">Never</option>
-        <option value="/w gm " data-i18n="always">Always</option>
-        <option value="?{Whisper|Public Roll,|Whisper Roll,/w gm } " data-i18n="querry">Querry</option>
+        <option value="gm " data-i18n="always">Always</option>
+        <option value="?{Whisper|Public Roll,|Whisper Roll,gm } " data-i18n="querry">Querry</option>
       </select>
     </div>
   </div><!-- end Chraracter Options -->
@@ -4512,46 +4560,203 @@
 
 <!-- Default Template -->
 <rolltemplate class="sheet-rolltemplate-ABFdefault">
-  <table>
-{{#title}}
-    <tr><th colspan="2" class="sheet-smalltitle">{{title}}</th></tr>
-{{/title}}
-{{#name}}
-    <tr>
-{{#roll}}
-      <td style="width:80px;"><span class="sheet-sidebubbled">{{name}}</span></td>
-      <td>{{roll}}</td>
-{{/roll}}
-{{^roll}}
-      <td><span class="sheet-sidebubbled" colspan="2">{{name}}</span></td>
-{{/roll}}
-    </tr>
-{{/name}}
-{{^name}}
-{{#roll}}
-    <tr>
-      <td colspan="2">{{roll}}</td>
-    </tr>
-{{/roll}}
-{{/name}}
-{{#diff}}
-    <tr>
-      <td colspan="2" style="text-align:right;"><span>VS</span> {{diff}}</td>
-    </tr>
-{{/diff}}
-{{#cost}}
-    <tr>
-      <td colspan="2">{{cost}}</td>
-    </tr>
-{{/cost}}
-{{#desc}}
-    <tr>
-      <td colspan="2">{{desc}}</td>
-    </tr>
-{{/desc}}
-  </table>
+	<table>
+		{{#title}}
+	    	<tr><th colspan="2" class="sheet-smalltitle">{{title}}</th></tr>
+		{{/title}}
+		
+		{{#name}}
+	    	<tr>
+			{{#roll}}
+	      		<td style="width:80px;"><span class="sheet-sidebubbled">{{name}}</span></td>
+	      		<td>{{roll}}</td>
+			{{/roll}}
+			{{^roll}}
+	      		<td><span class="sheet-sidebubbled" colspan="2">{{name}}</span></td>
+			{{/roll}}
+	   		</tr>
+		{{/name}}
+		
+		{{^name}}
+			{{#roll}}
+		    	<tr><td colspan="2">{{roll}}</td></tr>
+			{{/roll}}
+		{{/name}}
+		
+		{{#diff}}
+	    	<tr><td colspan="2" style="text-align:right;"><span>VS</span> {{diff}}</td></tr>
+		{{/diff}}
+		
+		{{#cost}}
+	    	<tr><td colspan="2">{{cost}}</td></tr>
+		{{/cost}}
+		
+		{{#desc}}
+	    	<tr><td colspan="2">{{desc}}</td></tr>
+		{{/desc}}
+		
+		{{#fumble}}
+			<tr class="sheet-fumble">
+				<td >Fumble!</td>
+				<td >{{fumble}} {{#fumbleCritical}}Critical!{{/fumbleCritical}}</td>
+			</tr>
+		{{/fumble}}
+		
+		{{#capped}}
+			<tr class="sheet-capped">
+				<td>Capped !</td>
+				<td>{{capped}}</td>
+			</tr>
+		{{/capped}}
+		
+		{{#critical}}
+			<tr class="sheet-sucess">
+				<td>Critcal!</td>
+				<td>{{sucess}}</td>
+			</tr>
+		{{/critical}}
+		
+		{{#sucess}}
+			<tr class="sheet-sucess">
+				<td>Success!</td>
+				<td>{{sucess}}</td>
+			</tr>
+		{{/sucess}}
+		
+		{{#fail}}
+			<tr class="sheet-fumble">
+				<td>Fail!</td>
+				<td>{{fail}}</td>
+			</tr>
+		{{/fail}}
+  	</table>
 </rolltemplate>
 <!-- End of Default Template -->
+
+<!-- Defense Template -->
+<rolltemplate class="sheet-rolltemplate-ABFdefense">
+	<table>
+		{{#title}}
+	    	<tr><th colspan="2" class="sheet-smalltitle">{{title}}</th></tr>
+		{{/title}}
+		
+		{{#name}}
+	    	<tr>
+			{{#roll}}
+	      		<td style="width:80px;"><span class="sheet-sidebubbled">{{name}}</span></td>
+	      		<td>{{roll}}</td>
+			{{/roll}}
+			{{^roll}}
+	      		<td><span class="sheet-sidebubbled" colspan="2">{{name}}</span></td>
+			{{/roll}}
+	   		</tr>
+		{{/name}}
+		
+		{{^name}}
+			{{#roll}}
+		    	<tr><td colspan="2">{{roll}}</td></tr>
+			{{/roll}}
+		{{/name}}
+		
+		{{#cost}}
+	    	<tr><td colspan="2">{{cost}}</td></tr>
+		{{/cost}}
+		
+		{{#desc}}
+	    	<tr><td colspan="2">{{desc}}</td></tr>
+		{{/desc}}
+		
+		{{#fumble}}
+			<tr class="sheet-fumble">
+				<td>Fumble!</td>
+				<td>{{fumble}} {{#fumbleCritical}}Critical!{{/fumbleCritical}}</td>
+			</tr>
+		{{/fumble}}
+		
+		{{#capped}}
+			<tr class="sheet-capped">
+				<td>Capped !</td>
+				<td>{{capped}}</td>
+			</tr>
+		{{/capped}}
+		
+		<tr>
+			<td>{{armorcut}}</td>
+			<td>{{armorcol}}</td>
+			<td>{{armorele}}</td>
+		</tr>
+		<tr>
+			<td>{{armorimp}}</td>
+			<td>{{armorhea}}</td>
+			<td>{{armorene}}</td>
+		</tr>
+		<tr>
+			<td>{{armorthr}}</td>
+		</tr>
+	
+  	</table>
+</rolltemplate>
+<!-- End of Defense Template -->
+
+<!-- Characteristics Template  -->
+<rolltemplate class="sheet-rolltemplate-ABFcharacteristics">
+	<table>
+		{{#title}}
+	    	<tr><th colspan="2" class="sheet-smalltitle">{{title}}</th></tr>
+		{{/title}}
+		
+		{{#name}}
+	    	<tr>
+			{{#roll}}
+	      		<td style="width:80px;"><span class="sheet-sidebubbled">{{name}}</span></td>
+	      		<td>{{roll}}</td>
+			{{/roll}}
+			{{^roll}}
+	      		<td><span class="sheet-sidebubbled" colspan="2">{{name}}</span></td>
+			{{/roll}}
+	   		</tr>
+		{{/name}}
+		
+		{{^name}}
+			{{#roll}}
+		    	<tr><td colspan="2">{{roll}}</td></tr>
+			{{/roll}}
+		{{/name}}
+		
+		{{#diff}}
+	    	<tr><td colspan="2" style="text-align:right;"><span>VS</span> {{diff}}</td></tr>
+		{{/diff}}
+		
+		{{#fumble}}
+			<tr class="sheet-fumble">
+				<td >Fumble!</td>
+				<td >{{fumble}}</td>
+			</tr>
+		{{/fumble}}
+				
+		{{#critical}}
+			<tr class="sheet-sucess">
+				<td>Critcal!</td>
+				<td>{{critical}}</td>
+			</tr>
+		{{/critical}}
+		
+		{{#sucess}}
+			<tr class="sheet-sucess">
+				<td>Success!</td>
+				<td>{{sucess}}</td>
+			</tr>
+		{{/sucess}}
+		
+		{{#fail}}
+			<tr class="sheet-fumble">
+				<td>Fail!</td>
+				<td>{{fail}}</td>
+			</tr>
+		{{/fail}}
+  	</table>
+</rolltemplate>
+<!-- End Of Characteristics Template  -->
 
 <!-- Psychic Template -->
 <rolltemplate class="sheet-rolltemplate-ABFpsi">
@@ -4627,7 +4832,6 @@
     <tr>
       <th>{{projection}}</th>
       <th>{{potential}}</th>
-      <th>{{potential-round}} <span data-i18n="psychic-potential">Potential</span></th>
     </tr>
   </table>
 </rolltemplate>
@@ -4732,10 +4936,191 @@
     </tr>
   </table>
 </rolltemplate>
-<!-- End of Weapon Template --> 
+<!-- End of Weapon Template -->
+
+<!--  Attack Template -->
+<rolltemplate class="sheet-rolltemplate-ABFattack">
+	<table>
+		{{#title}}
+	    	<tr><th colspan="2" class="sheet-smalltitle">{{title}}</th></tr>
+		{{/title}}
+		
+		{{#name}}
+	    	<tr>
+			{{#roll}}
+	      		<td style="width:80px;"><span class="sheet-sidebubbled">{{name}}</span></td>
+	      		<td>{{roll}}</td>
+			{{/roll}}
+			{{^roll}}
+	      		<td><span class="sheet-sidebubbled" colspan="2">{{name}}</span></td>
+			{{/roll}}
+	   		</tr>
+		{{/name}}
+		
+		{{^name}}
+			{{#roll}}
+		    	<tr><td colspan="2">{{roll}}</td></tr>
+			{{/roll}}
+		{{/name}}
+		
+		{{#desc}}
+	    	<tr><td colspan="2">{{desc}}</td></tr>
+		{{/desc}}
+		
+		{{#fumble}}
+			<tr class="sheet-fumble">
+				<td >Fumble!</td>
+				<td >{{fumble}} {{#fumbleCritical}}Critical!{{/fumbleCritical}}</td>
+			</tr>
+		{{/fumble}}
+		
+		{{#capped}}
+			<tr class="sheet-capped">
+				<td>Capped !</td>
+				<td>{{capped}}</td>
+			</tr>
+		{{/capped}}
+		
+		{{#diff}}
+	    	<tr><td colspan="2" style="text-align:right;"><span>VS</span> {{diff}}</td></tr>
+		{{/diff}}
+		
+		{{#sucess}}
+			<tr class="sheet-sucess">
+				<td>Striked!</td>
+				<td>{{sucess}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>{{criticalhit}}</td>
+			</tr>
+		{{/sucess}}
+		
+		{{#fail}}
+			<tr class="sheet-fumble">
+				<td>Counter-Attack!</td>
+				<td>{{fail}}</td>
+			</tr>
+		{{/fail}}
+  	</table>
+</rolltemplate>
+<!--  End of Attack Template -->
+
+<!-- Critical Hit Template -->
+<rolltemplate class="sheet-rolltemplate-ABFcriticalhit">
+	<table>
+		<tr>
+			{{#resists}}
+				<td class="sheet-sucess">Resists!</td>
+			{{/resists}}
+			
+			{{^resists}}
+				<td class="sheet-fumble">Critical Hit!</td>
+				<td>{{criticalhit}}</td>
+			{{/resists}}
+		</tr>
+		
+		{{#range-50}}
+			<tr>
+				<td></td>
+				<td>(recover / 2)</td>
+			</tr>
+			<tr>
+				<td>Location :</td>
+				<td>{{location}} {{#range-100}}<p class="sheet-fumble">Destroy !</p>{{/range-100}}</td>
+			</tr>
+		{{/range-50}}
+		
+		{{#range-150}}
+			<tr>
+				<td colspan="2" class="sheet-fumble">Unconsciousness then death in CON*min !</td>
+			</tr>
+		{{/range-150}}
+		
+	</table>
+</rolltemplate>
+<!-- End of Critical Hit Template -->
+
 <!-- End of Templates -->
 
 <!-- Sheet Workers -->
+<script type="text/worker">
+	/* Function for update final armor
+		-> get value of each layer (1, 2, 3 + customs) and do the sum
+		param *type* : a string contains the type of armor ("cut", "imp", "thr", "hea", "col", "ele" or "ene")
+	*/
+	var updateArmor = function(type)
+	{
+		var at = [];
+		var max = 0;
+		var sum = 0;
+
+		// get the value of the layer 1, 2 and 3
+		getAttrs([`at_${type}_1`, `at_${type}_2`, `at_${type}_3`], function(values)
+		{
+			//sum += Number(values[`at_${type}_1`]) + Number(values[`at_${type}_2`]) + Number(values[`at_${type}_3`]);
+			at.push(Number(values[`at_${type}_1`]));
+			at.push(Number(values[`at_${type}_2`]));
+			at.push(Number(values[`at_${type}_3`]));
+			
+			at.forEach(function(val)
+			{
+				if (val > max)
+				{
+					sum += Math.floor(max/2);
+					max = val;
+				} else
+					sum += Math.floor(val/2);
+			});
+
+			// get the value of the customs layers (repeating section)
+			// beware of callback ! Asynchronous functions
+			// first get the list of layer's IDs (row)
+			getSectionIDs("armorlayer", (idarray) => 
+			{
+				// with the callback, get the Attr by replacing the row's ID with the full Attr's ID			 
+				getAttrs(idarray.map((id) => `repeating_armorlayer_${id}_armorlayer_${type}`), (values) =>
+				{
+					// with the callback, get the Attr value by replacing the full Attr's ID with his value
+					// then calculate the sum 
+					idarray
+						.map((id) => values[`repeating_armorlayer_${id}_armorlayer_${type}`])
+						.forEach(function(value, key, map)
+						{
+							val = Number(value);
+							//sum += Number(val);
+							if (val > max)
+							{
+								sum += Math.floor(max/2);
+								max = val;
+							} else
+								sum += Math.floor(val/2);
+						});
+
+					sum += max;
+
+					// set final attr in the callback ! Use brackets ([]) because the template literals (``) return a String and we work on object with keys
+					setAttrs({[`at_${type}_final`]: sum});
+    			});
+			});
+		});
+
+	}
+
+	// apply on(change:...) listener on each type
+	var listMode = ["cut", "imp", "thr", "hea", "col", "ele", "ene"];
+
+	listMode.forEach(function(type)
+	{
+		// on(change:...) on each layer
+		on(`change:at_${type}_1 change:at_${type}_2 change:at_${type}_3 change:repeating_armorlayer:armorlayer_${type} remove:repeating_armorlayer`, function()
+		{
+			updateArmor(type);
+		});
+	});
+
+</script>
+
 <script type="text/worker">
     var sheetName = 'Anima Beyond Fantasy';
     var sheetVersion = '1.1.1';
@@ -4763,7 +5148,7 @@
             }
         });
     });
-    
+  
     var convert100 = function() {
         getSectionIDs("repeating_kitechniques", function(idarray) {
             if(idarray.length > 0) {
@@ -4884,6 +5269,7 @@
                 })
             }
         });
+
     }
 </script>
 <!-- End of Sheet Workers -->
