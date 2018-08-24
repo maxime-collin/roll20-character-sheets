@@ -42,7 +42,8 @@ input.sheet-tab2:checked ~ div.sheet-tab2,
 input.sheet-tab3:checked ~ div.sheet-tab3,
 input.sheet-tab4:checked ~ div.sheet-tab4,
 input.sheet-tab5:checked ~ div.sheet-tab5,
-input.sheet-tab6:checked ~ div.sheet-tab6
+input.sheet-tab6:checked ~ div.sheet-tab6,
+input.sheet-tab7:checked ~ div.sheet-tab7
 {
     display: block;
 }
@@ -320,6 +321,7 @@ div.sheet-page_header{
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
 }
+
 .sheet-characteristic_mod{
     width:60px;
     margin-left:2px;
@@ -400,7 +402,6 @@ div[data-groupname="repeating_disciplines"] .repitem
 {
     display: inline-block;    
 }
-div[data-groupname="repeating_weapons"],
 div[data-groupname="repeating_rangedweapons"],
 div[data-groupname="repeating_kitechniques"]
 {
@@ -411,11 +412,17 @@ div[data-groupname="repeating_rangedweapons"] .repitem,
 div[data-groupname="repeating_kitechniques"] .repitem
 {
     padding:0px;
-    border:2px solid #DADADA;
     background:white;
     margin:4px;
     display: inline-block;
 }
+
+div[data-groupname="repeating_rangedweapons"] .repitem,
+div[data-groupname="repeating_kitechniques"] .repitem
+{
+	border:2px solid #DADADA;
+}
+
 .sheet-kipool{
     width: 30px;
     padding-left:2px;
@@ -858,4 +865,85 @@ input.sheet-nem_inhumanity:not(:checked) ~ .sheet-req_nem_inhumanity{
     font-size: 0.8em;
     
 }
+
+.sheet-ck-button {
+    margin:4px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+}
+
+.sheet-ck-button label {
+    float:left;
+    width: 3.0em;
+	font-weight: normal;
+	font-size: 13px;
+	margin-bottom: 0px;
+}
+
+.sheet-ck-button label span {
+    text-align:center;
+    padding:3px 0px;
+    display:block;
+}
+
+.sheet-ck-button label input {
+    position:absolute;
+    top:-20px;
+}
+
 /* end CSS for Templates */
+
+
+
+/* Acordeon styles */
+.sheet-accordion {
+  position: relative;
+  margin-bottom: 1px;
+  width: 100%;
+  overflow: hidden;
+}
+.sheet-accordion input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.sheet-accordion label {
+  position: relative;
+  display: block;
+  padding: 0 0 0 1em;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+  width: auto;
+}
+
+.sheet-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height;
+  -o-transition: max-height;
+  transition: max-height;
+}
+
+.sheet-accordion-content p,
+.sheet-accordion-content .sheet-accordion-sub{
+  margin-left: 3em;
+}
+/* :checked */
+.sheet-accordion input:checked ~ .sheet-accordion-content {
+  max-height: 150vh;
+}
+
+
+.sheet-accordion-sub > label{
+	line-height: 2;
+}
+.sheet-accordion-sub > .sheet-accordion-content > .sheet-accordion-sub > label{
+	line-height: 1.5;
+}
+
+
+
