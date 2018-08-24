@@ -86,7 +86,7 @@
 	"armor": "Armure",
 	"weapon": "Armes",
 	"secondary-abilities": "Compétences secondaires",
-	"secondary-penalty": "Les compétences secondaires en rouge sont affectées par les malus d'armure. Attention ! La natation et la discrétion ont une gestion spéciales de la réduction du malus grâce au port d'armure. Il faut utiliser la case Spec. prévue à cet effet.",
+	"secondary-penalty": "Les compétences secondaires en rouge sont affectées par les malus d'armure.",
 	"tab-athletics": "Athlétiques",
 	"tab-social": "Sociales",
 	"tab-perceptive": "Sensorielles",
