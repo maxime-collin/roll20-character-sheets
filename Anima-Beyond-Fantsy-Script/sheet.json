@@ -1,0 +1,8 @@
+{
+	"html": "A-BF.html",
+	"css": "A-BF.css",
+	"authors": "aRotondi,Loki,mcollin",
+	"roll20userid": "245380,242746,897070",
+	"preview": "preview.png",
+	"instructions": "Version 2.1.2 of the **Anima: Beyond Fantasy** character sheet. Many fields are automatically calculated for you.\n\n Please check the rulebooks before PMing me with any questions which I will try to answer. This sheet is link to script API ABF-System-Roll.js for roll dice and to ExportAttrs.js for export characters (Bestiary function). You must add these scripts to your campaign's API Scripts."
+}
