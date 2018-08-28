@@ -4236,8 +4236,8 @@
             <input type="number" min="0" name="attr_weapon_finalpresence" disabled="true" value="@{weapon_basepresence}+10*@{weapon_quality}"/>
             <div class="sheet-cell" data-i18n="speed">Speed</div>
             <input type="number" value="0" name="attr_weapon_basespeed"/>
-            <input type="number" disabled="true" name="attr_weapon_finalspeed" value="@{weapon_quality}+@{weapon_basespeed}"/>
-            <button type="roll" name="roll_weapon_initiative" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{wtype} template:ini {{name=initiative}} {{desc=@{weapon_name}}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{init_final}+@{weapon_finalspeed} initiative"></button>
+            <input type="number" disabled="true" name="attr_weapon_finalspeed" value="@{weapon_quality}+@{weapon_basespeed}+@{init_final}"/>
+            <button type="roll" name="roll_weapon_initiative" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{wtype} template:ini {{name=initiative}} {{desc=@{weapon_name}}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{weapon_finalspeed} initiative"></button>
             <br/>
             <label><input type="checkbox" class="" name="attr_weapon_complex" value="1"/><span data-i18n="complex">Complex</span></label>
         </div>
@@ -4417,7 +4417,7 @@
 							</div>
 							<div class="sheet-style_row">
 								<div class="sheet-cell" data-i18n="initiative">Initiative</div>
-								<input type="number" disabled="true" name="attr_weapon_finalspeed" value="@{weapon_quality}+@{weapon_basespeed}"/>
+								<input type="number" disabled="true" name="attr_weapon_finalspeed" value="@{weapon_quality}+@{weapon_basespeed}+@{init_final}"/>
 							</div>
 							<div class="sheet-style_row">
 								<div class="sheet-cell" data-i18n="attack">Attack</div>
