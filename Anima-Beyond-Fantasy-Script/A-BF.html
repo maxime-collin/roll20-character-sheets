@@ -1855,10 +1855,6 @@
     	<input type="checkbox" name="attr_init_option" class="sheet-option"><span class="sheet-option"></span>
         <div class="sheet-title" data-i18n="initiative">Initiative</div>            
 		<div class="sheet-expanded">
-           	<div class="sheet-style_row">
-                <div class="sheet-cell" data-i18n="armor">Armor</div>
-                <input type="number" name="attr_init_armor" value="0"/>
-            </div>
             <div class="sheet-style_row">
                 <div class="sheet-cell" data-i18n="class">Class</div>
                 <input type="number" name="attr_init_class" value="0" min="0"/>
@@ -1875,7 +1871,7 @@
 		<div class="sheet-style_row">
 			<div class="sheet-cell" data-i18n="final-value">Final</div>
 			<input type="number"  name="attr_init_final" disabled="true"
-			value="@{agi_mod}+@{dex_mod}+@{init_armor}+@{init_class}+@{init_special}+@{init_temp}+20+@{ki_increasedSpeed}+(@{armor_wear_penalty})"/>
+			value="@{agi_mod}+@{dex_mod}+@{init_class}+@{init_special}+@{init_temp}+20+@{ki_increasedSpeed}-(@{armor_inherent_penalty})"/>
 		</div>
 		<div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
       		<button type="roll" name="roll_init" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{wtype} template:ini {{name=initiative}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{init_final} initiative"></button>
@@ -3379,7 +3375,7 @@
                     <div class="sheet-cell sheet-ki_title sheet-ki_indent1" data-i18n="body-of-emptiness">Body of Emptiness</div>       
                     <div class="sheet-ki_cost">(10)</div>
                 </div>
-                <input type="checkbox" value="10" name="attr_body_of_emptiness" class="sheet-ki_learned sheet-req_useofnemesis sheet-bodyofempty"/>
+                <input type="checkbox" value="20" name="attr_body_of_emptiness" class="sheet-ki_learned sheet-req_useofnemesis sheet-bodyofempty"/>
                 
                 <div class="sheet-ki_row sheet-req_bodyofempty">
                     <div class="sheet-cell sheet-ki_title sheet-ki_indent2" data-i18n="no-needs">No Needs</div>       
@@ -11101,7 +11097,6 @@
 		'dodge_mastery',
 		'dodge_temp',
 
-		'init_armor',
 		'init_class',
 		'init_special',
 		// end Fight abilities
