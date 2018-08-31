@@ -73,7 +73,7 @@
                 <input type="checkbox" name="attr_acro_option" class="sheet-option"><span class="sheet-option"></span>
                 <div class="sheet-style_row">
                   <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_acro"
-                  value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{acrobatics}}} @{ord} @{acro_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{acro_final}">
+                  value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{acrobatics}}} @{ord} @{acro_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{acro_final}">
                     <div class="sheet-cell sheet-secondary_bubble" data-i18n="acrobatics">Acrobatics</div>
                     <input type="number" name="attr_acro_final" disabled="true"
                     value="(((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi}+100)-abs((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi}-100))/2+@{acro_base}+@{acro_class}+@{acro_special}+@{acro_temp}-(@{armor_inherent_penalty})"/>
@@ -96,7 +96,7 @@
               <input type="checkbox" name="attr_athl_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_athl"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{athleticism}}} @{ord} @{athl_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{athl_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{athleticism}}} @{ord} @{athl_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{athl_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="athleticism">Athleticism</div>
                   <input type="number" name="attr_athl_final" disabled="true"
                   value="(((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi}+100)-abs((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi}-100))/2+@{athl_base}+@{athl_class}+@{athl_special}+@{athl_temp}-(@{armor_inherent_penalty})"/>
@@ -119,7 +119,7 @@
               <input type="checkbox" name="attr_clim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_clim"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{climb}}} @{ord} @{clim_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{clim_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{climb}}} @{ord} @{clim_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{clim_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="climb">Climb</div>
                   <input type="number" name="attr_clim_final" disabled="true"
                   value="(((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi}+100)-abs((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi}-100))/2+@{clim_base}+@{clim_class}+@{clim_special}+@{clim_temp}-(@{armor_inherent_penalty})"/>
@@ -142,7 +142,7 @@
               <input type="checkbox" name="attr_jump_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_jump"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{jump}}} @{ord} @{jump_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{jump_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{jump}}} @{ord} @{jump_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{jump_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="jump">Jump</div>
                   <input type="number" name="attr_jump_final" disabled="true"
                   value="(((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi}+100)-abs((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi}-100))/2+@{jump_base}+@{jump_class}+@{jump_special}+@{jump_temp}-(@{armor_inherent_penalty})"/>
@@ -165,7 +165,7 @@
               <input type="checkbox" name="attr_ride_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_ride"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{ride}}} @{ord} @{ride_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{ride_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{ride}}} @{ord} @{ride_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{ride_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="ride">Ride</div>
                   <input type="number" name="attr_ride_final" disabled="true"
                   value="(((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi}+100)-abs((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi}-100))/2+@{ride_base}+@{ride_class}+@{ride_special}+@{ride_temp}-(@{armor_inherent_penalty})"/>
@@ -188,7 +188,7 @@
               <input type="checkbox" name="attr_swim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_swim"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{swim}}} @{ord} @{swim_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{swim_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{swim}}} @{ord} @{swim_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{swim_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="swim">Swim</div>
                   <input type="number" name="attr_swim_final" disabled="true"
                   value="(((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi}+100)-abs((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi}-100))/2+@{swim_base}+@{swim_class}+@{swim_special}+@{swim_temp}-(@{armor_inherent_penalty_swim})"/>
@@ -222,7 +222,7 @@
               <input type="checkbox" name="attr_etiq_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_etiq"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{etiquette}}} @{ord} @{etiq_mastery} ?{Modifiers?|} @{aam} val:expr:@{etiq_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-social}}} {{name=^{etiquette}}} @{ord} @{etiq_mastery} ?{Modifiers?|} @{aam} val:expr:@{etiq_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="etiquette">Etiquette</div>
                   <input type="number" name="attr_etiq_final" disabled="true"
                 value="(((@{etiq_naturals}+1)*@{int_mod}+@{etiq_naturabi}+100)-abs((@{etiq_naturals}+1)*@{int_mod}+@{etiq_naturabi}-100))/2+@{etiq_base}+@{etiq_class}+@{etiq_special}+@{etiq_temp}"/>
@@ -245,7 +245,7 @@
               <input type="checkbox" name="attr_inti_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_inti"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{intimidate}}} @{ord} @{inti_mastery} ?{Modifiers?|} @{aam} val:expr:@{inti_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-social}}} {{name=^{intimidate}}} @{ord} @{inti_mastery} ?{Modifiers?|} @{aam} val:expr:@{inti_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="intimidate">Intimidate</div>
                   <input type="number" name="attr_inti_final" disabled="true"
                   value="(((@{inti_naturals}+1)*@{wp_mod}+@{inti_naturabi}+100)-abs((@{inti_naturals}+1)*@{wp_mod}+@{inti_naturabi}-100))/2+@{inti_base}+@{inti_class}+@{inti_special}+@{inti_temp}"/>
@@ -268,7 +268,7 @@
               <input type="checkbox" name="attr_lead_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_lead"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{leadership}}} @{ord} @{lead_mastery} ?{Modifiers?|} @{aam} val:expr:@{lead_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-social}}} {{name=^{leadership}}} @{ord} @{lead_mastery} ?{Modifiers?|} @{aam} val:expr:@{lead_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="leadership">Leadership</div>
                   <input type="number" name="attr_lead_final" disabled="true"
                   value="(((@{lead_naturals}+1)*@{pow_mod}+@{lead_naturabi}+100)-abs((@{lead_naturals}+1)*@{pow_mod}+@{lead_naturabi}-100))/2+@{lead_base}+@{lead_class}+@{lead_special}+@{lead_temp}"/>
@@ -291,7 +291,7 @@
               <input type="checkbox" name="attr_pers_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_pers"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{persuasion}}} @{ord} @{pers_mastery} ?{Modifiers?|} @{aam} val:expr:@{pers_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-social}}} {{name=^{persuasion}}} @{ord} @{pers_mastery} ?{Modifiers?|} @{aam} val:expr:@{pers_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="persuasion">Persuasion</div>
                   <input type="number" name="attr_pers_final" disabled="true"
                   value="(((@{pers_naturals}+1)*@{int_mod}+@{pers_naturabi}+100)-abs((@{pers_naturals}+1)*@{int_mod}+@{pers_naturabi}-100))/2+@{pers_base}+@{pers_class}+@{pers_special}+@{pers_temp}"/>
@@ -314,7 +314,7 @@
               <input type="checkbox" name="attr_stre_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_stre"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{streetwise}}} @{ord} @{stre_mastery} ?{Modifiers?|} @{aam} val:expr:@{stre_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-social}}} {{name=^{streetwise}}} @{ord} @{stre_mastery} ?{Modifiers?|} @{aam} val:expr:@{stre_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="streetwise">Streetwise</div>
                   <input type="number" name="attr_stre_final" disabled="true"
                   value="(((@{stre_naturals}+1)*@{int_mod}+@{stre_naturabi}+100)-abs((@{stre_naturals}+1)*@{int_mod}+@{stre_naturabi}-100))/2+@{stre_base}+@{stre_class}+@{stre_special}+@{stre_temp}"/>
@@ -337,7 +337,7 @@
               <input type="checkbox" name="attr_styl_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_styl"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{style}}} @{ord} @{styl_mastery} ?{Modifiers?|} @{aam} val:expr:@{styl_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-social}}} {{name=^{style}}} @{ord} @{styl_mastery} ?{Modifiers?|} @{aam} val:expr:@{styl_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="style">Style</div>
                   <input type="number" name="attr_styl_final" disabled="true"
                   value="(((@{styl_naturals}+1)*@{pow_mod}+@{styl_naturabi}+100)-abs((@{styl_naturals}+1)*@{pow_mod}+@{styl_naturabi}-100))/2+@{styl_base}+@{styl_class}+@{styl_special}+@{styl_temp}"/>
@@ -360,7 +360,7 @@
               <input type="checkbox" name="attr_trad_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_trad"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-social}}} {{name=^{trading}}} @{ord} @{trad_mastery} ?{Modifiers?|} expr:@{trad_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-social}}} {{name=^{trading}}} @{ord} @{trad_mastery} ?{Modifiers?|} expr:@{trad_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="trading">Trading</div>
                   <input type="number" name="attr_trad_final" disabled="true"
                   value="(((@{trad_naturals}+1)*@{int_mod}+@{trad_naturabi}+100)-abs((@{trad_naturals}+1)*@{int_mod}+@{trad_naturabi}-100))/2+@{trad_base}+@{trad_class}+@{trad_special}+@{trad_temp}"/>
@@ -394,7 +394,7 @@
               <input type="checkbox" name="attr_noti_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_noti"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{notice}}} @{ord} @{noti_mastery} ?{Modifiers?|} @{aam} val:expr:@{noti_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{notice}}} @{ord} @{noti_mastery} ?{Modifiers?|} @{aam} val:expr:@{noti_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="notice">Notice</div>
                   <input type="number" name="attr_noti_final" disabled="true"
                   value="(((@{noti_naturals}+1)*@{per_mod}+@{noti_naturabi}+100)-abs((@{noti_naturals}+1)*@{per_mod}+@{noti_naturabi}-100))/2+@{noti_base}+@{noti_class}+@{noti_special}+@{noti_temp}"/>
@@ -417,7 +417,7 @@
               <input type="checkbox" name="attr_sear_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_sear"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{search}}} @{ord} @{sear_mastery} ?{Modifiers?|} @{aam} val:expr:@{sear_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{search}}} @{ord} @{sear_mastery} ?{Modifiers?|} @{aam} val:expr:@{sear_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="search">Search</div>
                   <input type="number" name="attr_sear_final" disabled="true"
                   value="(((@{sear_naturals}+1)*@{per_mod}+@{sear_naturabi}+100)-abs((@{sear_naturals}+1)*@{per_mod}+@{sear_naturabi}-100))/2+@{sear_base}+@{sear_class}+@{sear_special}+@{sear_temp}"/>
@@ -440,7 +440,7 @@
               <input type="checkbox" name="attr_trac_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_trac"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{track}}} @{ord} @{trac_mastery} ?{Modifiers?|} @{aam} val:expr:@{trac_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-perceptive}}} {{name=^{track}}} @{ord} @{trac_mastery} ?{Modifiers?|} @{aam} val:expr:@{trac_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="track">Track</div>
                   <input type="number" name="attr_trac_final" disabled="true"
                   value="(((@{trac_naturals}+1)*@{per_mod}+@{trac_naturabi}+100)-abs((@{trac_naturals}+1)*@{per_mod}+@{trac_naturabi}-100))/2+@{trac_base}+@{trac_class}+@{trac_special}+@{trac_temp}"/>
@@ -474,7 +474,7 @@
               <input type="checkbox" name="attr_anim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_anim"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{animals}}} @{ord} @{anim_mastery} ?{Modifiers?|} @{aam} val:expr:@{anim_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{animals}}} @{ord} @{anim_mastery} ?{Modifiers?|} @{aam} val:expr:@{anim_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="animals">Animals</div>
                   <input type="number" name="attr_anim_final" disabled="true"
                   value="(((@{anim_naturals}+1)*@{int_mod}+@{anim_naturabi}+100)-abs((@{anim_naturals}+1)*@{int_mod}+@{anim_naturabi}-100))/2+@{anim_base}+@{anim_class}+@{anim_special}+@{anim_temp}"/>
@@ -497,7 +497,7 @@
               <input type="checkbox" name="attr_appr_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_appr"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{appraisal}}} @{ord} @{appr_mastery} ?{Modifiers?|} @{aam} val:expr:@{appr_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{appraisal}}} @{ord} @{appr_mastery} ?{Modifiers?|} @{aam} val:expr:@{appr_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="appraisal">Appraisal</div>
                   <input type="number" name="attr_appr_final" disabled="true"
                   value="(((@{appr_naturals}+1)*@{int_mod}+@{appr_naturabi}+100)-abs((@{appr_naturals}+1)*@{int_mod}+@{appr_naturabi}-100))/2+@{appr_base}+@{appr_class}+@{appr_special}+@{appr_temp}"/>
@@ -520,7 +520,7 @@
               <input type="checkbox" name="attr_herb_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_herb"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{herbal-lore}}} @{ord} @{herb_mastery} ?{Modifiers?|} @{aam} val:expr:@{herb_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{herbal-lore}}} @{ord} @{herb_mastery} ?{Modifiers?|} @{aam} val:expr:@{herb_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="herbal-lore">Herbal Lore</div>
                   <input type="number" name="attr_herb_final" disabled="true"
                   value="(((@{herb_naturals}+1)*@{int_mod}+@{herb_naturabi}+100)-abs((@{herb_naturals}+1)*@{int_mod}+@{herb_naturabi}-100))/2+@{herb_base}+@{herb_class}+@{herb_special}+@{herb_temp}"/>
@@ -543,7 +543,7 @@
               <input type="checkbox" name="attr_hist_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_hist"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{history}}} @{ord} @{hist_mastery} ?{Modifiers?|} @{aam} val:expr:@{hist_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{history}}} @{ord} @{hist_mastery} ?{Modifiers?|} @{aam} val:expr:@{hist_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="history">History</div>
                   <input type="number" name="attr_hist_final" disabled="true"
                   value="(((@{hist_naturals}+1)*@{int_mod}+@{hist_naturabi}+100)-abs((@{hist_naturals}+1)*@{int_mod}+@{hist_naturabi}-100))/2+@{hist_base}+@{hist_class}+@{hist_special}+@{hist_temp}"/>
@@ -566,7 +566,7 @@
               <input type="checkbox" name="attr_law_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_law"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{law}}} @{ord} @{law_mastery} ?{Modifiers?|} @{aam} val:expr:@{law_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{law}}} @{ord} @{law_mastery} ?{Modifiers?|} @{aam} val:expr:@{law_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="law">Law</div>
                   <input type="number" name="attr_law_final" disabled="true"
                   value="(((@{law_naturals}+1)*@{int_mod}+@{law_naturabi}+100)-abs((@{law_naturals}+1)*@{int_mod}+@{law_naturabi}-100))/2+@{law_base}+@{law_class}+@{law_special}+@{law_temp}"/>
@@ -589,7 +589,7 @@
               <input type="checkbox" name="attr_mapp_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_mapp"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{magic-appraisal}}} @{ord} @{mapp_mastery} ?{Modifiers?|} @{aam} val:expr:@{mapp_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{magic-appraisal}}} @{ord} @{mapp_mastery} ?{Modifiers?|} @{aam} val:expr:@{mapp_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="magic-appraisal">Magic Appr.</div>
                   <input type="number" name="attr_mapp_final" disabled="true"
                   value="(((@{mapp_naturals}+1)*@{pow_mod}+@{mapp_naturabi}+100)-abs((@{mapp_naturals}+1)*@{pow_mod}+@{mapp_naturabi}-100))/2+@{mapp_base}+@{mapp_class}+@{mapp_special}+@{mapp_temp}"/>
@@ -612,7 +612,7 @@
               <input type="checkbox" name="attr_medi_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_medi"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{medicine}}} @{ord} @{medi_mastery} ?{Modifiers?|} @{aam} val:expr:@{medi_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{medicine}}} @{ord} @{medi_mastery} ?{Modifiers?|} @{aam} val:expr:@{medi_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="medicine">Medicine</div>
                   <input type="number" name="attr_medi_final" disabled="true"
                   value="(((@{medi_naturals}+1)*@{int_mod}+@{medi_naturabi}+100)-abs((@{medi_naturals}+1)*@{int_mod}+@{medi_naturabi}-100))/2+@{medi_base}+@{medi_class}+@{medi_special}+@{medi_temp}"/>
@@ -635,7 +635,7 @@
               <input type="checkbox" name="attr_memo_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_memo"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{memorize}}} @{ord} @{memo_mastery} ?{Modifiers?|} @{aam} val:expr:@{memo_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{memorize}}} @{ord} @{memo_mastery} ?{Modifiers?|} @{aam} val:expr:@{memo_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="memorize">Memorize</div>
                   <input type="number" name="attr_memo_final" disabled="true"
                   value="(((@{memo_naturals}+1)*@{int_mod}+@{memo_naturabi}+100)-abs((@{memo_naturals}+1)*@{int_mod}+@{memo_naturabi}-100))/2+@{memo_base}+@{memo_class}+@{memo_special}+@{memo_temp}"/>
@@ -658,7 +658,7 @@
               <input type="checkbox" name="attr_navi_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_navi"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{navigation}}} @{ord} @{navi_mastery} ?{Modifiers?|} @{aam} val:expr:@{navi_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{navigation}}} @{ord} @{navi_mastery} ?{Modifiers?|} @{aam} val:expr:@{navi_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="navigation">Navigation</div>
                   <input type="number" name="attr_navi_final" disabled="true"
                   value="(((@{navi_naturals}+1)*@{int_mod}+@{navi_naturabi}+100)-abs((@{navi_naturals}+1)*@{int_mod}+@{navi_naturabi}-100))/2+@{navi_base}+@{navi_class}+@{navi_special}+@{navi_temp}"/>
@@ -681,7 +681,7 @@
               <input type="checkbox" name="attr_occu_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_occu"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{occult}}} @{ord} @{occu_mastery} ?{Modifiers?|} @{aam} val:expr:@{occu_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{occult}}} @{ord} @{occu_mastery} ?{Modifiers?|} @{aam} val:expr:@{occu_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="occult">Occult</div>
                   <input type="number" name="attr_occu_final" disabled="true"
                   value="(((@{occu_naturals}+1)*@{int_mod}+@{occu_naturabi}+100)-abs((@{occu_naturals}+1)*@{int_mod}+@{occu_naturabi}-100))/2+@{occu_base}+@{occu_class}+@{occu_special}+@{occu_temp}"/>
@@ -704,7 +704,7 @@
               <input type="checkbox" name="attr_scie_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_scie"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{sciences}}} @{ord} @{scie_mastery} ?{Modifiers?|} @{aam} val:expr:@{scie_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{sciences}}} @{ord} @{scie_mastery} ?{Modifiers?|} @{aam} val:expr:@{scie_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="sciences">Sciences</div>
                   <input type="number" name="attr_scie_final" disabled="true"
                   value="(((@{scie_naturals}+1)*@{int_mod}+@{scie_naturabi}+100)-abs((@{scie_naturals}+1)*@{int_mod}+@{scie_naturabi}-100))/2+@{scie_base}+@{scie_class}+@{scie_special}+@{scie_temp}"/>
@@ -727,7 +727,7 @@
               <input type="checkbox" name="attr_tact_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_tact"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{tactics}}} @{ord} @{tact_mastery} ?{Modifiers?|} @{aam} val:expr:@{tact_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-intellectual}}} {{name=^{tactics}}} @{ord} @{tact_mastery} ?{Modifiers?|} @{aam} val:expr:@{tact_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="tactics">Tactics</div>
                   <input type="number" name="attr_tact_final" disabled="true"
                   value="(((@{tact_naturals}+1)*@{int_mod}+@{tact_naturabi}+100)-abs((@{tact_naturals}+1)*@{int_mod}+@{tact_naturabi}-100))/2+@{tact_base}+@{tact_class}+@{tact_special}+@{tact_temp}"/>
@@ -761,7 +761,7 @@
               <input type="checkbox" name="attr_comp_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_comp"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{composure}}} @{ord} @{comp_mastery} ?{Modifiers?|} @{aam} val:expr:@{comp_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{composure}}} @{ord} @{comp_mastery} ?{Modifiers?|} @{aam} val:expr:@{comp_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="composure">Composure</div>
                   <input type="number" name="attr_comp_final" disabled="true"
                   value="(((@{comp_naturals}+1)*@{wp_mod}+@{comp_naturabi}+100)-abs((@{comp_naturals}+1)*@{wp_mod}+@{comp_naturabi}-100))/2+@{comp_base}+@{comp_class}+@{comp_special}+@{comp_temp}"/>
@@ -784,7 +784,7 @@
               <input type="checkbox" name="attr_feat_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_feat"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{feats-of-strength}}} @{ord} @{feat_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{feat_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{feats-of-strength}}} @{ord} @{feat_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{feat_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="feats-of-strength">Feats of Str.</div>
                   <input type="number" name="attr_feat_final" disabled="true"
                   value="(((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi}+100)-abs((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi}-100))/2+@{feat_base}+@{feat_class}+@{feat_special}+@{feat_temp}-(@{armor_inherent_penalty})"/>
@@ -807,7 +807,7 @@
               <input type="checkbox" name="attr_with_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_with"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{withstand-pain}}} @{ord} @{with_mastery} ?{Modifiers?|} @{aam} val:expr:@{with_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{withstand-pain}}} @{ord} @{with_mastery} ?{Modifiers?|} @{aam} val:expr:@{with_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="withstand-pain">Withst. Pain</div>
                   <input type="number" name="attr_with_final" disabled="true"
                   value="(((@{with_naturals}+1)*@{wp_mod}+@{with_naturabi}+100)-abs((@{with_naturals}+1)*@{wp_mod}+@{with_naturabi}-100))/2+@{with_base}+@{with_class}+@{with_special}+@{with_temp}"/>
@@ -841,7 +841,7 @@
               <input type="checkbox" name="attr_disg_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_disg"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{disguise}}} @{ord} @{disg_mastery} ?{Modifiers?|} @{aam} val:expr:@{disg_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{disguise}}} @{ord} @{disg_mastery} ?{Modifiers?|} @{aam} val:expr:@{disg_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="disguise">Disguise</div>
                   <input type="number" name="attr_disg_final" disabled="true"
                   value="(((@{disg_naturals}+1)*@{dex_mod}+@{disg_naturabi}+100)-abs((@{disg_naturals}+1)*@{dex_mod}+@{disg_naturabi}-100))/2+@{disg_base}+@{disg_class}+@{disg_special}+@{disg_temp}+(@{armor_wear_penalty})"/>
@@ -864,7 +864,7 @@
               <input type="checkbox" name="attr_hide_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_hide"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{hide}}} @{ord} @{hide_mastery} ?{Modifiers?|} @{aam} val:expr:@{hide_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{hide}}} @{ord} @{hide_mastery} ?{Modifiers?|} @{aam} val:expr:@{hide_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="hide">Hide</div>
                   <input type="number" name="attr_hide_final" disabled="true"
                   value="(((@{hide_naturals}+1)*@{per_mod}+@{hide_naturabi}+100)-abs((@{hide_naturals}+1)*@{per_mod}+@{hide_naturabi}-100))/2+@{hide_base}+@{hide_class}+@{hide_special}+@{hide_temp}-(@{armor_inherent_penalty})"/>
@@ -887,7 +887,7 @@
               <input type="checkbox" name="attr_lock_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_lock"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{lockpicking}}} @{ord} @{lock_mastery} ?{Modifiers?|} @{aam} val:expr:@{lock_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{lockpicking}}} @{ord} @{lock_mastery} ?{Modifiers?|} @{aam} val:expr:@{lock_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="lockpicking">Lockpicking</div>
                   <input type="number" name="attr_lock_final" disabled="true"
                   value="(((@{lock_naturals}+1)*@{dex_mod}+@{lock_naturabi}+100)-abs((@{lock_naturals}+1)*@{dex_mod}+@{lock_naturabi}-100))/2+@{lock_base}+@{lock_class}+@{lock_special}+@{lock_temp}+(@{armor_wear_penalty})"/>
@@ -910,7 +910,7 @@
               <input type="checkbox" name="attr_pois_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_pois"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{poisons}}} @{ord} @{pois_mastery} ?{Modifiers?|} @{aam} val:expr:@{pois_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{poisons}}} @{ord} @{pois_mastery} ?{Modifiers?|} @{aam} val:expr:@{pois_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="poisons">Poisons</div>
                   <input type="number" name="attr_pois_final" disabled="true"
                   value="(((@{pois_naturals}+1)*@{int_mod}+@{pois_naturabi}+100)-abs((@{pois_naturals}+1)*@{int_mod}+@{pois_naturabi}-100))/2+@{pois_base}+@{pois_class}+@{pois_special}+@{pois_temp}"/>
@@ -933,7 +933,7 @@
               <input type="checkbox" name="attr_stea_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_stea"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{stealth}}} @{ord} @{stea_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{stea_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{stealth}}} @{ord} @{stea_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{stea_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="stealth">Stealth</div>
                   <input type="number" name="attr_stea_final" disabled="true"
                   value="(((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi}+100)-abs((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi}-100))/2+@{stea_base}+@{stea_class}+@{stea_special}+@{stea_temp}-(@{armor_inherent_penalty_stealth})"/>
@@ -956,7 +956,7 @@
               <input type="checkbox" name="attr_thef_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_thef"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{theft}}} @{ord} @{thef_mastery} ?{Modifiers?|} @{aam} val:expr:@{thef_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{theft}}} @{ord} @{thef_mastery} ?{Modifiers?|} @{aam} val:expr:@{thef_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="theft">Theft</div>
                   <input type="number" name="attr_thef_final" disabled="true"
                   value="(((@{thef_naturals}+1)*@{dex_mod}+@{thef_naturabi}+100)-abs((@{thef_naturals}+1)*@{dex_mod}+@{thef_naturabi}-100))/2+@{thef_base}+@{thef_class}+@{thef_special}+@{thef_temp}+(@{armor_wear_penalty})"/>
@@ -979,7 +979,7 @@
               <input type="checkbox" name="attr_trap_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_trap"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{trap-lore}}} @{ord} @{trap_mastery} ?{Modifiers?|} @{aam} val:expr:@{trap_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{trap-lore}}} @{ord} @{trap_mastery} ?{Modifiers?|} @{aam} val:expr:@{trap_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="trap-lore">Trap Lore</div>
                   <input type="number" name="attr_trap_final" disabled="true"
                   value="(((@{trap_naturals}+1)*@{dex_mod}+@{trap_naturabi}+100)-abs((@{trap_naturals}+1)*@{dex_mod}+@{trap_naturabi}-100))/2+@{trap_base}+@{trap_class}+@{trap_special}+@{trap_temp}+(@{armor_wear_penalty})"/>
@@ -1013,7 +1013,7 @@
               <input type="checkbox" name="attr_art_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_art"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{art}}} @{ord} @{art_mastery} ?{Modifiers?|} @{aam} val:expr:@{art_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{art}}} @{ord} @{art_mastery} ?{Modifiers?|} @{aam} val:expr:@{art_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="art">Art</div>
                   <input type="number" name="attr_art_final" disabled="true"
                   value="(((@{art_naturals}+1)*@{pow_mod}+@{art_naturabi}+100)-abs((@{art_naturals}+1)*@{pow_mod}+@{art_naturabi}-100))/2+@{art_base}+@{art_class}+@{art_special}+@{art_temp}"/>
@@ -1036,7 +1036,7 @@
               <input type="checkbox" name="attr_danc_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_danc"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{dance}}} @{ord} @{danc_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{danc_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{dance}}} @{ord} @{danc_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{danc_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="dance">Dance</div>
                   <input type="number" name="attr_danc_final" disabled="true"
                   value="(((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi}+100)-abs((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi}-100))/2+@{danc_base}+@{danc_class}+@{danc_special}+@{danc_temp}-(@{armor_inherent_penalty})"/>
@@ -1059,7 +1059,7 @@
               <input type="checkbox" name="attr_forg_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_forg"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{forging}}} @{ord} @{forg_mastery} ?{Modifiers?|} @{aam} val:expr:@{forg_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{forging}}} @{ord} @{forg_mastery} ?{Modifiers?|} @{aam} val:expr:@{forg_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="forging">Forging</div>
                   <input type="number" name="attr_forg_final" disabled="true"
                   value="(((@{forg_naturals}+1)*@{dex_mod}+@{forg_naturabi}+100)-abs((@{forg_naturals}+1)*@{dex_mod}+@{forg_naturabi}-100))/2+@{forg_base}+@{forg_class}+@{forg_special}+@{forg_temp}+(@{armor_wear_penalty})"/>
@@ -1082,7 +1082,7 @@
               <input type="checkbox" name="attr_musi_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_musi"
-                value="!openroll who:@{character_name} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{music}}} @{ord} @{musi_mastery} ?{Modifiers?|} @{aam} val:expr:@{musi_final} zen">
+                value="!openroll @{who} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{music}}} @{ord} @{musi_mastery} ?{Modifiers?|} @{aam} val:expr:@{musi_final} zen">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="music">Music</div>
                   <input type="number" name="attr_musi_final" disabled="true"
                   value="(((@{musi_naturals}+1)*@{pow_mod}+@{musi_naturabi}+100)-abs((@{musi_naturals}+1)*@{pow_mod}+@{musi_naturabi}-100))/2+@{musi_base}+@{musi_class}+@{musi_special}+@{musi_temp}"/>
@@ -1105,7 +1105,7 @@
               <input type="checkbox" name="attr_slig_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_slig"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{slight-of-hand}}} @{ord} @{slig_mastery} ?{Modifiers?|} @{aam} val:expr:@{slig_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{slight-of-hand}}} @{ord} @{slig_mastery} ?{Modifiers?|} @{aam} val:expr:@{slig_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="slight-of-hand">Sl. of Hand</div>
                   <input type="number" name="attr_slig_final" disabled="true"
                   value="(((@{slig_naturals}+1)*@{dex_mod}+@{slig_naturabi}+100)-abs((@{slig_naturals}+1)*@{dex_mod}+@{slig_naturabi}-100))/2+@{slig_base}+@{slig_class}+@{slig_special}+@{slig_temp}+(@{armor_wear_penalty})"/>
@@ -1140,7 +1140,7 @@
               <input type="checkbox" name="attr_custom_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble" name="roll_custom"
-                value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{title=^{tab-custom}}} {{name=@{custom_name}}} @{ord} @{custom_mastery} ?{Modifiers?|} @{aam} val:expr:@{custom_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-custom}}} {{name=@{custom_name}}} @{ord} @{custom_mastery} ?{Modifiers?|} @{aam} val:expr:@{custom_final}">
                   <input type="text" name="attr_custom_name" style="width:80px;"/>
                   <input type="number" class="sheet-secondary_ability_input" name="attr_custom_final" disabled="true"
                   value="(((@{custom_naturals}+1)*@{custom_mod}+@{custom_naturabi}+100)-abs((@{custom_naturals}+1)*@{custom_mod}+@{custom_naturabi}-100))/2+@{custom_base}+@{custom_class}+@{custom_special}+@{custom_temp}"/>
@@ -1239,13 +1239,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_agi"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{agi_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{agi_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="agility-short">AGI</span>
           <input type="number" name="attr_agi_final" max="20" min="0" maxlength="2" value="@{agi}+@{agi_special}+@{agi_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_agi_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{agi_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{agi_opposed_final}">
           <input type="number" name="attr_agi_opposed_final" max="20" min="0" maxlength="2" value="(@{agi_final})+@{agi_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1302,13 +1302,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_con"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{constitution}}} {{name=^{constitution-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{con_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{constitution}}} {{name=^{constitution-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{con_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="constitution-short">CON</span>
           <input type="number" name="attr_con_final" max="20" min="0" maxlength="2" value="@{con}+@{con_special}+@{con_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_con_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{constitution}}} {{name=^{constitution-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{con_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{constitution}}} {{name=^{constitution-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{con_opposed_final}">
           <input type="number" name="attr_con_opposed_final" max="20" min="0" maxlength="2" value="(@{con_final})+@{con_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1365,13 +1365,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_dex"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{dex_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{dex_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="dexterity-short">DEX</span>
           <input type="number" name="attr_dex_final" max="20" min="0" maxlength="2" value="@{dex}+@{dex_special}+@{dex_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_dex_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{dex_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{dex_opposed_final}">
           <input type="number" name="attr_dex_opposed_final" max="20" min="0" maxlength="2" value="(@{dex_final})+@{dex_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1428,13 +1428,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_str"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{str_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v1 val:expr:@{str_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="strength-short">STR</span>
           <input type="number" name="attr_str_final" max="20" min="0" maxlength="2" value="@{str}+@{str_special}+@{str_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_str_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{str_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{str_opposed_final}">
           <input type="number" name="attr_str_opposed_final" max="20" min="0" maxlength="2" value="(@{str_final})+@{str_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1491,13 +1491,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_int"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{intelligence}}} {{name=^{intelligence-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{int_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{intelligence}}} {{name=^{intelligence-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{int_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="intelligence-short">INT</span>
           <input type="number" name="attr_int_final" max="20" min="0" maxlength="2" value="@{int}+@{int_special}+@{int_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_int_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{intelligence}}} {{name=^{intelligence-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{int_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{intelligence}}} {{name=^{intelligence-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{int_opposed_final}">
           <input type="number" name="attr_int_opposed_final" max="20" min="0" maxlength="2" value="(@{int_final})+@{int_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1554,13 +1554,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_per"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{perception}}} {{name=^{perception-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{per_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{perception}}} {{name=^{perception-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{per_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="perception-short">PER</span>
           <input type="number" name="attr_per_final" max="20" min="0" maxlength="2" value="@{per}+@{per_special}+@{per_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_per_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{perception}}} {{name=^{perception-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{per_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{perception}}} {{name=^{perception-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{per_opposed_final}">
           <input type="number" name="attr_per_opposed_final" max="20" min="0" maxlength="2" value="(@{per_final})+@{per_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1617,13 +1617,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_pow"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{soul-power}}} {{name=^{soul-power-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{pow_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{soul-power}}} {{name=^{soul-power-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{pow_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="soul-power-short">POW</span>
           <input type="number" name="attr_pow_final" max="20" min="0" maxlength="2" value="@{pow}+@{pow_special}+@{pow_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_pow_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{soul-power}}} {{name=^{soul-power-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{pow_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{soul-power}}} {{name=^{soul-power-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{pow_opposed_final}">
           <input type="number" name="attr_pow_opposed_final" max="20" min="0" maxlength="2" value="(@{pow_final})+@{pow_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1680,13 +1680,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_wp"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{willpower}}} {{name=^{willpower-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{wp_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{willpower}}} {{name=^{willpower-short}}} ?{Modifiers?|} characteristics:v1 val:expr:@{wp_final}">
           <span class="sheet-mental sheet-cell" style="width:40px;" data-i18n="willpower-short">WIL</span>
           <input type="number" name="attr_wp_final" max="20" min="0" maxlength="2" value="@{wp}+@{wp_special}+@{wp_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_wp_opposed"
-        value="!openroll who:@{character_name} @{wtype} template:characteristics {{title=^{willpower}}} {{name=^{willpower-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{wp_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{willpower}}} {{name=^{willpower-short}}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{wp_opposed_final}">
           <input type="number" name="attr_wp_opposed_final" max="20" min="0" maxlength="2" value="(@{wp_final})+@{wp_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1701,7 +1701,7 @@
           <div class="sheet-cell" style="width:50px;" data-i18n="special-bonus">Special</div>
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_physical" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{physical-resistance}}} {{name=^{physical-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_physical_final} close">
+          <button type="roll" class="sheet-label" name="roll_resist_physical" value="!openroll @{who} @{wtype} template:default {{title=^{physical-resistance}}} {{name=^{physical-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_physical_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="physical-resistance-short">PhR</div>
             <input type="number" name="attr_resist_physical_final" style="width:50px;"
             value="@{presence}+@{con_mod}+@{body_of_emptiness}+@{resist_physical_special}" disabled="true"/>
@@ -1709,7 +1709,7 @@
           <input type="number" name="attr_resist_physical_special" value="0" style="width:50px;" />
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_disease" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{disease-resistance}}} {{name=^{disease-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_disease_final} close">
+          <button type="roll" class="sheet-label" name="roll_resist_disease" value="!openroll @{who} @{wtype} template:default {{title=^{disease-resistance}}} {{name=^{disease-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_disease_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="disease-resistance-short">DR</div>
             <input type="number" name="attr_resist_disease_final" style="width:50px;" 
             value="@{presence}+@{con_mod}+@{body_of_emptiness}+@{resist_disease_special}" disabled="true"/>
@@ -1717,7 +1717,7 @@
           <input type="number" name="attr_resist_disease_special" value="0"/ style="width:50px;">
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_poison" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{poison-resistance}}} {{name=^{poison-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_poison_final} close">
+          <button type="roll" class="sheet-label" name="roll_resist_poison" value="!openroll @{who} @{wtype} template:default {{title=^{poison-resistance}}} {{name=^{poison-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_poison_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="poison-resistance-short">PsnR</div>
             <input type="number" name="attr_resist_poison_final" style="width:50px;" 
             value="@{presence}+@{con_mod}+@{body_of_emptiness}+@{resist_poison_special}" disabled="true"/>
@@ -1725,7 +1725,7 @@
           <input type="number" name="attr_resist_poison_special" value="0" style="width:50px;"/>
         </div>    
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_magic" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{magic-resistance}}} {{name=^{magic-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_magic_final} close">
+          <button type="roll" class="sheet-label" name="roll_resist_magic" value="!openroll @{who} @{wtype} template:default {{title=^{magic-resistance}}} {{name=^{magic-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_magic_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="magic-resistance-short">MR</div>
             <input type="number" name="attr_resist_magic_final" style="width:50px;" 
             value="@{presence}+@{pow_mod}+@{body_of_emptiness}+@{resist_magic_special}" disabled="true"/>
@@ -1733,7 +1733,7 @@
           <input type="number" name="attr_resist_magic_special" value="0" style="width:50px;"/>
         </div>
         <div class="sheet-style_row">
-          <button type="roll" class="sheet-label" name="roll_resist_psychic" value="!openroll who:@{character_name} @{wtype} template:default {{title=^{psychic-resistance}}} {{name=^{psychic-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_psychic_final} close">
+          <button type="roll" class="sheet-label" name="roll_resist_psychic" value="!openroll @{who} @{wtype} template:default {{title=^{psychic-resistance}}} {{name=^{psychic-resistance-short}}} ?{Modifiers?|} val:expr:@{resist_psychic_final} close">
             <div class="sheet-cell" style="width:40px;" data-i18n="psychic-resistance-short">PsyR</div>
             <input type="number" name="attr_resist_psychic_final" style="width:50px;" 
             value="@{presence}+@{wp_mod}+@{body_of_emptiness}+@{resist_psychic_special}" disabled="true"/>
@@ -1874,7 +1874,7 @@
 			value="@{agi_mod}+@{dex_mod}+@{init_class}+@{init_special}+@{init_temp}+20+@{ki_increasedSpeed}-(@{armor_inherent_penalty})"/>
 		</div>
 		<div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-      		<button type="roll" name="roll_init" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{wtype} template:ini {{name=initiative}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{init_final} initiative"></button>
+      		<button type="roll" name="roll_init" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{wtype} template:ini {{name=initiative}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{init_final} initiative"></button>
     	</div>
    	</div><!-- end initiative -->
     
@@ -1908,7 +1908,7 @@
         value="@{attack_base}+@{attack_class}+@{dex_mod}+@{attack_special}+@{attack_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-      <button type="roll" name="roll_attack" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:default {{name=^{attack}}} @{ord} @{attack_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{attack_final}"></button>
+      <button type="roll" name="roll_attack" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{name=^{attack}}} @{ord} @{attack_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{attack_final}"></button>
     </div>
     </div><!--end attack -->
     
@@ -1944,7 +1944,7 @@
         value="@{block_base}+@{block_class}+@{dex_mod}+@{block_special}+@{block_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-        <button type="roll" name="roll_block" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{name=^{block}}} @{ord} @{block_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{block_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+        <button type="roll" name="roll_block" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{name=^{block}}} @{ord} @{block_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{block_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
     </div>
     </div><!--end block -->
     <div class="sheet-wrapper" style="top:0px;width:115px;"><!-- dodge -->
@@ -1977,7 +1977,7 @@
         value="@{dodge_base}+@{dodge_class}+@{agi_mod}+@{dodge_special}+@{dodge_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-        <button type="roll" name="roll_dodge" class="sheet-d100-roll-button sheet-widebutton" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{name=^{dodge}}} @{ord} @{dodge_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{dodge_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+        <button type="roll" name="roll_dodge" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{name=^{dodge}}} @{ord} @{dodge_mastery} expr:15*?{Fatigue?|0|1|2} ?{Modifiers?|} @{aam} val:expr:@{dodge_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
     </div>
     </div><!--end dodge -->
    </div><!-- end third row -->
@@ -2116,13 +2116,13 @@
       </div>
       <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
         <button type="roll" class="sheet-label" name="roll_magicprojection_offensiveroll"
-        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{offensive}}} @{ord} @{magicprojection_offensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_offensive_final}">
+        value="!openroll @{who} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{offensive}}} @{ord} @{magicprojection_offensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_offensive_final}">
           <div class="sheet-cell" data-i18n="offensive">Off.</div>
           <input type="number" disabled="true" name="attr_magicprojection_offensive_final" class="sheet-cell" style="width:70px;"
           value="@{magicprojection_final}+@{magicprojection_imbalance}"/>
         </button> 
         <button type="roll" class="sheet-label" name="roll_magicprojection_defensiveroll"
-        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{defensive}}} @{ord} @{magicprojection_defensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_defensive_final}">
+        value="!openroll @{who} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{defensive}}} @{ord} @{magicprojection_defensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_defensive_final}">
           <div class="sheet-cell" data-i18n="defensive">Def.</div>
           <input type="number" disabled="true" name="attr_magicprojection_defensive_final" class="sheet-cell" style="width:70px;"
           value="-1*@{magicprojection_imbalance}+@{magicprojection_final}"/>
@@ -2347,7 +2347,7 @@
             value="@{summon_base}+@{summon_class}+@{summon_special}+@{pow_mod}"/>
             <input type="checkbox" class="" name="attr_summon_mastery" value="mastery"/>
             <button type="roll" name="roll_summon" class="sheet-d100-roll-button"
-            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{summon-ritual}}} {{name=^{ritual}}} @{ord} @{summon_mastery} ?{Modifiers?|} @{aap} val:expr:@{summon_final}"></button>
+            value="!openroll @{who} zen @{wtype} template:default {{title=^{summon-ritual}}} {{name=^{ritual}}} @{ord} @{summon_mastery} ?{Modifiers?|} @{aap} val:expr:@{summon_final}"></button>
           </div>
           <div class="sheet-style_row" style="margin-top:0px; margin-bottom:0px;">
             <div class="sheet-cell sheet-longbubble" data-i18n="control-ritual">Control</div>
@@ -2358,7 +2358,7 @@
             value="@{control_base}+@{control_class}+@{control_special}+@{wp_mod}"/>
             <input type="checkbox" class="" name="attr_control_mastery" value="mastery"/>
             <button type="roll" name="roll_control" class="sheet-d100-roll-button"
-            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{control-ritual}}} {{name=^{ritual}}} @{ord} @{control_mastery} ?{Modifiers?|} @{aap} val:expr:@{control_final}"></button>
+            value="!openroll @{who} zen @{wtype} template:default {{title=^{control-ritual}}} {{name=^{ritual}}} @{ord} @{control_mastery} ?{Modifiers?|} @{aap} val:expr:@{control_final}"></button>
           </div>
           <div class="sheet-style_row">
             <div class="sheet-cell sheet-longbubble" data-i18n="bind-ritual">Bind</div>
@@ -2369,7 +2369,7 @@
             value="@{bind_base}+@{bind_class}+@{bind_special}+@{pow_mod}"/>
             <input type="checkbox" class="" name="attr_bind_mastery" value="mastery"/>
             <button type="roll" name="roll_bind" class="sheet-d100-roll-button"
-            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{bind-ritual}}} {{name=^{ritual}}} @{ord} @{bind_mastery} ?{Modifiers?|} @{aap} val:expr:@{bind_final}"></button>
+            value="!openroll @{who} zen @{wtype} template:default {{title=^{bind-ritual}}} {{name=^{ritual}}} @{ord} @{bind_mastery} ?{Modifiers?|} @{aap} val:expr:@{bind_final}"></button>
           </div>
           <div class="sheet-style_row">
             <div class="sheet-cell sheet-longbubble" data-i18n="banish-ritual">Banish</div>
@@ -2380,7 +2380,7 @@
             value="@{banish_base}+@{banish_class}+@{banish_special}+@{pow_mod}"/>
             <input type="checkbox" class="" name="attr_bind_mastery" value="mastery"/>
             <button type="roll" name="roll_banish" class="sheet-d100-roll-button"
-            value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{banish-ritual}}} {{name=^{ritual}}} @{ord} @{banish_mastery} ?{Modifiers?|} @{aap} val:expr:@{banish_final}"></button>
+            value="!openroll @{who} zen @{wtype} template:default {{title=^{banish-ritual}}} {{name=^{ritual}}} @{ord} @{banish_mastery} ?{Modifiers?|} @{aap} val:expr:@{banish_final}"></button>
           </div>
         </div><!-- end summoning -->
       </div><!-- end 1nd col -->
@@ -2427,11 +2427,11 @@
                   </div>
                   <div class="sheet-style_row" style="text-align:center">
                     <button type="roll" class="sheet-label" name="roll_offensiveroll"
-                    value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{offensive}}} @{ord} @{magicprojection_offensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_offensive_final}">
+                    value="!openroll @{who} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{offensive}}} @{ord} @{magicprojection_offensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_offensive_final}">
                       <div class="sheet-cell" data-i18n="offensive">Off.</div>
                     </button>
                     <button type="roll" class="sheet-label" name="roll_defensiveroll"
-                    value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{defensive}}} @{ord} @{magicprojection_defensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_defensive_final}">
+                    value="!openroll @{who} zen @{wtype} template:default {{title=^{magic-projection}}} {{name=^{defensive}}} @{ord} @{magicprojection_defensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_defensive_final}">
                       <div class="sheet-cell" data-i18n="defensive">Def.</div>
                     </buton>
                   </div>
@@ -2642,7 +2642,7 @@
             </div>
             <div class="sheet-compact">
               <button type="roll" name="roll_invocation"  class="sheet-label"
-              value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{invocations}}} {{name=@{invocation_name}}} @{ord} @{summon_mastery} ?{Modifiers?|} @{aap} val:expr:@{summon_final} {{diff=@{invocation_diff}}} {{cost=@{invocation_cost}^{zeon}}}">
+              value="!openroll @{who} zen @{wtype} template:default {{title=^{invocations}}} {{name=@{invocation_name}}} @{ord} @{summon_mastery} ?{Modifiers?|} @{aap} val:expr:@{summon_final} {{diff=@{invocation_diff}}} {{cost=@{invocation_cost}^{zeon}}}">
                 <input type="text" style="width:240px;" name="attr_invocation_name"/>
                 <input type="number" class="sheet-cell" name="attr_invocation_cost" value="0" min="0" style="width:70px;"/>
                 <input type="number" class="sheet-cell" name="attr_invocation_diff" value="0"  min="0" style="width:70px;"/>
@@ -2743,7 +2743,7 @@
             </div>
             <div class="sheet-dark_row" style="text-align:center;">
               <button type="roll" name="roll_psychic_potential" class="sheet-d100-roll-button sheet-widebutton"
-              value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{psychic}}} {{name=^{psychic-potential}}} @{ord} @{potential_mastery} ?{Modifiers?|} @{aap} val:expr:@{potential_final}"></button>
+              value="!openroll @{who} zen @{wtype} template:default {{title=^{psychic}}} {{name=^{psychic-potential}}} @{ord} @{potential_mastery} ?{Modifiers?|} @{aap} val:expr:@{potential_final}"></button>
             </div>
           </div><!-- end Psychic Potential -->
           <div class="sheet-wrapper" style="width:151px;"><!-- psychic projection -->
@@ -2774,7 +2774,7 @@
             </div>
             <div class="sheet-dark_row" style="text-align:center;height:auto;">
               <button type="roll" name="roll_psychic_projection" class="sheet-d100-roll-button sheet-widebutton"
-              value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{psychic}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final}"></button>
+              value="!openroll @{who} zen @{wtype} template:default {{title=^{psychic}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final}"></button>
             </div>
           </div><!-- end Psychic Projection -->
         </div>
@@ -2878,11 +2878,11 @@
                       </div>
                       <div class="sheet-style_row">
                         <button type="roll" name="roll_power_projection"  class="sheet-label"
-                        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=@{psychic_power_name}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final}">
+                        value="!openroll @{who} zen @{wtype} template:default {{title=@{psychic_power_name}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final}">
                           <span data-i18n="psychic-projection">Projection</span>
                         </button>
                         <button type="roll" name="roll_power_potential"  class="sheet-label"
-                        value="!openroll who:@{character_name} zen @{wtype} template:default {{title=@{psychic_power_name}}} {{name=^{psychic-potential}}} @{ord} @{potential_mastery} ?{Modifiers?|} @{aap} val:expr:@{potential_final} @{psychic_power_bonus}">
+                        value="!openroll @{who} zen @{wtype} template:default {{title=@{psychic_power_name}}} {{name=^{psychic-potential}}} @{ord} @{potential_mastery} ?{Modifiers?|} @{aap} val:expr:@{potential_final} @{psychic_power_bonus}">
                           <span data-i18n="psychic-potential">Potential</span>
                         </button>
                       </div>
@@ -2951,7 +2951,7 @@
             <div class="sheet-req_kicontrol sheet-ki_row sheet-kidetection">
                 <div class="sheet-cell sheet-ki_indent2 sheet-ki_title" data-i18n="ki-detection">Ki Detection</div>
                 <input type="number" disabled="true" name="attr_ki_detection_value" value="floor((@{noti_final}+@{mk_final})/2)"/>
-                <button type='roll' value='!openroll who:@{character_name} zen @{wtype} template:default {{title=^{ki-abilities}}} {{name=^{ki-detection}}} @{ord} @{ki_detection_mastery} ?{Modifiers?|} @{aam} val:expr:@{ki_detection_value}' class="sheet-d100-roll-button" name='roll_ki_detection'></button>
+                <button type='roll' value='!openroll @{who} zen @{wtype} template:default {{title=^{ki-abilities}}} {{name=^{ki-detection}}} @{ord} @{ki_detection_mastery} ?{Modifiers?|} @{aam} val:expr:@{ki_detection_value}' class="sheet-d100-roll-button" name='roll_ki_detection'></button>
                 <div class="sheet-cell sheet-ki_cost" style="padding-top: 4px;">(20)</div>
             </div>
             <input type="checkbox" class="sheet-ki_learned sheet-req_kicontrol sheet-kidetection" name="attr_ki_detection"/>
@@ -3203,7 +3203,7 @@
             <div class="sheet-ki_row sheet-req_useofnecenergy">
                 <div class="sheet-cell sheet-ki_indent2 sheet-ki_title" data-i18n="ki-concealment">Ki Concealment</div>
                 <input type="number" disabled="true" name="attr_ki_concealment_value" value="floor((@{stea_final}+@{mk_final})/2)"/>
-                <button type='roll' value='!openroll who:@{character_name} zen @{wtype} template:default {{title=^{ki-abilities}}} {{name=^{ki-concealment}}} @{ord} @{ki_concealment_mastery} ?{Modifiers?|} @{aam} val:expr:@{ki_concealment_value}' class="sheet-d100-roll-button" name='roll_ki_concealment'></button>          
+                <button type='roll' value='!openroll @{who} zen @{wtype} template:default {{title=^{ki-abilities}}} {{name=^{ki-concealment}}} @{ord} @{ki_concealment_mastery} ?{Modifiers?|} @{aam} val:expr:@{ki_concealment_value}' class="sheet-d100-roll-button" name='roll_ki_concealment'></button>          
                 <div class="sheet-cell sheet-ki_cost" style="margin-top:4px;">(10)</div>
             </div>
             <input type="checkbox" class="sheet-ki_learned sheet-req_useofnecenergy sheet-kiconceal" name="attr_ki_concealment"/>
@@ -3783,7 +3783,7 @@
                     <input type="text" name="attr_ki_creatureseals" style="width:260px;"/>
                     <input type="hidden" name="attr_ki_creaturedifficulty" value="10*(@{ki_creaturelevel}-@{character_level})" disabled="true"/>
                     <button type="roll" name="roll_ki_summon" class="sheet-d100-roll-button"
-                    value="!openroll who:@{character_name} zen @{wtype} template:default {{title=^{summon-ritual}}} {{name=@{ki_creaturename}}} @{ord} ?{Modifiers?|} expr:?{Minor Seals Sup. ?|0}*5 expr:?{Major Seals Sup. ?|0}*25 expr:-(@{ki_creaturedifficulty}) @{aap}"></button>
+                    value="!openroll @{who} zen @{wtype} template:default {{title=^{summon-ritual}}} {{name=@{ki_creaturename}}} @{ord} ?{Modifiers?|} expr:?{Minor Seals Sup. ?|0}*5 expr:?{Major Seals Sup. ?|0}*25 expr:-(@{ki_creaturedifficulty}) @{aap}"></button>
                 </fieldset>
             </div><!-- end ki creatures -->
             
@@ -4121,7 +4121,7 @@
         <div class="sheet-style_row">
             <input type="number" value="0" name="attr_weapon_attackmod"/>
             <input type="number" disabled="true" name="attr_weapon_attack" value="@{weapon_quality}+@{attack_final}+@{weapon_attackmod}"/>
-            <button type="roll" name="roll_weapon_attack" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:attack {{title=^{Attack}}} {{name=@{weapon_name}}} @{ord} @{attack_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_attack} attack:@{weapon_finaldmg}:?{Defense?|0}:?{Armor?|0}"></button>
+            <button type="roll" name="roll_weapon_attack" class="sheet-d100-roll-button" value="!openroll @{who} @{inhuman_action} @{wtype} template:attack {{title=^{Attack}}} {{name=@{weapon_name}}} @{ord} @{attack_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_attack} attack:@{weapon_finaldmg}:?{Defense?|0}:?{Armor?|0}"></button>
             <select name="attr_weapon_shieldval" style="width:65px;">
                 <option value="0" data-i18n="not-available">N/A</option>
                 <option value="10" data-i18n="buckler">Buckler</option>
@@ -4130,10 +4130,10 @@
             </select>
             <input type="number" value="0" name="attr_weapon_blockmod"/>
             <input type="number" disabled="true" name="attr_weapon_block" value="@{weapon_quality}+@{weapon_shieldval}+(@{block_final})+@{weapon_blockmod}"/>
-            <button type="roll" name="roll_weapon_block" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{title=^{block}}} {{name=@{weapon_name}}} @{ord} @{block_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_block} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+            <button type="roll" name="roll_weapon_block" class="sheet-d100-roll-button" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{title=^{block}}} {{name=@{weapon_name}}} @{ord} @{block_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_block} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
             <input type="number" value="0" name="attr_weapon_dodgemod"/>
             <input type="number" disabled="true" name="attr_weapon_dodge" value="(@{dodge_final})+@{weapon_dodgemod}"/>
-            <button type="roll" name="roll_weapon_dodge" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{inhuman_action} @{wtype} template:defense {{title=^{dodge}}} {{name=@{weapon_name}}} @{ord} @{dodge_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_dodge} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+            <button type="roll" name="roll_weapon_dodge" class="sheet-d100-roll-button" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{title=^{dodge}}} {{name=@{weapon_name}}} @{ord} @{dodge_mastery} expr:?{Fatigue?|0|1|2}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_dodge} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
         </div>
         <div class="sheet-dark_row">
             <div class="sheet-cell" style="width:65px;" data-i18n="primary">Primary</div>
@@ -4222,7 +4222,7 @@
             <div class="sheet-cell" style="font-size:12pt;font-weight:bold;">=</div>
             <input type="number" name="attr_weapon_finalbreakage" disabled="true"
             value="@{weapon_basebreakage}+@{weapon_strbreakage}+@{weapon_quality}+@{aura_extension}/2"> 
-            <button type="roll" name="roll_weapon_breakage" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{wtype} template:default {{title=@{weapon_name}}} {{name=^{breakage}}} ?{Modifiers?|} characteristics:v2 val:expr:@{weapon_finalbreakage}"></button>
+            <button type="roll" name="roll_weapon_breakage" class="sheet-d100-roll-button" value="!openroll @{who} @{wtype} template:default {{title=@{weapon_name}}} {{name=^{breakage}}} ?{Modifiers?|} characteristics:v2 val:expr:@{weapon_finalbreakage}"></button>
         </div>
         <div class="sheet-dark_row" style="padding-top:4px; padding-bottom:2px;">
             <div class="sheet-cell" data-i18n="quality">Quality</div>
@@ -4233,7 +4233,7 @@
             <div class="sheet-cell" data-i18n="speed">Speed</div>
             <input type="number" value="0" name="attr_weapon_basespeed"/>
             <input type="number" disabled="true" name="attr_weapon_finalspeed" value="@{weapon_quality}+@{weapon_basespeed}+@{init_final}"/>
-            <button type="roll" name="roll_weapon_initiative" class="sheet-d100-roll-button" value="!openroll who:@{character_name} @{wtype} template:ini {{name=initiative}} {{desc=@{weapon_name}}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{weapon_finalspeed} initiative"></button>
+            <button type="roll" name="roll_weapon_initiative" class="sheet-d100-roll-button" value="!openroll @{who} @{wtype} template:ini {{name=initiative}} {{desc=@{weapon_name}}} ?{Modifiers?|} expr:floor(@{aam}/2) val:expr:@{weapon_finalspeed} initiative"></button>
             <br/>
             <label><input type="checkbox" class="" name="attr_weapon_complex" value="1"/><span data-i18n="complex">Complex</span></label>
         </div>
@@ -4373,7 +4373,14 @@
         <option value="gm " data-i18n="always">Always</option>
         <option value="?{Whisper|Public Roll,|Whisper Roll,gm } " data-i18n="querry">Querry</option>
       </select>
-    </div>   
+    </div>
+    <div class="sheet-style_row">
+      <div class="sheet-cell sheet-sidebubbled" data-i18n="pc">PC?</div>
+      <select name="attr_who">
+        <option value="who:player" selected="true" data-i18n="yes">Yes</option>
+        <option value="who:@{character_name}" data-i18n="no">No</option>
+      </select>
+    </div>      
   </div><!-- end Chraracter Options -->
 </div>
 </div><!-- end options page tab -->
