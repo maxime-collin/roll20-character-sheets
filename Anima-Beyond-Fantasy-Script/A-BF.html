@@ -4538,14 +4538,17 @@
 	<div class="sheet-wrapper">
 		<div class="sheet-title" style="margin-bottom:0px;" data-i18n="export">Export</div>
 		<div class="sheet-style_row"> <!-- Export -->
+			<button type="roll" name="roll_export_attrs" class="sheet-label" value="!exportAttrs name:@{character_name}">
+				<span>Step1</span>
+			</button>
 			<div class="sheet-ck-button">
    				<label>
       				<input type="checkbox" class="sheet-label" name="attr_export_button" value="1">
-      				<span>Step1</span>
+      				<span>Step2</span>
    				</label>
 			</div>
 			<button type="roll" name="roll_export_attrs" class="sheet-label" value="!exportAttrs name:@{character_name}">
-				<span>Step2</span>
+				<span>Step3</span>
 			</button>
 			<textarea name='attr_export_text'></textarea>
 		</div>
