@@ -73,7 +73,7 @@
                 <input type="checkbox" name="attr_acro_option" class="sheet-option"><span class="sheet-option"></span>
                 <div class="sheet-style_row">
                   <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_acro"
-                  value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{acrobatics}}} @{ord} @{acro_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{acro_final}">
+                  value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{acrobatics}}} @{ord} @{acro_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{acro_final}">
                     <div class="sheet-cell sheet-secondary_bubble" data-i18n="acrobatics">Acrobatics</div>
                     <input type="number" name="attr_acro_final" disabled="true"
                     value="(((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi}+100)-abs((@{acro_naturals}+1)*@{agi_mod}+@{acro_naturabi}-100))/2+@{acro_base}+@{acro_class}+@{acro_special}+@{acro_temp}-(@{armor_inherent_penalty})"/>
@@ -96,7 +96,7 @@
               <input type="checkbox" name="attr_athl_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_athl"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{athleticism}}} @{ord} @{athl_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{athl_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{athleticism}}} @{ord} @{athl_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{athl_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="athleticism">Athleticism</div>
                   <input type="number" name="attr_athl_final" disabled="true"
                   value="(((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi}+100)-abs((@{athl_naturals}+1)*@{agi_mod}+@{athl_naturabi}-100))/2+@{athl_base}+@{athl_class}+@{athl_special}+@{athl_temp}-(@{armor_inherent_penalty})"/>
@@ -119,7 +119,7 @@
               <input type="checkbox" name="attr_clim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_clim"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{climb}}} @{ord} @{clim_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{clim_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{climb}}} @{ord} @{clim_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{clim_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="climb">Climb</div>
                   <input type="number" name="attr_clim_final" disabled="true"
                   value="(((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi}+100)-abs((@{clim_naturals}+1)*@{agi_mod}+@{clim_naturabi}-100))/2+@{clim_base}+@{clim_class}+@{clim_special}+@{clim_temp}-(@{armor_inherent_penalty})"/>
@@ -142,7 +142,7 @@
               <input type="checkbox" name="attr_jump_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_jump"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{jump}}} @{ord} @{jump_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{jump_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{jump}}} @{ord} @{jump_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{jump_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="jump">Jump</div>
                   <input type="number" name="attr_jump_final" disabled="true"
                   value="(((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi}+100)-abs((@{jump_naturals}+1)*@{str_mod}+@{jump_naturabi}-100))/2+@{jump_base}+@{jump_class}+@{jump_special}+@{jump_temp}-(@{armor_inherent_penalty})"/>
@@ -165,7 +165,7 @@
               <input type="checkbox" name="attr_ride_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_ride"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{ride}}} @{ord} @{ride_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{ride_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{ride}}} @{ord} @{ride_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{ride_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="ride">Ride</div>
                   <input type="number" name="attr_ride_final" disabled="true"
                   value="(((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi}+100)-abs((@{ride_naturals}+1)*@{agi_mod}+@{ride_naturabi}-100))/2+@{ride_base}+@{ride_class}+@{ride_special}+@{ride_temp}-(@{armor_inherent_penalty})"/>
@@ -188,7 +188,7 @@
               <input type="checkbox" name="attr_swim_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_swim"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{swim}}} @{ord} @{swim_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{swim_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-athletics}}} {{name=^{swim}}} @{ord} @{swim_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{swim_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="swim">Swim</div>
                   <input type="number" name="attr_swim_final" disabled="true"
                   value="(((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi}+100)-abs((@{swim_naturals}+1)*@{agi_mod}+@{swim_naturabi}-100))/2+@{swim_base}+@{swim_class}+@{swim_special}+@{swim_temp}-(@{armor_inherent_penalty_swim})"/>
@@ -784,7 +784,7 @@
               <input type="checkbox" name="attr_feat_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_feat"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{feats-of-strength}}} @{ord} @{feat_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{feat_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-vigor}}} {{name=^{feats-of-strength}}} @{ord} @{feat_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{feat_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="feats-of-strength">Feats of Str.</div>
                   <input type="number" name="attr_feat_final" disabled="true"
                   value="(((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi}+100)-abs((@{feat_naturals}+1)*@{str_mod}+@{feat_naturabi}-100))/2+@{feat_base}+@{feat_class}+@{feat_special}+@{feat_temp}-(@{armor_inherent_penalty})"/>
@@ -933,7 +933,7 @@
               <input type="checkbox" name="attr_stea_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_stea"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{stealth}}} @{ord} @{stea_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{stea_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-subterfuge}}} {{name=^{stealth}}} @{ord} @{stea_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{stea_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="stealth">Stealth</div>
                   <input type="number" name="attr_stea_final" disabled="true"
                   value="(((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi}+100)-abs((@{stea_naturals}+1)*@{agi_mod}+@{stea_naturabi}-100))/2+@{stea_base}+@{stea_class}+@{stea_special}+@{stea_temp}-(@{armor_inherent_penalty_stealth})"/>
@@ -1036,7 +1036,7 @@
               <input type="checkbox" name="attr_danc_option" class="sheet-option"><span class="sheet-option"></span>
               <div class="sheet-style_row">
                 <button type="roll" class="sheet-label sheet-sidebubbled sheet-secondary_bubble sheet-red" name="roll_danc"
-                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{dance}}} @{ord} @{danc_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{danc_final}">
+                value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{title=^{tab-creative}}} {{name=^{dance}}} @{ord} @{danc_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{danc_final}">
                   <div class="sheet-cell sheet-secondary_bubble" data-i18n="dance">Dance</div>
                   <input type="number" name="attr_danc_final" disabled="true"
                   value="(((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi}+100)-abs((@{danc_naturals}+1)*@{agi_mod}+@{danc_naturabi}-100))/2+@{danc_base}+@{danc_class}+@{danc_special}+@{danc_temp}-(@{armor_inherent_penalty})"/>
@@ -1239,13 +1239,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_agi"
-        value="!openroll @{who} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} characteristics:v1 val:expr:@{agi_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} characteristics:v1 val:expr:@{agi_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="agility-short">AGI</span>
           <input type="number" name="attr_agi_final" max="20" min="0" maxlength="2" value="@{agi}+@{agi_special}+@{agi_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_agi_opposed"
-        value="!openroll @{who} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{agi_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{agility}}} {{name=^{agility-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{agi_opposed_final}">
           <input type="number" name="attr_agi_opposed_final" max="20" min="0" maxlength="2" value="(@{agi_final})+@{agi_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1365,13 +1365,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_dex"
-        value="!openroll @{who} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} characteristics:v1 val:expr:@{dex_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} characteristics:v1 val:expr:@{dex_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="dexterity-short">DEX</span>
           <input type="number" name="attr_dex_final" max="20" min="0" maxlength="2" value="@{dex}+@{dex_special}+@{dex_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_dex_opposed"
-        value="!openroll @{who} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{dex_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{dexterity}}} {{name=^{dexterity-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{dex_opposed_final}">
           <input type="number" name="attr_dex_opposed_final" max="20" min="0" maxlength="2" value="(@{dex_final})+@{dex_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1428,13 +1428,13 @@
       </div>
       <div class="sheet-compact">
         <button type="roll" class="sheet-label" name="roll_str"
-        value="!openroll @{who} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} characteristics:v1 val:expr:@{str_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} characteristics:v1 val:expr:@{str_final}">
           <span class="sheet-physical sheet-cell" style="width:40px;" data-i18n="strength-short">STR</span>
           <input type="number" name="attr_str_final" max="20" min="0" maxlength="2" value="@{str}+@{str_special}+@{str_temp}" style="width:40px;" disabled="true"/>
         </button>
         <span class="sheet-cell" style="width:10px;">|</span>
         <button type="roll" class="sheet-label" name="roll_str_opposed"
-        value="!openroll @{who} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{str_opposed_final}">
+        value="!openroll @{who} @{wtype} template:characteristics {{title=^{strength}}} {{name=^{strength-short}}} ?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} characteristics:v2 expr:floor(@{aam}/20) val:expr:@{str_opposed_final}">
           <input type="number" name="attr_str_opposed_final" max="20" min="0" maxlength="2" value="(@{str_final})+@{str_opposed}" style="width:40px;" disabled="true"/>
         </button>
       </div>
@@ -1908,7 +1908,7 @@
         value="@{attack_base}+@{attack_class}+@{dex_mod}+@{attack_special}+@{attack_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-      <button type="roll" name="roll_attack" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{name=^{attack}}} @{ord} @{attack_mastery} expr:15*?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} @{aam} val:expr:@{attack_final}"></button>
+      <button type="roll" name="roll_attack" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:default {{name=^{attack}}} @{ord} @{attack_mastery} expr:15*?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} @{aam} val:expr:@{attack_final}"></button>
     </div>
     </div><!--end attack -->
     
@@ -1944,7 +1944,7 @@
         value="@{block_base}+@{block_class}+@{dex_mod}+@{block_special}+@{block_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-        <button type="roll" name="roll_block" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{name=^{block}}} @{ord} @{block_mastery} expr:15*?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} @{aam} val:expr:@{block_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+        <button type="roll" name="roll_block" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{name=^{block}}} @{ord} @{block_mastery} expr:15*?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} @{aam} val:expr:@{block_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
     </div>
     </div><!--end block -->
     <div class="sheet-wrapper" style="top:0px;width:115px;"><!-- dodge -->
@@ -1977,7 +1977,7 @@
         value="@{dodge_base}+@{dodge_class}+@{agi_mod}+@{dodge_special}+@{dodge_temp}+(@{armor_wear_penalty})" disabled ="true"/>
     </div>
     <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
-        <button type="roll" name="roll_dodge" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{name=^{dodge}}} @{ord} @{dodge_mastery} expr:15*?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy} ?{Modifiers?|} @{aam} val:expr:@{dodge_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+        <button type="roll" name="roll_dodge" class="sheet-d100-roll-button sheet-widebutton" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{name=^{dodge}}} @{ord} @{dodge_mastery} expr:15*?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}} ?{Modifiers?|} @{aam} val:expr:@{dodge_final} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
     </div>
     </div><!--end dodge -->
    </div><!-- end third row -->
@@ -4130,10 +4130,10 @@
             </select>
             <input type="number" value="0" name="attr_weapon_blockmod"/>
             <input type="number" disabled="true" name="attr_weapon_block" value="@{weapon_quality}+@{weapon_shieldval}+(@{block_final})+@{weapon_blockmod}"/>
-            <button type="roll" name="roll_weapon_block" class="sheet-d100-roll-button" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{title=^{block}}} {{name=@{weapon_name}}} @{ord} @{block_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_block} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+            <button type="roll" name="roll_weapon_block" class="sheet-d100-roll-button" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{title=^{block}}} {{name=@{weapon_name}}} @{ord} @{block_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_block} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
             <input type="number" value="0" name="attr_weapon_dodgemod"/>
             <input type="number" disabled="true" name="attr_weapon_dodge" value="(@{dodge_final})+@{weapon_dodgemod}"/>
-            <button type="roll" name="roll_weapon_dodge" class="sheet-d100-roll-button" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{title=^{dodge}}} {{name=@{weapon_name}}} @{ord} @{dodge_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_dodge} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
+            <button type="roll" name="roll_weapon_dodge" class="sheet-d100-roll-button" value="!openroll @{who} @{inhuman_action} @{wtype} template:defense {{title=^{dodge}}} {{name=@{weapon_name}}} @{ord} @{dodge_mastery} expr:?{Fatigue?|0|1|2|@{ki_useOfNecessaryEnergy}}*15 ?{Modifiers?|} @{aam} val:expr:@{weapon_dodge} {{armorcut=^{cut}:@{at_cut_final}}} {{armorimp=^{impact}:@{at_imp_final}}} }} {{armorthr=^{thrust}:@{at_thr_final}}} {{armorhea=^{heat}:@{at_hea_final}}} {{armorcol=^{cold}:@{at_col_final}}} {{armorele=^{electricity}:@{at_ele_final}}} {{armorene=^{energy}:@{at_ene_final}}}"></button>
         </div>
         <div class="sheet-dark_row">
             <div class="sheet-cell" style="width:65px;" data-i18n="primary">Primary</div>
