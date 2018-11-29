@@ -2129,6 +2129,12 @@
         </button>
       </div>
     </div>
+    <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
+    	<button type="roll" class="sheet-label" name="roll_magicprojection_attackroll"
+        value="!openroll @{who} zen @{wtype} template:attack {{title=^{Attack}}} {{name=^{magic-projection}}} @{ord} @{magicprojection_offensive_mastery} ?{Modifiers?|} @{aam} val:expr:@{magicprojection_offensive_final} attack:?{Damages?|0}:?{Defense?|0}:?{Armor?|0}">
+    	<div class="sheet-cell" data-i18n="attack">Att.</div>
+    	</button>
+    </div>
     </div><!-- end magic projection -->
     <div class="sheet-wrapper" style="top:0px;"><!-- magic accumulation -->
     <div class="sheet-title" data-i18n="magic-accumulation">Magic Accumulation</div>
@@ -2776,6 +2782,12 @@
               <button type="roll" name="roll_psychic_projection" class="sheet-d100-roll-button sheet-widebutton"
               value="!openroll @{who} zen @{wtype} template:default {{title=^{psychic}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final}"></button>
             </div>
+            <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
+		    	<button type="roll" class="sheet-label" name="roll_magicprojection_attackroll"
+		        value="!openroll @{who} zen @{wtype} template:attack {{title=^{Attack}}} {{name=^{psychic-projection}}} @{ord} @{projection_mastery} ?{Modifiers?|} @{aam} val:expr:@{projection_final} attack:?{Damages?|0}:?{Defense?|0}:?{Armor?|0}">
+		    	<div class="sheet-cell" data-i18n="attack">Att.</div>
+		    	</button>
+		    </div>
           </div><!-- end Psychic Projection -->
         </div>
         <div class="sheet-col2" style="width:285px!important;vertical-align:top;">
@@ -4098,6 +4110,13 @@
 
 <div class="sheet-wrapper" style="width:475px;"><!-- weapons -->
     <div class="sheet-title" data-i18n="attacks">Attacks</div>
+    <div class="sheet-dark_row" style="padding-top:5px;text-align:center;">
+    	<button type="roll" class="sheet-label" name="roll_generic_attackroll"
+        value="!openroll @{who} @{inhuman_action} @{wtype} template:attack {{title=^{Attack}}} {{name=^{Attack}}} @{ord} ?{Modifiers?|} @{aam} val:0 attack:?{Damages?|0}:?{Defense?|0}:?{Armor?|0}">
+    	<div class="sheet-cell" data-i18n="generic">Gen.</div>
+    	</button>
+    </div>
+    
     <fieldset class="repeating_weapons">
       <div class="sheet-cear">
       <input type="checkbox" name="attr_weapon_option" class="sheet-option"><span class="sheet-option"></span>
